@@ -5,7 +5,11 @@ class ModeleLigue extends CI_Model {
 {
   return $this->db->insert('Ligue',$pDonnesAInseres);
 }
-
+public function RetournerLesLigue()
+{
+ $requete = $this->db->get('Ligue');
+ return $requete->result_array(); // retour d'un tableau associatif ici
+}
 
 }
 
