@@ -6,9 +6,17 @@ public function insererUnProduit($pDonnesAInseres)
 return $this->db->insert('produit',$pDonnesAInseres);
 }
 
-public function nombreDArticles() { // méthode utilisée pour la pagination
-    return $this->db->count_all("produit");
-} // nombreDArticles
+public function nombredeproduit($Nomproduit= FALSE)
+{
+    if($Nomproduit===false)
+    {
+    return $this->db->count_all("produit"); 
+    }
+   $this->db->from('produit');
+   $this->db->like('LIBELLE',$Nomproduit);
+   $requete=$this->db->count_all_results();
+   return $requete;
+}
 
 
 public function retournerArticlesLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner)
