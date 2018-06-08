@@ -25,10 +25,10 @@ class Admin extends CI_Controller {
          'QUANTITEENSTOCK'=>$this->input->post('txtQuantiteenstock'),
          'DATEAJOUT'=>$this->input->post('txtDateAjout'),
          'DISPONIBLE'=>$this->input->post('txtDispo'),
-         'NOCATEGORIE'=>$this->input->post('txtCategorie')
+         'NOCATEGORIE'=>$this->input->post('txtNoCategorie')
         );
-        $this->modeleProduit->InsererUnProduit($DonnesAinserer);
-
+        $this->ModeleProduit->InsererUnProduit($DonnesAinserer);
+        redirect('Admin/AfficherLesProduits');
        }
        else
        {
@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
    {
     $config=array();
     $config["base_url"] = site_url('Admin/AfficherLesProduits');
-    $config["total_rows"] =$this->modeleproduit->NombreDeProduit();
+    $config["total_rows"] =$this->ModeleProduit->NombreDeProduit();
     $config["per_page"] = 5;
     $config["uri_segment"] = 3; 
     $config['first_link'] = 'Premier';
@@ -56,7 +56,7 @@ class Admin extends CI_Controller {
 
     $noPage = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
  $DonneesInjectees['TitreDeLaPage'] = 'Les produits';
-  $DonneesInjectees["LesProduits"]=$this->modeleproduit->retournerProduitLimite($config["per_page"],$noPage);
+  $DonneesInjectees["LesProduits"]=$this->ModeleProduit->retournerProduitLimite($config["per_page"],$noPage);
   $DonneesInjectees["LiensPagination"]=$this->pagination->create_links();
 
   $this->load->view('templates/Entete');
@@ -85,16 +85,41 @@ else
 
 }
 }
+public function ModifierUnProduit($NoProduit=false)
+{
+$DonneesInjectees['LeProduit']=$this->ModeleProduit->retournerLeProduit($NoProduit);
+$DonneesInjectees['LesCategorie']=$this->ModeleCategorie->RetournerCategories();
+$DonneesInjectees['TitreDeLaPage']='Modifier un produit';
+$this->load->view('templates/Entete');
 
+$this->load->view('admin/ModifierLeProduit',$DonneesInjectees);
 
-
-
-
-
-
-
-
-
-
+$this->load->view('templates/PiedDePage');
 }
+
+public function AjouterUnjoueur()
+{
+    $DonneesInjectees['TitreDeLaPage']='ajouter un joueur';
+    if($this->input->post('BtnAjouter'))
+    {
+        $DonnesAinserer=array(
+         'NOM'=>$this->input->post('txtNom'),
+         'PRENOM'=>$this->input->post('txtPrenom'),
+         'VILLE'=>$this->input->post('txtVille'),
+         'ADRESSE'=>$this->input->post('txtAdresse'),     
+          'CODEPOSTAL'=>$this->input->post('txtCodepostal'),
+          'EMAIL'=>$this->input->post('txtEmail'),
+          'MOTDEPASSE'=>$this->input->post('txtMdp')
+        );
+     $this->ModeleAdherent->insererUnAdherent($DonnesAinserer);
+    }
+    else
+    {
+
+
+
+    }
+}
+}
+
 /* End of file Controllername.php */

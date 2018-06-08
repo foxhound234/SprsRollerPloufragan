@@ -6,27 +6,28 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
 </head>
 <body>
+<div class='container'>
 <div class='form-group'>
     <?php
-    echo form_open('Admin/AjouterUnProduit');
+    echo form_open('Admin/ModifierUnProduit/'.$LeProduit['NOPRODUIT']);
     
     echo form_label('Nom du produit','LblLibelle');
 
-    echo form_input(array('name'=>'txtLibelle','required'=>'required','value'=>'','pattern'=>'[a-zA-Z0-9]+','title'=>'le nom du produit doit commencer par une lettre','class'=>'form-control'));
+    echo form_input(array('name'=>'txtLibelle','required'=>'required','value'=>"".$LeProduit['LIBELLE']."",'pattern'=>'[a-zA-Z0-9]+','title'=>'le nom du produit doit commencer par une lettre','class'=>'form-control'));
     
     echo form_label('Détail du produit','Lbldetail');
 
-    echo form_textarea(array('name'=>'txtDetail','value'=>'','required'=>'required','pattern'=>'[a-zA-Z0-9]+','title'=>'le Detail du produit doit commence par une lettre','class'=>'form-control'));
+    echo form_textarea(array('name'=>'txtDetail','value'=>"".$LeProduit['DETAIL']."",'required'=>'required','pattern'=>'[a-zA-Z0-9]+','title'=>'le Detail du produit doit commence par une lettre','class'=>'form-control'));
     
     echo form_label('PrixHT', 'LblPrixht');
 
-    echo form_input(array('name'=>'txtPrixHT','value'=>'','required'=>'required','pattern'=>'.{0,}','title'=>'Le Prix ht doit etre uniquement composer de chiffre','class'=>'form-control')).'<BR>';
+    echo form_input(array('name'=>'txtPrixHT','value'=>"".$LeProduit['PRIXHT']."",'required'=>'required','pattern'=>'.{0,}','title'=>'Le Prix ht doit etre uniquement composer de chiffre','class'=>'form-control')).'<BR>';
     
     echo form_label('NomImage', 'Lblimage');
 
@@ -34,11 +35,11 @@
 
     echo form_label('Quantité Enstock', 'LblQuantitestock');
     
-    echo form_input(array('name'=>'txtQuantiteenstock', 'value'=>'','required'=>'required','pattern'=>'.{0,}','title'=>'la quantité en stock doit etre uniquement composer de chiffre','class'=>'form-control'));
+    echo form_input(array('name'=>'txtQuantiteenstock', 'value'=>"".$LeProduit['QUANTITEENSTOCK']."",'required'=>'required','pattern'=>'.{0,}','title'=>'la quantité en stock doit etre uniquement composer de chiffre','class'=>'form-control'));
   
     echo form_label('DateAjout', 'LblDateajoute').'<BR>';
 
-    echo form_input(array('name'=>'txtDateAjout', 'value'=>'','required'=>'required','type'=>'date','class'=>'clearBtn'));
+    echo form_input(array('name'=>'txtDateAjout', 'value'=>"".$LeProduit['DATEAJOUT']."",'required'=>'required','type'=>'date','class'=>'clearBtn')).'<BR>';
     
     echo form_label('Disponibilité', 'LblDisponibilité').'<BR>';
 
@@ -55,10 +56,11 @@
     }
 echo "</select><br/>";
 
-    echo form_submit('BtnAjouter', 'Ajouter Le Produit',array('class'=>'form-control'));
+    echo form_submit('BtnAjouter', ' modifier Le Produit',array('class'=>'form-control'));
 
     echo form_close();    
     ?>
-</div>    
+</div> 
+</div>   
 </body>
 </html>
