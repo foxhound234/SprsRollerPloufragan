@@ -1,5 +1,5 @@
 <?php
-class ModeleAdhernent extends CI_Model {
+class ModeleAdherent extends CI_Model {
 
 public function insererUnAdherent($pDonnesAInseres)
 {

@@ -1,6 +1,10 @@
 <?php
 class ModeleTaille extends CI_Model {
-
+    public function __construct()
+    {
+        $this->load->database();
+    }
+    
     public function RetournerLesTailles()
     {
      $requete = $this->db->get('taille');

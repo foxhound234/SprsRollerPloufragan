@@ -1,12 +1,17 @@
 <?php
 class ModeleProduit extends CI_Model {
+    public function __construct()
+{
+    $this->load->database();
+}
 
-public function insererUnProduit($pDonnesAInseres)
+
+public function InsererUnProduit($pDonnesAInseres)
 {
 return $this->db->insert('produit',$pDonnesAInseres);
 }
 
-public function nombredeproduit($Nomproduit= FALSE)
+public function NombreDeProduit($Nomproduit= FALSE)
 {
     if($Nomproduit===false)
     {
@@ -19,7 +24,7 @@ public function nombredeproduit($Nomproduit= FALSE)
 }
 
 
-public function retournerArticlesLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner)
+public function retournerProduitLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner)
 { 	// Nota Bene : surcharge non supportée par PHP 
     $this->db->limit($nombreDeLignesARetourner, $noPremiereLigneARetourner);
     $requete = $this->db->get("produit");
