@@ -34,7 +34,7 @@ echo form_input(array('name'=>'txtVille', 'value'=>'','class'=>'form-control','p
 
 echo form_label('Adresse', 'LblAdresse');
 
-echo form_input(array('name'=>'txtAdresse', 'value'=>'','class'=>'form-control','required'=>'required','pattern'=>'[a-zA-Z0-9]+'));
+echo form_input(array('name'=>'txtAdresse', 'value'=>'','class'=>'form-control','pattern'=>'[a-zA-Z0-9]+'));
 
 echo form_label('CodePostal','LblCodepostal');
 

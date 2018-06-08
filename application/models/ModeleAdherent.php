@@ -11,7 +11,11 @@ public function insererUnAdherent($pDonnesAInseres)
   $Lastid=$this->db->insert_id();
   return $Lastid;
 }
-
+public function insererUnJoueur($DonnesDuJoueur)
+{
+  $this->db->insert('joueur',$DonnesDuJoueur);
+  
+}
 }
 
 /* End of file ModelName.php */

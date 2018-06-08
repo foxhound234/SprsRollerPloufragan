@@ -109,14 +109,27 @@ public function AjouterUnjoueur()
          'ADRESSE'=>$this->input->post('txtAdresse'),     
           'CODEPOSTAL'=>$this->input->post('txtCodepostal'),
           'EMAIL'=>$this->input->post('txtEmail'),
-          'MOTDEPASSE'=>$this->input->post('txtMdp')
+          'MOTDEPASSE'=>$this->input->post('txtMdp'),
+          'PROFIL'=>'J'
         );
-     $this->ModeleAdherent->insererUnAdherent($DonnesAinserer);
+     $NoJoueur=$this->ModeleAdherent->insererUnAdherent($DonnesAinserer);
+     $Donnesdujoueur=array(
+        'NOADHERENT'=>$NoJoueur,
+        'IMAGEJOUEUR'=>$this->input->post('txtPhoto'),
+        'BIOGRAPHIE'=>$this->input->post('txtBio')
+     );
+     $this->ModeleAdherent->insererUnJoueur($Donnesdujoueur);
+     $this->load->view('templates/Entete');
+    $this->load->view('admin/InsertionReussie');
+    $this->load->view('templates/PiedDePage');
     }
     else
     {
+        $this->load->view('templates/Entete');
 
-
+        $this->load->view('admin/AjouterUnjoueur',$DonneesInjectees);
+        
+        $this->load->view('templates/PiedDePage');
 
     }
 }
