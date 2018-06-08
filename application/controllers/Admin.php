@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
    public function AjouterUnProduit()
    {
        $Donnesinjectees['TitreDeLaPage']='Ajouter Un Produit';
-       $Donnesinjectees['LesCategorie']=$this->ModeleCategorie->RetournerCategories();
+       $Donnesinjectees['LesCategorie']=$this->modeleCategorie-->RetournerCategories();
        if($this->input->post('BtnAjouter'))
        {
         $DonnesAinserer=array(
@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
          'DISPONIBLE'=>$this->input->post('txtDispo'),
          'NOCATEGORIE'=>$this->input->post('txtNoCategorie')
         );
-        $this->ModeleProduit->InsererUnProduit($DonnesAinserer);
+        $this->modeleProduit->InsererUnProduit($DonnesAinserer);
         redirect('Admin/AfficherLesProduits');
        }
        else
@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
    {
     $config=array();
     $config["base_url"] = site_url('Admin/AfficherLesProduits');
-    $config["total_rows"] =$this->ModeleProduit->NombreDeProduit();
+    $config["total_rows"] =$this->modeleProduit-->NombreDeProduit();
     $config["per_page"] = 5;
     $config["uri_segment"] = 3; 
     $config['first_link'] = 'Premier';
@@ -56,7 +56,7 @@ class Admin extends CI_Controller {
 
     $noPage = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
  $DonneesInjectees['TitreDeLaPage'] = 'Les produits';
-  $DonneesInjectees["LesProduits"]=$this->ModeleProduit->retournerProduitLimite($config["per_page"],$noPage);
+  $DonneesInjectees["LesProduits"]=$this->modeleProduit->retournerProduitLimite($config["per_page"],$noPage);
   $DonneesInjectees["LiensPagination"]=$this->pagination->create_links();
 
   $this->load->view('templates/Entete');
@@ -72,7 +72,7 @@ public function AjouterUneCategorie()
 if ($this->input->post('BtnAjouter'))
 {
     $DonnesAinserer=array('LIBELLE'=>$this->input->post('txtLibelle'));
-$this->ModeleCategorie->insererUneCategorie($DonnesAinserer);
+$this->modeleCategorie-->insererUneCategorie($DonnesAinserer);
 redirect('Admin/AjouterUnProduit');
 }
 else
@@ -87,8 +87,8 @@ else
 }
 public function ModifierUnProduit($NoProduit=false)
 {
-$DonneesInjectees['LeProduit']=$this->ModeleProduit->retournerLeProduit($NoProduit);
-$DonneesInjectees['LesCategorie']=$this->ModeleCategorie->RetournerCategories();
+$DonneesInjectees['LeProduit']=$this->m->retournerLeProduit($NoProduit);
+$DonneesInjectees['LesCategorie']=$this->modeleCategorie-->RetournerCategories();
 $DonneesInjectees['TitreDeLaPage']='Modifier un produit';
 $this->load->view('templates/Entete');
 
@@ -112,13 +112,13 @@ public function AjouterUnjoueur()
           'MOTDEPASSE'=>$this->input->post('txtMdp'),
           'PROFIL'=>'J'
         );
-     $NoJoueur=$this->ModeleAdherent->insererUnAdherent($DonnesAinserer);
+     $NoJoueur=$this->modeleAdherent->insererUnAdherent($DonnesAinserer);
      $Donnesdujoueur=array(
         'NOADHERENT'=>$NoJoueur,
         'IMAGEJOUEUR'=>$this->input->post('txtPhoto'),
         'BIOGRAPHIE'=>$this->input->post('txtBio')
      );
-     $this->ModeleAdherent->insererUnJoueur($Donnesdujoueur);
+     $this->modeleAdherent->insererUnJoueur($Donnesdujoueur);
      $this->load->view('templates/Entete');
     $this->load->view('admin/InsertionReussie');
     $this->load->view('templates/PiedDePage');
@@ -130,6 +130,37 @@ public function AjouterUnjoueur()
         $this->load->view('admin/AjouterUnjoueur',$DonneesInjectees);
         
         $this->load->view('templates/PiedDePage');
+
+    }
+}
+public function AjouterUneLigue()
+{
+    if($this->input->post('BtnAjouter'))
+    {
+     $DonnesAinserer=array(
+         'Nomligue'=>$this->input->post('txtNomLigue')
+     );
+     
+    }
+    else
+    {
+        $this->load->view('templates/Entete');
+
+        $this->load->view('admin/AjouterUneLigue',$DonneesInjectees);
+        
+        $this->load->view('templates/PiedDePage');
+    }
+}
+public function AjouterUneEquipe()
+{
+    $DonneesInjectees['TitreDeLaPage']='ajouter une equipe';
+
+    if ($this->input->post('BtnAjouter'))
+    {
+
+    }
+    else    
+    {
 
     }
 }

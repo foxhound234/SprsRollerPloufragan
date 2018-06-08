@@ -1,5 +1,5 @@
 <?php
-class ModeleTaille extends CI_Model {
+class modeleTaille extends CI_Model {
     public function __construct()
     {
         $this->load->database();

@@ -1,6 +1,6 @@
 <?php
 
-class ModeleSponsor extends CI_Model {
+class modeleSponsor extends CI_Model {
   public function __construct()
 {
     $this->load->database();
