@@ -135,12 +135,14 @@ public function AjouterUnjoueur()
 }
 public function AjouterUneLigue()
 {
+    $DonneesInjectees['TitreDeLaPage']='AjouterUneLigue';
     if($this->input->post('BtnAjouter'))
     {
      $DonnesAinserer=array(
          'Nomligue'=>$this->input->post('txtNomLigue')
      );
-     
+     $this->modeleLigue->insererUneLigue($DonnesAinserer);
+     redirect('Admin/AjouterUneEquipe');
     }
     else
     {

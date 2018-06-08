@@ -16,6 +16,11 @@ public function insererUnJoueur($DonnesDuJoueur)
   $this->db->insert('joueur',$DonnesDuJoueur);
   
 }
+public function RetournerlesEntraineur()
+{
+  $requete=$this->db->get_where('adherent',array('PROFIL'=>'C'));
+ return $requete->result_array();
+}
 }
 
 /* End of file ModelName.php */
