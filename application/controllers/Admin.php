@@ -17,15 +17,15 @@ class Admin extends CI_Controller {
        if($this->input->post('BtnAjouter'))
        {
         $DonnesAinserer=array(
-         'LIBELLE'=>'txtLibelle',
-         'DETAIL'=>'txtDetail',
-         'PRIXHT'=>'txtPrixHT',
+         'LIBELLE'=>$this->input->post('txtLibelle'),
+         'DETAIL'=>$this->input->post('txtDetail'),
+         'PRIXHT'=>$this->input->post('txtPrixHT'),
          'TAUXTVA'=>20,
-         'NOMIMAGE'=>'txtImage',
-         'QUANTITEENSTOCK'=>'txtQuantiteenstock',
-         'DATEAJOUT'=>'txtDateAjout',
-         'DISPONIBLE'=>'txtDispo',
-         'NOCATEGORIE'=>'txtCategorie'
+         'NOMIMAGE'=>$this->input->post('txtImage'),
+         'QUANTITEENSTOCK'=>$this->input->post('txtQuantiteenstock'),
+         'DATEAJOUT'=>$this->input->post('txtDateAjout'),
+         'DISPONIBLE'=>$this->input->post('txtDispo'),
+         'NOCATEGORIE'=>$this->input->post('txtCategorie')
         );
         $this->modeleProduit->InsererUnProduit($DonnesAinserer);
 
@@ -33,7 +33,7 @@ class Admin extends CI_Controller {
        else
        {
         $this->load->view('templates/Entete');
-        $this->load->view('admin/AjouterUnProduit');
+        $this->load->view('admin/AjouterUnProduit',$Donnesinjectees);
         $this->load->view('templates/PiedDePage');
        }
    }
@@ -65,6 +65,36 @@ class Admin extends CI_Controller {
 
   $this->load->view('templates/PiedDePage');
    }
+public function AjouterUneCategorie()
+{
+ $Donnesinjectees['TitreDeLaPage']='Ajouter Un Produit';
+
+if ($this->input->post('BtnAjouter'))
+{
+    $DonnesAinserer=array('LIBELLE'=>$this->input->post('txtLibelle'));
+$this->ModeleCategorie->insererUneCategorie($DonnesAinserer);
+redirect('Admin/AjouterUnProduit');
+}
+else
+{
+    $this->load->view('templates/Entete');
+
+    $this->load->view('admin/AjouterUneCategorie',$Donnesinjectees);
+  
+    $this->load->view('templates/PiedDePage');
+
+}
 }
 
+
+
+
+
+
+
+
+
+
+
+}
 /* End of file Controllername.php */

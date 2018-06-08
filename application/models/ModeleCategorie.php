@@ -7,7 +7,7 @@ class ModeleCategorie extends CI_Model {
     
 public function insererUneCategorie($pDonnesAInserer)
 {
-    $this->db->insert('categorie',$pDonnesAInseres);
+    return $this->db->insert('categorie',$pDonnesAInseres);
 }
 public function RetournerCategories()
 {
