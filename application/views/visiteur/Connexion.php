@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div>
@@ -14,11 +15,11 @@
 echo form_open('Visiteur/');
 echo "<div class='input-group'>";
 echo "<span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>";
-echo form_input(array('name'=>'txtEmail', 'value'=>'','class'=>'form-control','type'=>'email'));
+echo form_input(array('name'=>'txtEmail', 'value'=>'','class'=>'form-control','placeholder'=>'Email','type'=>'email'));
 echo "</div>";
 echo "<div class='input-group'>";
 echo "<span class='input-group-addon'><i class='glyphicon glyphicon-lock'></i></span>";
-echo form_password(array('name'=>'txtMdp', 'value'=>'','class'=>'form-control','pattern'=>'.{6,}','title'=>'six caractère ou plus'));
+echo form_password(array('name'=>'txtMdp', 'value'=>'','class'=>'form-control','placeholder'=>'Mot De Passe','pattern'=>'.{6,}','title'=>'six caractère ou plus'));
 echo "</div>";
 echo form_submit('BtnConnexion', 'connexion');
 echo form_close();

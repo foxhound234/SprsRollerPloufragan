@@ -88,8 +88,8 @@ else
 }
 public function ModifierUnProduit($NoProduit=false)
 {
-$DonneesInjectees['LeProduit']=$this->m->retournerLeProduit($NoProduit);
-$DonneesInjectees['LesCategorie']=$this->modeleCategorie-->RetournerCategories();
+$DonneesInjectees['LeProduit']=$this->modeleProduit->retournerLeProduit($NoProduit);
+$DonneesInjectees['LesCategorie']=$this->modeleCategorie->RetournerCategories();
 $DonneesInjectees['TitreDeLaPage']='Modifier un produit';
 $this->load->view('templates/Entete');
 

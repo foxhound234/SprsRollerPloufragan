@@ -87,10 +87,22 @@ class Visiteur extends CI_Controller {
   
     $this->load->view('templates/Entete');
   
-    $this->load->view('admin/ListeDesProduits',$DonneesInjectees);
+    $this->load->view('visiteur/ListeDesProduits',$DonneesInjectees);
   
     $this->load->view('templates/PiedDePage');
      }
-}
+  public function AfficheLeProduit($NoProduit=null)
+  {
+  $DonneesInjectees['LeProduit']=$this->modeleProduit->RetournerLeproduit($NoProduit);
+  if($DonneesInjectees['LeProduit']== null)
+  {
+  show_404(); 
+  }
+  $this->load->view('templates/Entete');
+  
+  $this->load->view('Visiteur/AfficheDetailProduit',$DonneesInjectees);
 
+  $this->load->view('templates/PiedDePage');
+}
+}
 /* End of file Controllername.php */

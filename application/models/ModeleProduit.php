@@ -10,7 +10,7 @@ public function InsererUnProduit($pDonnesAInseres)
 {
 return $this->db->insert('produit',$pDonnesAInseres);
 }
-public function retournerLeProduit($NoProduit)
+public function RetournerLeProduit($NoProduit)
 {
  $requete=$this->db->get_where('produit',array('NOPRODUIT'=>$NoProduit));
 return $requete->row_array();

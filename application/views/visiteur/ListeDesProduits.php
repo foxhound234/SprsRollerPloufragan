@@ -19,19 +19,24 @@
 <tr>
  <th> Image Du Produit </th>
  <th> Libellé </th>
+ <th> prixTTC </th>
+ <th>quantitéenstock</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($LesProduits as $unProduit) :
+ $Prixttc=($unProduit->PRIXHT*$unProduit->TAUXTVA)/100;
 echo'<tr>
      <td><img width="25%" src="'.img_url($unProduit->NOMIMAGE).'"></td>
-     <td>' .anchor('Admin/ModifierunProduit/'.$unProduit->NOPRODUIT,$unProduit->LIBELLE).'</td>
+     <td>' .anchor('Visiteur/AfficheLeProduit'.$unProduit->NOPRODUIT,$unProduit->LIBELLE).'</td>
+     <td>'. $Prixttc .'</td>
+     <td>'.$unProduit->QUANTITEENSTOCK.'</td>
      </tr>';
  endforeach ?>
 </tbody>
 </table>
 </div>
-<p> pour modifier un produit clique sur le nom du produit </p>
+<p> pour voir un produit clique sur le nom du produit </p>
 <p><?php echo $LiensPagination?></p>
 
 
