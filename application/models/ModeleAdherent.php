@@ -16,6 +16,11 @@ public function insererUnJoueur($DonnesDuJoueur)
   $this->db->insert('joueur',$DonnesDuJoueur);
   
 }
+public function RetournerAdherent($pAdherent)
+{
+ $requete=$this->db->get_where('adherent',$pAdherent);
+ return $requete->row();
+}
 public function RetournerlesEntraineur()
 {
   $requete=$this->db->get_where('adherent',array('PROFIL'=>'C'));

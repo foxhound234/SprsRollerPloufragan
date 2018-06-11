@@ -220,14 +220,27 @@ public function AjouterUnSponsor()
 
     if($this->input->post('BtnAjouter'))
      {
-
+        $DonnesAinserer=array(
+        'NOMSPONSOR'=>$this->input->post('txtNomSponsor'),
+        'IMAGE'=>$this->input->post('txtLogo'),
+        'EMAIL'=>$this->input->post('txtEmail'),
+        'SITEWEB'=>$this->input->post('txtSite')
+         );
+         $this->modeleSponsor->insererUnSponsor($DonnesAinserer);
+         $this->load->view('templates/Entete');
+         $this->load->view('admin/InsertionReussie');
+         $this->load->view('templates/PiedDePage');
 
      }
     else
     {
 
+        $this->load->view('templates/Entete');
 
+        $this->load->view('admin/AjouterUnSponsor',$DonneesInjectees);
         
+        $this->load->view('templates/PiedDePage'); 
+
     }
 
 

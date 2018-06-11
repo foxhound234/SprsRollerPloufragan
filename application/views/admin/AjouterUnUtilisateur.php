@@ -44,7 +44,7 @@ echo form_input(array('name'=>'txtEmail', 'type'=>'email','required'=>'required'
 
 echo form_label('MotDePasse', 'LblMdp');
 
-echo form_password(array('name'=>'txtMdp', 'value'=>'','required'=>'required','value'=>'','class'=>'form-control'));
+echo form_password(array('name'=>'txtMdp', 'value'=>'','required'=>'required','value'=>'','pattern'=>'.{6,}','title'=>'six caractère ou plus','class'=>'form-control'));
 
 echo form_label('Type Utilisateur', 'Lbltype');
 
