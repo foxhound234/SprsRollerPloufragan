@@ -19,6 +19,7 @@ class Visiteur extends CI_Controller {
         'CODEPOSTAL'=>$this->input->post('txtCodepostal'),
         'EMAIL'=>$this->input->post('txtEmail'),
         'MOTDEPASSE'=>$this->input->post('txtMDP'),
+        'PROFIL'=>'S'
         );
         $this->modeleAdherent->insererUnAdherent($DonnesAinserer);
       }
@@ -61,6 +62,34 @@ class Visiteur extends CI_Controller {
         $this->load->view('visiteur/Connexion');
         $this->load->view('templates/PiedDePage');
       }
+     }
+     public function AfficherLesProduit()
+     {
+      $config=array();
+      $config["base_url"] = site_url('Visiteur/AfficherLesProduits');
+      $config["total_rows"] =$this->modeleProduit->NombreDeProduit();
+      $config["per_page"] = 5;
+      $config["uri_segment"] = 3; 
+      $config['first_link'] = 'Premier';
+  
+      $config['last_link'] = 'Dernier';
+    
+      $config['next_link'] = 'Suivant';
+    
+      $config['prev_link'] = 'Précédent';
+      
+      $this->pagination->initialize($config);
+  
+      $noPage = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+   $DonneesInjectees['TitreDeLaPage'] = 'Les produits';
+    $DonneesInjectees["LesProduits"]=$this->modeleProduit->retournerProduitLimite($config["per_page"],$noPage);
+    $DonneesInjectees["LiensPagination"]=$this->pagination->create_links();
+  
+    $this->load->view('templates/Entete');
+  
+    $this->load->view('admin/ListeDesProduits',$DonneesInjectees);
+  
+    $this->load->view('templates/PiedDePage');
      }
 }
 
