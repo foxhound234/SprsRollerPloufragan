@@ -15,7 +15,7 @@ public function retournerLeProduit($NoProduit)
  $requete=$this->db->get_where('produit',array('NOPRODUIT'=>$NoProduit));
 return $requete->row_array();
 }
-public function NombreDeProduit($Nomproduit= FALSE)
+public function NombreDeProduit($Nomproduit=FALSE)
 {
     if($Nomproduit===false)
     {

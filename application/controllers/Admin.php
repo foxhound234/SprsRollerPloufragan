@@ -13,7 +13,7 @@ class Admin extends CI_Controller {
    public function AjouterUnProduit()
    {
        $Donnesinjectees['TitreDeLaPage']='Ajouter Un Produit';
-       $Donnesinjectees['LesCategorie']=$this->modeleCategorie-->RetournerCategories();
+       $Donnesinjectees['LesCategorie']=$this->modeleCategorie->RetournerCategories();
        if($this->input->post('BtnAjouter'))
        {
         $DonnesAinserer=array(
@@ -41,7 +41,7 @@ class Admin extends CI_Controller {
    {
     $config=array();
     $config["base_url"] = site_url('Admin/AfficherLesProduits');
-    $config["total_rows"] =$this->modeleProduit-->NombreDeProduit();
+    $config["total_rows"] =$this->modeleProduit->NombreDeProduit();
     $config["per_page"] = 5;
     $config["uri_segment"] = 3; 
     $config['first_link'] = 'Premier';
@@ -71,8 +71,9 @@ public function AjouterUneCategorie()
 
 if ($this->input->post('BtnAjouter'))
 {
-    $DonnesAinserer=array('LIBELLE'=>$this->input->post('txtLibelle'));
-$this->modeleCategorie-->insererUneCategorie($DonnesAinserer);
+    $DonnesAinserer=array('Libelle'=>$this->input->post('txtLibelle'));
+    var_dump($DonnesAinserer);
+$this->modeleCategorie->insererUneCategorie($DonnesAinserer);
 redirect('Admin/AjouterUnProduit');
 }
 else
@@ -153,19 +154,88 @@ public function AjouterUneLigue()
         $this->load->view('templates/PiedDePage');
     }
 }
+public function AjouterUnUtilisateur()
+{
+    $DonneesInjectees['TitreDeLaPage']='Ajouter Un Admin ou Un Entraineur';
+    if($this->input->post('BtnAjouter'))
+    {
+     $DonnesAinserer=array(
+     'NOM'=>$this->input->post('txtNom'),
+     'PRENOM'=>$this->input->post('txtPrenom'),
+     'VILLE'=>$this->input->post('txtVille'),
+     'ADRESSE'=>$this->input->post('txtAdresse'),
+     'CODEPOSTAL'=>$this->input->post('txtCodepostal'),
+     'EMAIL'=>$this->input->post('txtEmail'),
+     'MOTDEPASSE'=>$this->input->post('txtMdp'),
+     'PROFIL'=>$this->input->post('txtType')
+     );
+     $this->modeleAdherent->insererUnAdherent($DonnesAinserer);
+     $this->load->view('templates/Entete');
+     $this->load->view('admin/InsertionReussie');
+     $this->load->view('templates/PiedDePage');
+    }
+    else
+    {
+        $this->load->view('templates/Entete');
+
+        $this->load->view('admin/AjouterUnUtilisateur',$DonneesInjectees);
+        
+        $this->load->view('templates/PiedDePage'); 
+    }
+
+}
 public function AjouterUneEquipe()
 {
-    $DonneesInjectees['TitreDeLaPage']='ajouter une equipe';
+    $DonneesInjectees['TitreDeLaPage']='Ajouter une equipe';
+    $DonneesInjectees['LesEntraineur']=$this->modeleAdherent->RetournerlesEntraineur();
+    $DonneesInjectees['LesLigues']=$this->modeleLigue->RetournerLesLigue();
 
     if ($this->input->post('BtnAjouter'))
     {
-
+        $DonnesAinserer=array(
+           'NOMEQUIPE'=>$this->input->post('txtNom'),
+            'IMAGE'=>$this->input->post('txtImage'),
+            'NOADHERENT'=>$this->input->post('txtNoEntraineur'),
+            'NOLIGUE'=>$this->input->post('txtNoLigue')
+        );
+        $this->modeleEquipe->insererUneEquipe($DonnesAinserer);
+        $this->load->view('templates/Entete');
+        $this->load->view('admin/InsertionReussie');
+        $this->load->view('templates/PiedDePage');
     }
     else    
     {
+        $this->load->view('templates/Entete');
 
+        $this->load->view('admin/AjouterUneEquipe',$DonneesInjectees);
+        
+        $this->load->view('templates/PiedDePage'); 
     }
 }
+
+public function AjouterUnSponsor()
+{
+    $DonneesInjectees['TitreDeLaPage']='Ajouter une equipe';
+
+
+    if($this->input->post('BtnAjouter'))
+     {
+
+
+     }
+    else
+    {
+
+
+        
+    }
+
+
+
+
+}
+
+
 }
 
 /* End of file Controllername.php */
