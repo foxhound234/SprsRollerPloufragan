@@ -24,8 +24,7 @@ echo '<p>'.img($LeProduit['NOMIMAGE']).'</p>';
  }
  else
  {
-   echo form_open('Visiteur\AjouterLePanier/'.$LeProduit['NOPRODUIT']);
-
+   echo form_open('Visiteur\AfficheLeProduit/'.$LeProduit['NOPRODUIT']);
    echo form_submit('btnajouter', 'ajouter').'<BR>';
    echo form_close();
 

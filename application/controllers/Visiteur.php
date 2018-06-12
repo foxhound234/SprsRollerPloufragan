@@ -94,33 +94,34 @@ class Visiteur extends CI_Controller {
   public function AfficheLeProduit($NoProduit=null)
   {
   $DonneesInjectees['LeProduit']=$this->modeleProduit->RetournerLeproduit($NoProduit);
+  $LeProduitRetournée=$this->modeleProduit->RetournerLeproduit($NoProduit);
+  $Libelle=$LeProduitRetournée['LIBELLE'];
+  $prixproduit=$LeProduitRetournée['PRIXHT']*(($LeProduitRetournée['TAUXTVA']/100)+1);
   if($DonneesInjectees['LeProduit']== null)
   {
   show_404(); 
   }
-  $this->load->view('templates/Entete');
+  if($this->input->post('btnajouter'))
+  {
+    $insertion=array(
+      'id'=>$NoProduit,
+      'qty' => 1,
+      'price'=>$prixproduit,
+      'name'=>$Libelle
+         );
+      $this->cart->insert($insertion);
+      $this->load->view('templates/Entete');
+      $this->load->view('visiteur/insertionReussie');
+      $this->load->view('templates/PiedDePage');
+  }
+  else
+  {
+    $this->load->view('templates/Entete');
   
-  $this->load->view('Visiteur/AfficheDetailProduit',$DonneesInjectees);
-
-  $this->load->view('templates/PiedDePage');
-}
-public function AjouterLePanier($NoProduit=null)
-{
-  $LeProduit=$this->modeleProduit->RetournerLeproduit($NoProduit);
-  $id=$LeProduit['NOPRODUIT'];
-  $Libelle=$LeProduit['LIBELLE'];
-  $prixproduit=$LeProduit['PRIXHT']*(($LeProduit['TAUXTVA']/100)+1);
-if($this->input->post('btnajouter'))
-{
-  $insertion=array(
-  'id'=>$id,
-   'qty'=>1,
-   'price'=>$prixproduit,
-   'Name'=>$Libelle
-  );
-  $this->cart->insert($insertion);
-  redirect('Visiteur/AfficherLePanier');
-}
+    $this->load->view('Visiteur/AfficheDetailProduit',$DonneesInjectees);
+  
+    $this->load->view('templates/PiedDePage'); 
+  }
 }
 
 public function AfficherLePanier()

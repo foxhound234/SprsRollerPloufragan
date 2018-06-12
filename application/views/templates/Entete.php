@@ -45,6 +45,7 @@
             <li><a href="#">Liste Des Categorie </a></li>
           </ul>
         </li>
+        <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
       </ul>
 <?php else:?>
 <ul class="nav navbar-nav navbar-right">
