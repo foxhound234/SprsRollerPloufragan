@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,9 +10,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div>
+<br/>
+<div class='container'>
 <?php
-echo form_open('Visiteur/');
+echo form_open('Visiteur/Connexion');
 echo "<div class='input-group'>";
 echo "<span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>";
 echo form_input(array('name'=>'txtEmail', 'value'=>'','class'=>'form-control','placeholder'=>'Email','type'=>'email'));
@@ -24,7 +25,6 @@ echo "</div>";
 echo form_submit('BtnConnexion', 'connexion');
 echo form_close();
 ?>
-</div>
 </div>
 </body>
 </html>

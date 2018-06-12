@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,17 +19,16 @@
 <tr>
  <th> Image Du Produit </th>
  <th> Libellé </th>
- <th> prixTTC </th>
+ <th> prixHT </th>
  <th>quantitéenstock</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($LesProduits as $unProduit) :
- $Prixttc=($unProduit->PRIXHT*$unProduit->TAUXTVA)/100;
 echo'<tr>
      <td><img width="25%" src="'.img_url($unProduit->NOMIMAGE).'"></td>
      <td>' .anchor('Visiteur/AfficheLeProduit'.$unProduit->NOPRODUIT,$unProduit->LIBELLE).'</td>
-     <td>'. $Prixttc .'</td>
+     <td>'. $unProduit->PRIXHT.'</td>
      <td>'.$unProduit->QUANTITEENSTOCK.'</td>
      </tr>';
  endforeach ?>

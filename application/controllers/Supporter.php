@@ -4,6 +4,10 @@ class Supporter extends CI_Controller {
  {
      parent::__construct();
  }
+ public function Deconnexion()
+ {
+     $this->session_destroy();
+ }
 }
 
 /* End of file Controllername.php */
