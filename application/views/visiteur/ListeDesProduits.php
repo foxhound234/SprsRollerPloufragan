@@ -36,6 +36,7 @@ echo'<tr>
 </table>
 </div>
 <p> pour voir un produit clique sur le nom du produit </p>
+<li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
 <p><?php echo $LiensPagination?></p>
 
 

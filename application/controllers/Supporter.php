@@ -6,7 +6,7 @@ class Supporter extends CI_Controller {
  }
  public function Deconnexion()
  {
-     $this->session_destroy();
+    $this->session->sess_destroy();
  }
 }
 

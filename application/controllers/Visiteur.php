@@ -36,8 +36,9 @@ class Visiteur extends CI_Controller {
       {
        $DonnesDeConnexion=array(
        'EMAIL'=>$this->input->post('txtEmail'),
-       'MOTDEPASSE'=>$this->input->post('txtMDP')
+       'MOTDEPASSE'=>$this->input->post('txtMdp')
        );
+       var_dump($DonnesDeConnexion);
        $UtilisateurRetourner=$this->modeleAdherent->RetournerAdherent($DonnesDeConnexion);
        if($UtilisateurRetourner===null)
        {       
@@ -49,10 +50,10 @@ class Visiteur extends CI_Controller {
        {
         $this->session->Email=$UtilisateurRetourner->EMAIL;
         $this->session->Noadherent=$UtilisateurRetourner->NOADHERENT;
-        $this->session->Prenom=$UtilisateurRetourner->PRENOM;
-        $this->session->Profil=$Utilisateurretourner->PROFIL;
+        $this->session->identifiant=$UtilisateurRetourner->PRENOM;
+        $this->session->profil=$UtilisateurRetourner->PROFIL;
         $this->load->view('templates/Entete');
-        $this->load->view('client/connexionReussie', $DonneesInjectees);
+        $this->load->view('client/connexionReussie');
         $this->load->view('templates/PiedDePage');
        }
       }

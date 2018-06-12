@@ -7,7 +7,9 @@
     letter-spacing: 4px;
     opacity:0.9;
 }
-
+.navbar-default{
+background-color:  Gold;
+}
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand {
     color: Gold!important;

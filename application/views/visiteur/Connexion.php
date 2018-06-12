@@ -20,7 +20,7 @@ echo form_input(array('name'=>'txtEmail', 'value'=>'','class'=>'form-control','p
 echo "</div>";
 echo "<div class='input-group'>";
 echo "<span class='input-group-addon'><i class='glyphicon glyphicon-lock'></i></span>";
-echo form_password(array('name'=>'txtMdp', 'value'=>'','class'=>'form-control','placeholder'=>'Mot De Passe','pattern'=>'.{6,}','title'=>'six caractère ou plus'));
+echo form_password(array('name'=>'txtMdp', 'value'=>'','class'=>'form-control','placeholder'=>'Mot De Passe','title'=>'six caractère ou plus'));
 echo "</div>";
 echo form_submit('BtnConnexion', 'connexion');
 echo form_close();
