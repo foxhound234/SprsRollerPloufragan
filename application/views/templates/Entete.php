@@ -6,53 +6,74 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-<div class="container-fluid">
-<ul class="nav navbar-nav">
-<?php if(!is_null($this->session->identifiant)) : ?>
-<li class="active"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
-    <li class="active"><a href="<?php echo site_url('Client/seDeconnecter') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
-    <?php if ($this->session->profil=='A') : ?>
-    <li class="active"><a href="<?php echo site_url('Admin/ajouterunproduit') ?>">Ajouter un produit</a>&nbsp;&nbsp;</li>
-    <li class="active"><a href="<?php echo site_url('Admin/listerlesCommande')?>">afficher les commande</a>&nbsp;&nbsp;</li>
-    <li class="active"><a href="<?php echo site_url('Admin/afficherlesproduits')?>"> modifier les produits</a>&nbsp;&nbsp;</li>
-       <?php endif; ?>
-
-       <?php if ($this->session->profil=='C') : ?>
-       <li class="active"> <a href="<?php echo site_url('Visiteur/afficherlesproduits') ?>">Lister les produits</a>&nbsp;&nbsp; </li>
-       <li class="active"><a href="<?php echo site_url('Visiteur/affichelescategorie') ?>">Lister les categories </a>&nbsp;&nbsp; </li>
-       <li class="active"><a href="<?php echo site_url('Visiteur/affichagedepanier') ?>">affiché le panier </a>&nbsp;&nbsp; </li>
-       <li class="active"> <a href="<?php echo site_url('Client/profil') ?>">affiché le profil </a>&nbsp;&nbsp; </li>
-    <?php
-    echo form_open('Visiteur/Recherche');?>
-     <li class="active"><?php echo form_input(array('name'=>'txtlibelle','value'=>'','pattern'=>'^[a-zA-Z][a-zA-Z0-9]*','title'=>'le produit  doit commencer par une lettre', 'required'=>'required'));?> </li>
-     <li class="active"><?php echo form_submit(array('name'=>'btnrecherche','value'=>'recherché'));?> </li>
-
-   <?php echo form_close();?>
-   <?php endif;?>
-    </ul>
-</div>
-</nav>
-<?php endif;?>
-        <?php if($this->session->profil==null) : ?> 
-     <li class="active"><a href="<?php echo site_url('Visiteur/afficherlesproduits') ?>">Lister les produits</a>&nbsp;&nbsp;</li>
-    <li class="active"><a href="<?php echo site_url('Visiteur/affichelescategorie') ?>">Lister les categories </a>&nbsp;&nbsp;</li>
-    <li class="active"><a href="<?php echo site_url('Visiteur/affichagedepanier') ?>">affiché le panier </a>&nbsp;&nbsp;</li>
-    <li class="active"><a href="<?php echo site_url('Visiteur/ajouterunclient') ?>"> enregistrement </a>&nbsp;&nbsp;</li>
-    <li class="active"><a href="<?php echo site_url('Client/connexion') ?>">Se Connecter</a>&nbsp;&nbsp;</li>
-
-      <?php echo form_open('Visiteur\Recherche');?>
-   <li class="active"> <?php echo form_input('txtlibelle','',array('pattern'=>'^[a-zA-Z][a-zA-Z0-9]*','title'=>'le produit  doit commencer par une lettre', 'required'=>'required')); ?></li>
-   <li class="active"> <?php echo form_submit('btnrecherche', 'recherché');?></li>
-       <?php echo form_close();?>
-      <?php var_dump($this->session->profil)?>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <?php if(!is_null($this->session->identifiant)) : ?>
+    <li class="active"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
+    <li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
     <?php endif;?>
-</div>
+      <a class="navbar-brand" href="#">Logo</a>
+     </div>
+     <div class="collapse navbar-collapse" id="myNavbar">
+     <?php if (!($this->session->Profil=='A')):?>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">HOME</a></li>
+        <li><a href="#band">BAND</a></li>
+        <li><a href="#tour">TOUR</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Classement
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://stat.ffrs.asso.fr/stats/match/classement/3635">N1 élite</a></li>
+            <li><a href="http://stat.ffrs.asso.fr/stats/match/classement/3692">N3 </a></li>
+            <li><a href="http://stat.ffrs.asso.fr/stats/match/classement/3723">Pré National </a></li>
+            <li><a href="http://bretagne.ffroller.fr/index.php?option=com_joomleague&func=showResultsRank&p=303&Itemid=1183">moins 20 ans </a></li>
+            <li><a href="http://bretagne.ffroller.fr/index.php?option=com_joomleague&func=showResultsRank&p=278&Itemid=1123">moins 18 ans </a></li>
+            <li><a href="http://bretagne.ffroller.fr/index.php?option=com_joomleague&func=showResultsRank&p=298&Itemid=1172">moins 16 ans </a></li>
+            <li><a href="http://bretagne.ffroller.fr/index.php?option=com_joomleague&func=showResultsRank&p=296&Itemid=1168">moins 14 ans </a></li>
+          </ul>
+        </li>
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Boutique
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li> <a href="<?php echo site_url('Visiteur/AfficherLesProduit') ?>">Liste Des produits</a></li>
+            <li><a href="#">Liste Des Categorie </a></li>
+          </ul>
+        </li>
+      </ul>
+<?php else:?>
+<ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">HOME</a></li>
+        <li><a href="#band">BAND</a></li>
+        <li><a href="#tour">TOUR</a></li>
+        <li><a href="<?php echo site_url('Admin/AfficherLesProduit')?>">Modifier les Produits</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Joueur</a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUneEquipe') ?>">Une Equipe</a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnUtilisateur') ?>">Un Utilisateur </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Produit </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnSponsor') ?>">Un Sponsor </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUneLigue') ?>">Un Ligue </a></li>
+          </ul>
+        </li>
+    <?php endif;?>
+    <?php if($this->session->profil==null):?>
+    <ul class="nav navbar-nav">
+    <li><a href="<?php echo site_url('Visiteur/Connexion') ?>">Connexion</a></li>
+    <li><a href="<?php echo site_url('Visiteur/CreerUnCompte') ?>">Enregistrement</a></li>
+    </ul>
+     <?php endif;?>
+    </div>
+  </div>
 </nav>
+
 </body>
 </html>

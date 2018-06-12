@@ -38,7 +38,6 @@ class Visiteur extends CI_Controller {
        'EMAIL'=>$this->input->post('txtEmail'),
        'MOTDEPASSE'=>$this->input->post('txtMdp')
        );
-       var_dump($DonnesDeConnexion);
        $UtilisateurRetourner=$this->modeleAdherent->RetournerAdherent($DonnesDeConnexion);
        if($UtilisateurRetourner===null)
        {       
@@ -53,7 +52,7 @@ class Visiteur extends CI_Controller {
         $this->session->identifiant=$UtilisateurRetourner->PRENOM;
         $this->session->profil=$UtilisateurRetourner->PROFIL;
         $this->load->view('templates/Entete');
-        $this->load->view('client/connexionReussie');
+        $this->load->view('Visiteur/ConnexionReussie');
         $this->load->view('templates/PiedDePage');
        }
       }
@@ -102,6 +101,33 @@ class Visiteur extends CI_Controller {
   $this->load->view('templates/Entete');
   
   $this->load->view('Visiteur/AfficheDetailProduit',$DonneesInjectees);
+
+  $this->load->view('templates/PiedDePage');
+}
+public function AjouterLePanier($NoProduit=null)
+{
+  $LeProduit=$this->modeleProduit->RetournerLeproduit($NoProduit);
+  $id=$LeProduit['NOPRODUIT'];
+  $Libelle=$LeProduit['LIBELLE'];
+  $prixproduit=$LeProduit['PRIXHT']*(($LeProduit['TAUXTVA']/100)+1);
+if($this->input->post('btnajouter'))
+{
+  $insertion=array(
+  'id'=>$id,
+   'qty'=>1,
+   'price'=>$prixproduit,
+   'Name'=>$Libelle
+  );
+  $this->cart->insert($insertion);
+  redirect('Visiteur/AfficherLePanier');
+}
+}
+
+public function AfficherLePanier()
+{
+  $this->load->view('templates/Entete');
+  
+  $this->load->view('Visiteur/AffichageduPanier');
 
   $this->load->view('templates/PiedDePage');
 }

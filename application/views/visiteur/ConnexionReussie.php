@@ -1,5 +1,5 @@
 <h2>Connexion réussie !</h2>
-<?php echo '<p>Bienvenue '.$identifiant.'!</p>';?>
+<?php echo '<p>Bienvenue '.$this->session->identifiant.'!</p>';?>
 <?php
 if(!($this->session->profil==='A'))
 {

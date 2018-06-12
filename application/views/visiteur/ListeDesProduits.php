@@ -27,7 +27,7 @@
 <?php foreach ($LesProduits as $unProduit) :
 echo'<tr>
      <td><img width="25%" src="'.img_url($unProduit->NOMIMAGE).'"></td>
-     <td>' .anchor('Visiteur/AfficheLeProduit'.$unProduit->NOPRODUIT,$unProduit->LIBELLE).'</td>
+     <td>' .anchor('Visiteur/AfficheLeProduit/'.$unProduit->NOPRODUIT,$unProduit->LIBELLE).'</td>
      <td>'. $unProduit->PRIXHT.'</td>
      <td>'.$unProduit->QUANTITEENSTOCK.'</td>
      </tr>';
@@ -36,7 +36,6 @@ echo'<tr>
 </table>
 </div>
 <p> pour voir un produit clique sur le nom du produit </p>
-<li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
 <p><?php echo $LiensPagination?></p>
 
 

@@ -7,6 +7,8 @@ class Supporter extends CI_Controller {
  public function Deconnexion()
  {
     $this->session->sess_destroy();
+    redirect('Visiteur/Connexion');
+    
  }
 }
 
