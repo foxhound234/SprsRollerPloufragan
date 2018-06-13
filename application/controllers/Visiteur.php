@@ -170,5 +170,27 @@ public function SupprimerUnProduitDuPanier($rowid)
 
   $this->load->view('templates/PiedDePage');
 }
+public function Contact()
+{
+if ($this->input->post('BtnContact'))
+{
+$DonnesMail=array(
+'Email'=>$this->input->post('txtEmail'),
+'Contenu'=>$this->input->post('txtContenu'),
+'Nom'=>$this->input->post('txtNom')
+);
+$this->email->from('your@example.com', 'Your Name');
+$this->email->to('someone@example.com');
+$this->email->cc('another@another-example.com');
+$this->email->bcc('them@their-example.com');
+
+$this->email->subject('Email Test');
+$this->email->message('Testing the email class.');
+
+$this->email->send();
+
+}
+
+}
 }
 /* End of file Controllername.php */
