@@ -17,7 +17,9 @@
     <li class="active"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
     <li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
     <?php endif;?>
-     <?php '"<a class="navbar-brand" href=""><img width="25%" src="'.img_url('Sprs.jpg').'"></a>'?>
+    <a href="">
+    <img border="0" class="img-rounded" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="100" height="100">
+      </a>
      </div>
      <div class="collapse navbar-collapse" id="myNavbar">
      <?php if (!($this->session->Profil=='A')):?>
@@ -44,7 +46,7 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li> <a href="<?php echo site_url('Visiteur/AfficherLesProduit') ?>">Liste Des produits</a></li>
-            <li><a href="#">Liste Des Categorie </a></li>
+            <li><a href="<?php echo site_url('Visiteur/AfficherLesCategories')?>">Liste Des Categorie </a></li>
           </ul>
         </li>
         <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>

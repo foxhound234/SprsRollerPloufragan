@@ -232,6 +232,42 @@ public function AffichagedeLaRecherche($Recherche=null)
       
   }
 }
+public function AfficherLesCategories()
+{
+$DonneesInjectees['LesCategories']=$this->modeleCategorie->RetournerCategories();
+$DonneesInjectees['TitreDelapage']='Les Categorie';
+$this->load->view('templates/Entete');
+  
+$this->load->view('visiteur/AffichageDesCategorie',$DonneesInjectees);
 
+$this->load->view('templates/PiedDePage');
+}
+public function AfficheProduitcatego($NoCategorie=null)
+{
+  $config=array();
+  $config["base_url"] = site_url('Visiteur/AfficheProduitcatego/'.$NoCategorie);
+  $config["total_rows"] =$this->modeleCategorie->NombreDeProduitCategorie($NoCategorie);
+  $config["per_page"] = 5;
+  $config["uri_segment"] = 4; 
+  $config['first_link'] = 'Premier';
+
+  $config['last_link'] = 'Dernier';
+
+  $config['next_link'] = 'Suivant';
+
+  $config['prev_link'] = 'Précédent';
+  $this->pagination->initialize($config);
+  $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+
+     $DonneesInjectees['LesProduits']= $this->modeleCategorie->ProduitCategorielimite($config["per_page"],$noPage,$NoCategorie);
+      $DonneesInjectees['Titredelapage']='résultat de la recherche';
+      $DonneesInjectees['LiensPagination']=$this->pagination->create_links();
+      $this->load->view('templates/Entete');
+  
+      $this->load->view('visiteur/ListeDesProduitCatego',$DonneesInjectees);
+    
+      $this->load->view('templates/PiedDePage'); 
+
+}
 }
 /* End of file Controllername.php */

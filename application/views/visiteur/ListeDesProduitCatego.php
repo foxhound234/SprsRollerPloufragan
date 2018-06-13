@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -39,6 +39,5 @@ echo'<tr>
 </div>
 <p> pour voir un produit clique sur le nom du produit </p>
 <p><?php echo $LiensPagination?></p>
-</div>
 </body>
 </html>

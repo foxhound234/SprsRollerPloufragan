@@ -10,6 +10,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+<div class='container'>
+<div class="table-responsive">
+<table class="table table-hover">
+<?php foreach($LesCategories as $Unecategorie):
+echo '<tr>
+  <td>'.anchor('Visiteur/AfficheProduitcatego/'.$Unecategorie['NOCATEGORIE'],$Unecategorie['LIBELLE']).'</td>'; 
+endforeach?>
+</tbody>
+</table>
+</div>
 </body>
 </html>
