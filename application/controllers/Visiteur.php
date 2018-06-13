@@ -132,5 +132,43 @@ public function AfficherLePanier()
 
   $this->load->view('templates/PiedDePage');
 }
+public function ModifierLePanier()
+{
+  if($this->input->post('BtnModifier'))
+  {
+    $total=$this->cart->total_items();
+    for($i=1;$i<=$total;$i++)
+    {
+      $DonnesaModifier=array(
+        'rowid'=>$this->input->post($i.'[rowid]'),
+         'qty'=>$this->input->post($i.'[qty]')
+      );
+      $this->cart->update($DonnesaModifier);
+    }
+    $this->load->view('templates/Entete');
+  
+    $this->load->view('Visiteur/AffichageduPanier');
+  
+    $this->load->view('templates/PiedDePage');
+  }
+  else
+  {
+  $this->load->view('templates/Entete');
+  
+  $this->load->view('Visiteur/AffichageduPanier');
+
+  $this->load->view('templates/PiedDePage');
+  }
+}
+public function SupprimerUnProduitDuPanier($rowid)
+{
+  $DonnesaSupprimer=array('rowid'=>$rowid);
+  $this->cart->remove($DonnesaSupprimer);
+  $this->load->view('templates/Entete');
+  
+  $this->load->view('Visiteur/AffichageduPanier');
+
+  $this->load->view('templates/PiedDePage');
+}
 }
 /* End of file Controllername.php */

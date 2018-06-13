@@ -9,6 +9,16 @@
     <script src="main.js"></script>
 </head>
 <body>
-    
+<?php
+
+
+
+
+
+
+
+
+?>
+<p><em>&copy; Site du Sprs by Morgan Le BERRE(Email:Morganlb@protonmail.com)</em></p>
 </body>
 </html>

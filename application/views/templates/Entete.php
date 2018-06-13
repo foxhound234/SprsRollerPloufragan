@@ -15,7 +15,7 @@
     <li class="active"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
     <li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
     <?php endif;?>
-      <a class="navbar-brand" href="#">Logo</a>
+     <?php '"<a class="navbar-brand" href=""><img width="25%" src="'.img_url('Sprs').'"></a>'?>
      </div>
      <div class="collapse navbar-collapse" id="myNavbar">
      <?php if (!($this->session->Profil=='A')):?>
