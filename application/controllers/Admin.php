@@ -8,7 +8,10 @@ class Admin extends CI_Controller {
         // DEUXIEME modification est ICI !
 
             parent::__construct();
-         
+            if(!($this->session->profil=='A'))
+            {
+             redirect('Visiteur/Connexion','Refresh');
+            }
     } // __construct
    public function AjouterUnProduit()
    {

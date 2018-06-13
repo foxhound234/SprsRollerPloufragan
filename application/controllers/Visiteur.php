@@ -179,18 +179,59 @@ $DonnesMail=array(
 'Contenu'=>$this->input->post('txtContenu'),
 'Nom'=>$this->input->post('txtNom')
 );
-$this->email->from('your@example.com', 'Your Name');
-$this->email->to('someone@example.com');
-$this->email->cc('another@another-example.com');
-$this->email->bcc('them@their-example.com');
-
-$this->email->subject('Email Test');
-$this->email->message('Testing the email class.');
-
-$this->email->send();
-
+$this->email->from('morganlb347@gmail.com');
+$this->email->to($DonnesMail['Email']);
+$this->email->subject('test');
+$this->email->message($DonnesMail['Contenu']);
+if (!$this->email->send()){
+  $this->email->print_debugger();
 }
 
 }
+}
+public function RechercheProduit()
+{
+  if ($this->input->post('btnrecherche'))
+      {
+        $Recherche=$this->input->post('txtlibelle');
+        
+        redirect('Visiteur/AffichagedeLaRecherche/'.$Recherche);
+        
+      }
+}
+public function AffichagedeLaRecherche($Recherche=null)
+{
+  if (!($Recherche==null)&& !($Recherche==""))
+  {
+      $config=array();
+      $config["base_url"] = site_url('Visiteur/Recherchedeproduit/'.$Recherche);
+      $config["total_rows"] =$this->modeleproduit->nombredeproduit($Recherche);
+      $config["per_page"] = 5;
+      $config["uri_segment"] = 4; 
+      $config['first_link'] = 'Premier';
+  
+      $config['last_link'] = 'Dernier';
+    
+      $config['next_link'] = 'Suivant';
+    
+      $config['prev_link'] = 'Précédent';
+
+     
+      $this->pagination->initialize($config);
+
+      $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+      $DonneesInjectees['lesproduits']= $this->modeleproduit->rechercheproduit($Recherche,$config["per_page"],$noPage);
+      $DonneesInjectees['Titredelapage']='résultat de la recherche';
+      $DonneesInjectees['lienspagination']=$this->pagination->create_links();
+      
+      $this->load->view('templates/Entete');
+  
+      $this->load->view('visiteur/AffichageRecherche');
+    
+      $this->load->view('templates/PiedDePage'); 
+      
+  }
+}
+
 }
 /* End of file Controllername.php */

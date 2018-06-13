@@ -27,7 +27,21 @@ public function NombreDeProduit($Nomproduit=FALSE)
    return $requete;
 }
 
-
+public function RetournerRecherchelimite($nombreDeLignesARetourner, $noPremiereLigneARetourner,$Recherche)
+{
+$this->db->limit($nombreDeLignesARetourner,$noPremiereLigneARetourner);
+$this->db->select('*');
+$this->db->from('produit');
+$this->db->like('LIBELLE',$nomproduit);
+$query=$this->db->get();
+if ($query->num_rows() > 0) { // si nombre de lignes > 0
+    foreach ($query->result() as $ligne) {
+        $jeuDEnregsitrements[] = $ligne;
+    }
+    return $jeuDEnregsitrements;
+}
+return false;
+}
 public function retournerProduitLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner)
 { 	// Nota Bene : surcharge non supportée par PHP 
     $this->db->limit($nombreDeLignesARetourner, $noPremiereLigneARetourner);

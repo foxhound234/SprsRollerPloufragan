@@ -19,6 +19,7 @@
     <div class="col-md-8">
       <div class="row">
       <?php
+        echo form_open('Visiteur/Contact');
         echo '<div class="col-sm-6 form-group">';
          echo form_input(array('name'=>'txtNom','id'=>'name','value'=>'','class'=>'form-control','placeholder'=>"Name",'required'=>'required'));
        echo '</div>';
@@ -29,7 +30,8 @@
       echo form_textarea(array('class'=>"form-control",'id'=>"comments",'name'=>"txtContenu",'placeholder'=>"Contenu",'rows'=>"5"));
       echo '<div class="row">';
        echo '<div class="col-md-12 form-group">';
-       echo form_submit(array('name'=>'BtnContact', 'value'=>'','class'=>'btn pull-right'));
+       echo form_submit(array('name'=>'BtnContact', 'value'=>'Envoyé','class'=>'btn pull-right'));
+       echo form_close();
        ?>
         </div>
       </div>
