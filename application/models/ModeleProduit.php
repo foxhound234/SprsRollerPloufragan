@@ -32,7 +32,7 @@ public function RetournerRecherchelimite($nombreDeLignesARetourner, $noPremiereL
 $this->db->limit($nombreDeLignesARetourner,$noPremiereLigneARetourner);
 $this->db->select('*');
 $this->db->from('produit');
-$this->db->like('LIBELLE',$nomproduit);
+$this->db->like('LIBELLE',$Recherche);
 $query=$this->db->get();
 if ($query->num_rows() > 0) { // si nombre de lignes > 0
     foreach ($query->result() as $ligne) {

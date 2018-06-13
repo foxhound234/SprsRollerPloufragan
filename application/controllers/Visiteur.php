@@ -205,7 +205,7 @@ public function AffichagedeLaRecherche($Recherche=null)
   {
       $config=array();
       $config["base_url"] = site_url('Visiteur/Recherchedeproduit/'.$Recherche);
-      $config["total_rows"] =$this->modeleproduit->nombredeproduit($Recherche);
+      $config["total_rows"] =$this->modeleProduit->NombreDeProduit($Recherche);
       $config["per_page"] = 5;
       $config["uri_segment"] = 4; 
       $config['first_link'] = 'Premier';
@@ -220,13 +220,13 @@ public function AffichagedeLaRecherche($Recherche=null)
       $this->pagination->initialize($config);
 
       $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-      $DonneesInjectees['lesproduits']= $this->modeleproduit->rechercheproduit($Recherche,$config["per_page"],$noPage);
+      $DonneesInjectees['LesProduits']= $this->modeleProduit->RetournerRecherchelimite($config["per_page"],$noPage,$Recherche);
       $DonneesInjectees['Titredelapage']='résultat de la recherche';
-      $DonneesInjectees['lienspagination']=$this->pagination->create_links();
+      $DonneesInjectees['LiensPagination']=$this->pagination->create_links();
       
       $this->load->view('templates/Entete');
   
-      $this->load->view('visiteur/AffichageRecherche');
+      $this->load->view('visiteur/AffichageRecherche',$DonneesInjectees);
     
       $this->load->view('templates/PiedDePage'); 
       
