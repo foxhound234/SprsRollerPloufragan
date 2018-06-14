@@ -269,5 +269,16 @@ public function AfficheProduitcatego($NoCategorie=null)
       $this->load->view('templates/PiedDePage'); 
 
 }
+public function Accueil()
+{
+  $DonneesInjectees['Titredelapage']='Accueil';
+  $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  $DonneesInjectees['NbPartenaires']=$this->modeleSponsor->NombreDeSponsor();
+  $this->load->view('templates/Entete');
+  
+  $this->load->view('visiteur/Accueil',$DonneesInjectees);
+
+  $this->load->view('templates/PiedDePage'); 
+}
 }
 /* End of file Controllername.php */

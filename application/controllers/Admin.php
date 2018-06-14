@@ -244,7 +244,7 @@ public function AjouterUnSponsor()
     if($this->input->post('BtnAjouter'))
      {
         $DonnesAinserer=array(
-        'NOMSPONSOR'=>$this->input->post('txtNomSponsor'),
+        'NOMSPONSOR'=>$this->input->post('txtNomSponso'),
         'IMAGE'=>$this->input->post('txtLogo'),
         'EMAIL'=>$this->input->post('txtEmail'),
         'SITEWEB'=>$this->input->post('txtSite')

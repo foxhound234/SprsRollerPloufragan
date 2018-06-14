@@ -43,7 +43,7 @@
     </ul> 
 <?php else:?>
 <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">HOME</a></li>
+        <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">HOME</a></li>
         <li><a href="#band">BAND</a></li>
         <li><a href="#tour">TOUR</a></li>
         <li><a href="#contact">CONTACT</a></li>
@@ -70,6 +70,12 @@
         </li>
         <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
      <?php endif;?>
+     <?php if($this->session->profil==null):?>
+   <ul class="nav navbar-nav">
+   <li><a href="<?php echo site_url('Visiteur/Connexion') ?>">Connexion</a></li>
+    <li><a href="<?php echo site_url('Visiteur/CreerUnCompte') ?>">Enregistrement</a></li>
+    </ul>
+    <?php endif;?>
     </div>
   </div>
 </nav>

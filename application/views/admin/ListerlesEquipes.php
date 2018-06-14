@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,7 +13,7 @@
 <div class='container'>
 <div class="table-responsive">
 <table class="table table-hover">
-
+<tbody>
    <thead>
    <tr>
     <th> image Du Produit </th>
