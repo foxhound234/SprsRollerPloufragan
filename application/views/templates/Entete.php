@@ -22,8 +22,27 @@
       </a>
      </div>
      <div class="collapse navbar-collapse" id="myNavbar">
-     <?php if (!($this->session->Profil=='A')):?>
-      <ul class="nav navbar-nav navbar-right">
+     <?php if ($this->session->profil=='A'):?>
+     <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">HOME</a></li>
+        <li><a href="#band">BAND</a></li>
+        <li><a href="#tour">TOUR</a></li>
+        <li><a href="<?php echo site_url('Admin/AfficherLesProduit')?>">Modifier les Produits</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Joueur</a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUneEquipe') ?>">Une Equipe</a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnUtilisateur') ?>">Un Utilisateur </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Produit </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnSponsor') ?>">Un Sponsor </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUneLigue') ?>">Un Ligue </a></li>
+          </ul>
+        </li>
+    </ul> 
+<?php else:?>
+<ul class="nav navbar-nav navbar-right">
         <li><a href="#myPage">HOME</a></li>
         <li><a href="#band">BAND</a></li>
         <li><a href="#tour">TOUR</a></li>
@@ -44,37 +63,12 @@
       <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Boutique
           <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" role="menu">
             <li> <a href="<?php echo site_url('Visiteur/AfficherLesProduit') ?>">Liste Des produits</a></li>
             <li><a href="<?php echo site_url('Visiteur/AfficherLesCategories')?>">Liste Des Categorie </a></li>
           </ul>
         </li>
         <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-      </ul>
-<?php else:?>
-<ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">HOME</a></li>
-        <li><a href="#band">BAND</a></li>
-        <li><a href="#tour">TOUR</a></li>
-        <li><a href="<?php echo site_url('Admin/AfficherLesProduit')?>">Modifier les Produits</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Joueur</a></li>
-            <li><a href="<?php echo site_url('Admin/AjouterUneEquipe') ?>">Une Equipe</a></li>
-            <li><a href="<?php echo site_url('Admin/AjouterUnUtilisateur') ?>">Un Utilisateur </a></li>
-            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Produit </a></li>
-            <li><a href="<?php echo site_url('Admin/AjouterUnSponsor') ?>">Un Sponsor </a></li>
-            <li><a href="<?php echo site_url('Admin/AjouterUneLigue') ?>">Un Ligue </a></li>
-          </ul>
-        </li>
-    <?php endif;?>
-    <?php if($this->session->profil==null):?>
-    <ul class="nav navbar-nav">
-    <li><a href="<?php echo site_url('Visiteur/Connexion') ?>">Connexion</a></li>
-    <li><a href="<?php echo site_url('Visiteur/CreerUnCompte') ?>">Enregistrement</a></li>
-    </ul>
      <?php endif;?>
     </div>
   </div>

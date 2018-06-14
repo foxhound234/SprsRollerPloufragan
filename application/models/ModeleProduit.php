@@ -59,7 +59,7 @@ public function retournerProduitLimite($nombreDeLignesARetourner, $noPremiereLig
 public function ModifierunProduit($DonnesaModifier,$pNoproduit)
 {
 $this->db->where('NOPRODUIT', $pNoproduit);
-$this->db->update('produit',$donnesamodifier);
+$this->db->update('produit',$DonnesaModifier);
 }
 
 
