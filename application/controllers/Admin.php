@@ -94,11 +94,31 @@ public function ModifierUnProduit($NoProduit=false)
 $DonneesInjectees['LeProduit']=$this->modeleProduit->retournerLeProduit($NoProduit);
 $DonneesInjectees['LesCategorie']=$this->modeleCategorie->RetournerCategories();
 $DonneesInjectees['TitreDeLaPage']='Modifier un produit';
-$this->load->view('templates/Entete');
 
-$this->load->view('admin/ModifierLeProduit',$DonneesInjectees);
+if($this->input->post('BtnModifier'))
+{
+    $DonnesAinserer=array(
+        'LIBELLE'=>$this->input->post('txtLibelle'),
+        'DETAIL'=>$this->input->post('txtDetail'),
+        'PRIXHT'=>$this->input->post('txtPrixHT'),
+        'TAUXTVA'=>20,
+        'NOMIMAGE'=>$this->input->post('txtImage'),
+        'QUANTITEENSTOCK'=>$this->input->post('txtQuantiteenstock'),
+        'DATEAJOUT'=>$this->input->post('txtDateAjout'),
+        'DISPONIBLE'=>$this->input->post('txtDispo'),
+        'NOCATEGORIE'=>$this->input->post('txtNoCategorie')
+       );
+ $this->modeleProduit->ModifierunProduit($DonnesAinserer,$NoProduit);
+ redirect('Admin/AfficherLesProduit');
+}
+else
+{
+    $this->load->view('templates/Entete');
 
-$this->load->view('templates/PiedDePage');
+    $this->load->view('admin/ModifierLeProduit',$DonneesInjectees);
+    
+    $this->load->view('templates/PiedDePage');    
+}
 }
 
 public function AjouterUnjoueur()
@@ -250,8 +270,28 @@ public function AjouterUnSponsor()
 
 
 }
+public function ListerLesEquipes()
+{
+$DonneesInjectees['LesEquipes']=$this->modeleEquipe->RetournerLesEquipes();
+$DonneesInjectees['TitreDeLaPage']='Les Equipes';
 
+$this->load->view('templates/Entete');
 
+$this->load->view('admin/AjouterUnSponsor',$DonneesInjectees);
+
+$this->load->view('templates/PiedDePage'); 
+
+}
+public function ModifierUneEquipe($NoEquipe=FALSE)
+{
+$DonneesInjectees['Equipe']=$this->modeleEquipe->RetournerUneEquipe($NoEquipe);
+$DonneesInjectees['TitreDeLaPage']='Modifier Equipe';
+$this->load->view('templates/Entete');
+
+$this->load->view('admin/AjouterUnSponsor',$DonneesInjectees);
+
+$this->load->view('templates/PiedDePage'); 
+}
 }
 
 /* End of file Controllername.php */
