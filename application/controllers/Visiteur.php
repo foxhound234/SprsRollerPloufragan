@@ -3,12 +3,13 @@ class Visiteur extends CI_Controller {
      public function __construct()
      {
          parent::__construct();
-         //Do your magic here
      }
 
 
      public function CreerUnCompte()
      {
+      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  
       if($this->input->post('BtnCreer'))
       {
         $DonnesAinserer=array(
@@ -27,11 +28,14 @@ class Visiteur extends CI_Controller {
       {
         $this->load->view('templates/Entete');
         $this->load->view('visiteur/CreerUnCompte');
+        $this->load->view('templates/listeSponsor',$Data);
         $this->load->view('templates/PiedDePage');
       }
      }
      public function Connexion()
      {
+      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  
       if ($this->input->post('BtnConnexion'))
       {
        $DonnesDeConnexion=array(
@@ -43,6 +47,7 @@ class Visiteur extends CI_Controller {
        {       
          $this->load->view('templates/Entete');
         $this->load->view('visiteur/Connexion');
+        $this->load->view('templates/listeSponsor',$Data);
         $this->load->view('templates/PiedDePage');
        }
        else
@@ -60,11 +65,14 @@ class Visiteur extends CI_Controller {
       {
         $this->load->view('templates/Entete');
         $this->load->view('visiteur/Connexion');
+        $this->load->view('templates/listeSponsor',$Data);
         $this->load->view('templates/PiedDePage');
       }
      }
      public function AfficherLesProduit()
      {
+      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  
       $config=array();
       $config["base_url"] = site_url('Visiteur/AfficherLesProduits');
       $config["total_rows"] =$this->modeleProduit->NombreDeProduit();
@@ -86,13 +94,14 @@ class Visiteur extends CI_Controller {
     $DonneesInjectees["LiensPagination"]=$this->pagination->create_links();
   
     $this->load->view('templates/Entete');
-  
     $this->load->view('visiteur/ListeDesProduits',$DonneesInjectees);
-  
+    $this->load->view('templates/listeSponsor',$Data);
     $this->load->view('templates/PiedDePage');
      }
   public function AfficheLeProduit($NoProduit=null)
   {
+    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+
   $DonneesInjectees['LeProduit']=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $LeProduitRetournée=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $Libelle=$LeProduitRetournée['LIBELLE'];
@@ -112,6 +121,7 @@ class Visiteur extends CI_Controller {
       $this->cart->insert($insertion);
       $this->load->view('templates/Entete');
       $this->load->view('visiteur/insertionReussie');
+      $this->load->view('templates/listeSponsor',$Data);
       $this->load->view('templates/PiedDePage');
   }
   else
@@ -119,21 +129,22 @@ class Visiteur extends CI_Controller {
     $this->load->view('templates/Entete');
   
     $this->load->view('Visiteur/AfficheDetailProduit',$DonneesInjectees);
-  
+    $this->load->view('templates/listeSponsor',$Data);
     $this->load->view('templates/PiedDePage'); 
   }
 }
 
 public function AfficherLePanier()
 {
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->load->view('templates/Entete');
-  
   $this->load->view('Visiteur/AffichageduPanier');
-
+  $this->load->view('templates/listeSponsor',$Data);
   $this->load->view('templates/PiedDePage');
 }
 public function ModifierLePanier()
 {
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   if($this->input->post('BtnModifier'))
   {
     $total=$this->cart->total_items();
@@ -148,7 +159,7 @@ public function ModifierLePanier()
     $this->load->view('templates/Entete');
   
     $this->load->view('Visiteur/AffichageduPanier');
-  
+    $this->load->view('templates/listeSponsor',$Data);
     $this->load->view('templates/PiedDePage');
   }
   else
@@ -156,18 +167,19 @@ public function ModifierLePanier()
   $this->load->view('templates/Entete');
   
   $this->load->view('Visiteur/AffichageduPanier');
-
+  $this->load->view('templates/listeSponsor',$Data);
   $this->load->view('templates/PiedDePage');
   }
 }
 public function SupprimerUnProduitDuPanier($rowid)
 {
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $DonnesaSupprimer=array('rowid'=>$rowid);
   $this->cart->remove($DonnesaSupprimer);
   $this->load->view('templates/Entete');
   
   $this->load->view('Visiteur/AffichageduPanier');
-
+  $this->load->view('templates/listeSponsor',$Data);
   $this->load->view('templates/PiedDePage');
 }
 public function Contact()
@@ -201,6 +213,7 @@ public function RechercheProduit()
 }
 public function AffichagedeLaRecherche($Recherche=null)
 {
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   if (!($Recherche==null)&& !($Recherche==""))
   {
       $config=array();
@@ -227,19 +240,20 @@ public function AffichagedeLaRecherche($Recherche=null)
       $this->load->view('templates/Entete');
   
       $this->load->view('visiteur/AffichageRecherche',$DonneesInjectees);
-    
+      $this->load->view('templates/listeSponsor',$DonneesInjectees);
       $this->load->view('templates/PiedDePage'); 
       
   }
 }
 public function AfficherLesCategories()
 {
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 $DonneesInjectees['LesCategories']=$this->modeleCategorie->RetournerCategories();
 $DonneesInjectees['TitreDelapage']='Les Categorie';
 $this->load->view('templates/Entete');
   
 $this->load->view('visiteur/AffichageDesCategorie',$DonneesInjectees);
-
+$this->load->view('templates/listeSponsor',$Data);
 $this->load->view('templates/PiedDePage');
 }
 public function AfficheProduitcatego($NoCategorie=null)
@@ -258,14 +272,14 @@ public function AfficheProduitcatego($NoCategorie=null)
   $config['prev_link'] = 'Précédent';
   $this->pagination->initialize($config);
   $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
-
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
      $DonneesInjectees['LesProduits']= $this->modeleCategorie->ProduitCategorielimite($config["per_page"],$noPage,$NoCategorie);
       $DonneesInjectees['Titredelapage']='résultat de la recherche';
       $DonneesInjectees['LiensPagination']=$this->pagination->create_links();
       $this->load->view('templates/Entete');
   
       $this->load->view('visiteur/ListeDesProduitCatego',$DonneesInjectees);
-    
+      $this->load->view('templates/listeSponsor',$Data);
       $this->load->view('templates/PiedDePage'); 
 
 }
@@ -273,11 +287,9 @@ public function Accueil()
 {
   $DonneesInjectees['Titredelapage']='Accueil';
   $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-  $DonneesInjectees['NbPartenaires']=$this->modeleSponsor->NombreDeSponsor();
   $this->load->view('templates/Entete');
-  
-  $this->load->view('visiteur/Accueil',$DonneesInjectees);
-
+  $this->load->view('visiteur/Accueil'); 
+  $this->load->view('templates/listeSponsor',$DonneesInjectees);
   $this->load->view('templates/PiedDePage'); 
 }
 }
