@@ -52,10 +52,10 @@
     </ul> 
 <?php else:?>
 <ul class="nav navbar-nav navbar-right">
-        <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">HOME</a></li>
+        <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
         <li><a href="#band">BAND</a></li>
         <li><a href="#tour">TOUR</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="<?php echo site_url('Visiteur/Contact')?>">CONTACT</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Classement
           <span class="caret"></span></a>

@@ -278,27 +278,12 @@ public function Contact()
 {
 if ($this->input->post('BtnContact'))
 {
-  $config = Array(
-    'protocol' => 'smtp',
-    'smtp_host' => 'smtp.googlemail.com',
-    'smtp_port' =>587,
-    'smtp_user' => 'morganlb347@gmail.com',
-    'smtp_pass' => 'sexion2424',
-    'mailtype'  => 'html', 
-    'charset'   => 'iso-8859-1',
-    'wordwrap'=> TRUE,
-    'validate'=> TRUE,
-    '_smtp_auth'=> TRUE,   
-    'newline'=>"\r\n",                     
-    'smtp_crypto'=> 'ssl',
-);
-$Email=$this->input->post('txtEmail');
 $Contenu=$this->input->post('txtContenu');
-$this->email->initialize($config);
-$this->email->from('Morganlb347@gmail.com');
-$this->email->to('morganlb@protonmail.com');
-$this->email->subject('test');
-$this->email->message('test');
+$Email=$this->input->post('txtEmail');
+$this->email->from($Email);
+$this->email->to('Morganlb347@gmail.com');
+$this->email->subject('Contact');
+$this->email->message($Contenu);
 if($this->email->send()){
   echo 'You Are Luck!';
 }

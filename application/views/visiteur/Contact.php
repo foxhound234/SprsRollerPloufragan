@@ -11,19 +11,15 @@
 <body>
 <div class='container'>
 <h3 class="text-center">Contact</h3>
-<div class="row">
 <?php
 echo form_open('Visiteur/Contact');
-echo '<div class="col-sm-6 form-group">';
+echo '<div class="form-group">';
 echo form_input(array('name'=>'txtEmail','type'=>'email','value'=>'','class'=>'form-control','placeholder'=>'Email','required'=>'required'));
-echo '</div>';
-echo '<div class="col-sm-6 form-group">';
-echo form_textarea(array('name'=>'txtContenu', 'value'=>'','pattern'=>'[a-zA-Z0-9]+','required'=>'required','plcaholder'=>'Contenu'));
-echo '</div>';
-echo form_submit('BtnContact','Contacté');
+echo form_textarea(array('name'=>'txtContenu', 'value'=>'','pattern'=>'[a-zA-Z0-9]+','required'=>'required','class'=>'form-control','placeholder'=>'Contenu'));
+echo form_submit('BtnContact','Contacté',array('class'=>'btn btn-primary'));
 echo form_close();
+echo '</div>';
 ?>
-</div>
 </div>
 </body>
 </html>
