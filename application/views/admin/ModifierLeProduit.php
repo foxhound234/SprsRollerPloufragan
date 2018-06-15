@@ -56,7 +56,7 @@
     }
 echo "</select><br/>";
 
-    echo form_submit('BtnModifier', ' modifier Le Produit',array('class'=>'form-control'));
+    echo form_submit('BtnModifier', ' modifier Le Produit',array('class'=>"btn btn-primary"));
 
     echo form_close();    
     ?>

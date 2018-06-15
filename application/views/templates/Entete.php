@@ -27,7 +27,6 @@
         <li><a href="#myPage">HOME</a></li>
         <li><a href="#band">BAND</a></li>
         <li><a href="#tour">TOUR</a></li>
-        <li><a href="<?php echo site_url('Admin/AfficherLesProduit')?>">Modifier les Produits</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
           <span class="caret"></span></a>
@@ -39,6 +38,15 @@
             <li><a href="<?php echo site_url('Admin/AjouterUnSponsor') ?>">Un Sponsor </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUneLigue') ?>">Un Ligue </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUneTaille') ?>">Une Taille </a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lister
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<?php echo site_url('Admin/AfficherLesProduit') ?>">Les Produits</a></li>
+            <li><a href="<?php echo site_url('Admin/ListerLesEquipes') ?>">Les Equipes</a></li>
+            <li><a href="<?php echo site_url('') ?>">Les Sponsor </a></li>
           </ul>
         </li>
     </ul> 

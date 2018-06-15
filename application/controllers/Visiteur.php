@@ -3,6 +3,7 @@ class Visiteur extends CI_Controller {
      public function __construct()
      {
          parent::__construct();
+      $this->load->library('email');
      }
 
 
@@ -277,14 +278,32 @@ public function Contact()
 {
 if ($this->input->post('BtnContact'))
 {
+  $config = Array(
+    'protocol' => 'smtp',
+    'smtp_host' => 'smtp.googlemail.com',
+    'smtp_port' =>587,
+    'smtp_user' => 'morganlb347@gmail.com',
+    'smtp_pass' => 'sexion2424',
+    'mailtype'  => 'html', 
+    'charset'   => 'iso-8859-1',
+    'wordwrap'=> TRUE,
+    'validate'=> TRUE,
+    '_smtp_auth'=> TRUE,   
+    'newline'=>"\r\n",                     
+    'smtp_crypto'=> 'ssl',
+);
 $Email=$this->input->post('txtEmail');
 $Contenu=$this->input->post('txtContenu');
+$this->email->initialize($config);
+$this->email->from('Morganlb347@gmail.com');
 $this->email->to('morganlb@protonmail.com');
 $this->email->subject('test');
-$this->email->message($Contenu);
-if (!$this->email->send()){
-  var_dump($this->email->send());
-  $this->email->print_debugger();
+$this->email->message('test');
+if($this->email->send()){
+  echo 'You Are Luck!';
+}
+else{
+  echo $this->email->print_debugger();
 }
 }
 else
