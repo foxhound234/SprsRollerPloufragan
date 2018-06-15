@@ -38,6 +38,7 @@
             <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Produit </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUnSponsor') ?>">Un Sponsor </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUneLigue') ?>">Un Ligue </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUneTaille') ?>">Une Taille </a></li>
           </ul>
         </li>
     </ul> 

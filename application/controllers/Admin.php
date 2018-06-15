@@ -292,6 +292,23 @@ $this->load->view('admin/AjouterUnSponsor',$DonneesInjectees);
 
 $this->load->view('templates/PiedDePage'); 
 }
+public function AjouterUneTaille()
+{
+ if($this->input->post('BtnAjouter'))
+ {
+ $DonnesAinserer=array('NOMTAILLE'=>$this->input->post('txtTaille'));
+ $this->modeleTaille->InsererUneTaille($DonnesAinserer);
+ $this->load->view('templates/Entete');
+ $this->load->view('admin/InsertionReussie'); 
+ $this->load->view('templates/PiedDePage');
+ }
+ else
+ {
+    $this->load->view('templates/Entete');
+    $this->load->view('admin/AjouterUneTaille'); 
+    $this->load->view('templates/PiedDePage');
+ }
+}
 }
 
 /* End of file Controllername.php */

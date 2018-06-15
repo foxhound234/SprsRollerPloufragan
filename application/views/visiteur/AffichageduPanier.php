@@ -64,15 +64,13 @@
 
 </table>
 
-<p><?php echo form_submit('BtnModifier', 'Mettre a Jour Votre Panier',array('class'=>"btn btn-primary")); ?></p>
+<p><?php echo form_submit('BtnModifier', 'Mettre a Jour Votre Panier',array('class'=>"btn btn-primary"));'</p>'; 
+echo form_close();?>
 <?php
  echo form_open('Supporter/PasserCommande');
- if ($this->session->profil='S' or $this->session->profil='J')
+ if ($this->session->profil=='S'or $this->session->profil=='J')
 {
-echo form_submit('BtnAchat', 'passer commande',array('class'=>"btn btn-primary"));  
-}
-else
-{      
+  echo form_submit('btnAchat', 'passer commande',array('class'=>'btn btn-primary')); 
 }
  echo form_close();
  ?>
