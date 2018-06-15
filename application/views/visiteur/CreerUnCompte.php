@@ -43,7 +43,7 @@ echo form_label('MotDePasse', 'LblMdp');
 
 echo form_password(array('name'=>'txtMdp', 'value'=>'','required'=>'required','value'=>'','pattern'=>'.{6,}','title'=>'six caractère ou plus','class'=>'form-control'));
 
-echo form_submit('BtnCreer','Créer');
+echo form_submit('BtnCreer','Créer',array('class'=>'btn btn-default'));
 
 
 ?>

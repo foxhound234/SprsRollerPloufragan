@@ -182,25 +182,6 @@ public function SupprimerUnProduitDuPanier($rowid)
   $this->load->view('templates/listeSponsor',$Data);
   $this->load->view('templates/PiedDePage');
 }
-public function Contact()
-{
-if ($this->input->post('BtnContact'))
-{
-$DonnesMail=array(
-'Email'=>$this->input->post('txtEmail'),
-'Contenu'=>$this->input->post('txtContenu'),
-'Nom'=>$this->input->post('txtNom')
-);
-$this->email->from('morganlb347@gmail.com');
-$this->email->to($DonnesMail['Email']);
-$this->email->subject('test');
-$this->email->message($DonnesMail['Contenu']);
-if (!$this->email->send()){
-  $this->email->print_debugger();
-}
-
-}
-}
 public function RechercheProduit()
 {
   if ($this->input->post('btnrecherche'))
@@ -240,7 +221,7 @@ public function AffichagedeLaRecherche($Recherche=null)
       $this->load->view('templates/Entete');
   
       $this->load->view('visiteur/AffichageRecherche',$DonneesInjectees);
-      $this->load->view('templates/listeSponsor',$DonneesInjectees);
+      $this->load->view('templates/listeSponsor',$Data);
       $this->load->view('templates/PiedDePage'); 
       
   }
@@ -292,5 +273,31 @@ public function Accueil()
   $this->load->view('templates/listeSponsor',$DonneesInjectees);
   $this->load->view('templates/PiedDePage'); 
 }
+public function Contact()
+{
+if ($this->input->post('BtnContact'))
+{
+$DonnesMail=array(
+'Email'=>$this->input->post('txtEmail'),
+'Contenu'=>$this->input->post('txtContenu')
+);
+$this->email->from('morganlb347@gmail.com');
+$this->email->to($DonnesMail['Email']);
+$this->email->subject('test');
+$this->email->message($DonnesMail['Contenu']);
+if (!$this->email->send()){
+  $this->email->print_debugger();
+}
+else
+{
+  $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  $this->load->view('templates/Entete');
+  $this->load->view('visiteur/Accueil'); 
+  $this->load->view('templates/listeSponsor',$DonneesInjectees);
+  $this->load->view('templates/PiedDePage'); 
+}
+}
+}
+
 }
 /* End of file Controllername.php */
