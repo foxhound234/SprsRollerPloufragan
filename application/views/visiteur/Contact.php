@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
 </head>
 <body>
 <div class='container'>
@@ -22,6 +21,7 @@ echo '<div class="col-sm-6 form-group">';
 echo form_textarea(array('name'=>'txtContenu', 'value'=>'','pattern'=>'[a-zA-Z0-9]+','required'=>'required','plcaholder'=>'Contenu'));
 echo '</div>';
 echo form_submit('BtnContact','Contacté');
+echo form_close();
 ?>
 </div>
 </div>

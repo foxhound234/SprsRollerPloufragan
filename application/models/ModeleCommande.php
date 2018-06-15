@@ -10,6 +10,12 @@ class modeleCommande extends CI_Model {
       $this->db->insert('commande',$pDonnesAInseres);
       return $this->db->insert_id();
     }
+
+      public function AjouterUneligne($pDonnesAInseres)
+    {
+      $this->db->insert('ligne',$pDonnesAInseres);
+      return $this->db->insert_id();
+    }
     
 }
 

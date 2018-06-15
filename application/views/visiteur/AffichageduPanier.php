@@ -59,11 +59,22 @@
 <tr>
         <td colspan="2"> </td>
         <td class="right"><strong>Total</strong></td>
-        <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+        <td class="right">€<?php echo $this->cart->format_number($this->cart->total()); ?></td>
 </tr>
 
 </table>
 
-<p><?php echo form_submit('BtnModifier', 'Mettre a Jour Votre Panier'); ?></p>
+<p><?php echo form_submit('BtnModifier', 'Mettre a Jour Votre Panier',array('class'=>"btn btn-primary")); ?></p>
+<?php
+ echo form_open('Supporter/PasserCommande');
+ if ($this->session->profil='S' or $this->session->profil='J')
+{
+echo form_submit('BtnAchat', 'passer commande',array('class'=>"btn btn-primary"));  
+}
+else
+{      
+}
+ echo form_close();
+ ?>
 </body>
 </html>

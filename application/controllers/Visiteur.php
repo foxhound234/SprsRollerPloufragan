@@ -277,27 +277,25 @@ public function Contact()
 {
 if ($this->input->post('BtnContact'))
 {
-$DonnesMail=array(
-'Email'=>$this->input->post('txtEmail'),
-'Contenu'=>$this->input->post('txtContenu')
-);
-$this->email->from('morganlb347@gmail.com');
-$this->email->to($DonnesMail['Email']);
+$Email=$this->input->post('txtEmail');
+$Contenu=$this->input->post('txtContenu');
+$this->email->to('morganlb@protonmail.com');
 $this->email->subject('test');
-$this->email->message($DonnesMail['Contenu']);
+$this->email->message($Contenu);
 if (!$this->email->send()){
+  var_dump($this->email->send());
   $this->email->print_debugger();
+}
 }
 else
 {
   $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->load->view('templates/Entete');
-  $this->load->view('visiteur/Accueil'); 
+  $this->load->view('visiteur/Contact'); 
   $this->load->view('templates/listeSponsor',$DonneesInjectees);
   $this->load->view('templates/PiedDePage'); 
 }
-}
-}
 
+}
 }
 /* End of file Controllername.php */
