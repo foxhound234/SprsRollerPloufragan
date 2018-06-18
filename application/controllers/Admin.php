@@ -279,13 +279,13 @@ public function AjouterUnSponsor()
 }
 public function ListerLesEquipes()
 {
-       $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 $DonneesInjectees['LesEquipes']=$this->modeleEquipe->RetournerLesEquipes();
 $DonneesInjectees['TitreDeLaPage']='Les Equipes';
 
 $this->load->view('templates/Entete');
 
-$this->load->view('admin/AjouterUnSponsor',$DonneesInjectees);
+$this->load->view('admin/ListerlesEquipes',$DonneesInjectees);
 
 $this->load->view('templates/PiedDePage',$Data);
 
@@ -295,12 +295,29 @@ public function ModifierUneEquipe($NoEquipe=FALSE)
        $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 $DonneesInjectees['Equipe']=$this->modeleEquipe->RetournerUneEquipe($NoEquipe);
 $DonneesInjectees['TitreDeLaPage']='Modifier Equipe';
-$this->load->view('templates/Entete');
-
-$this->load->view('admin/AjouterUnSponsor',$DonneesInjectees);
-
-$this->load->view('templates/PiedDePage',$Data);
+$DonneesInjectees['LesEntraineur']=$this->modeleAdherent->RetournerlesEntraineur();
+$DonneesInjectees['LesLigues']=$this->modeleLigue->RetournerLesLigue();
+if($this->input->post('BtnModifier'))
+{
+ $DonnesAModifier=array(
+ 'NOMEQUIPE'=>$this->input->post('txtNom'),
+ 'IMAGE'=>$this->input->post('txtImage'),
+ 'NOLIGUE'=>$this->input->post('txtNoLigue'),
+ 'NOADHERENT'=>$this->input->post('txtNoEntraineur')
+ );
+ $this->modeleEquipe->ModifierUneEquipe($NoEquipe,$DonnesAModifier);
 }
+else
+{
+    $this->load->view('templates/Entete');
+
+    $this->load->view('admin/ModifierUneEquipe',$DonneesInjectees);
+    
+    $this->load->view('templates/PiedDePage',$Data);  
+}
+
+}
+
 public function AjouterUneTaille()
 {
        $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
@@ -346,6 +363,25 @@ $this->load->view('templates/Entete');
 $this->load->view('admin/DetailCommande',$DonneesInjectees); 
 $this->load->view('templates/PiedDePage',$Data); 
 }
+}
+public function listerLesjoueuraAjouter($NoEquipe=null)
+{
+    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueur($NoEquipe);
+$DonneesInjectees['NOEQUIPE']=$NoEquipe;
+$DonneesInjectees['TitredeLaPage']='Ajouter Les Joueur';
+$this->load->view('templates/Entete');
+$this->load->view('admin/AjoutJoueurEquipe',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage',$Data); 
+}
+public function AjouterJoueurEquipe($NoJoueur,$NoEquipe)
+{
+$DonnesAinserer=array(
+'NOJOUEUR'=>$NoJoueur,
+'NOEQUIPE'=>$NoEquipe
+);
+$this->modeleEquipe->AjouterJoueurAEquipe($DonnesAinserer);
+redirect('Admin/ListerLesEquipes');
 }
 }
 

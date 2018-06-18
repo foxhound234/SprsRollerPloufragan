@@ -31,7 +31,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Joueur</a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnjoueur') ?>">Un Joueur</a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUneEquipe') ?>">Une Equipe</a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUnUtilisateur') ?>">Un Utilisateur </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUnProduit') ?>">Un Produit </a></li>
@@ -54,7 +54,7 @@
 <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
         <li><a href="<?php echo site_url('Visiteur/Palmares') ?>">Palmares</a></li>
-        <li><a href="#tour">TOUR</a></li>
+        <li><a href="<?php echo site_url('Visiteur/Histoire') ?>">Histoire</a></li>
         <li><a href="<?php echo site_url('Visiteur/Contact')?>">CONTACT</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Classement

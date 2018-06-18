@@ -17,11 +17,11 @@ echo form_open('Admin/AjouterUneEquipe');
 
 echo form_label('NomEquipe', 'lblequipe');
 
-echo form_input(array('name'=>'txtNom', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z0-9]+','class'=>'form-control')).'<BR>';
+echo form_input(array('name'=>'txtNom', 'value'=>"".$Equipe->NOMEQUIPE."",'required'=>'required','pattern'=>'[a-zA-Z0-9]+','class'=>'form-control')).'<BR>';
 
 echo form_label('Image de l equipe', 'LblImage').'<BR>';
 
-echo form_input(array('name'=>'txtImage', 'value'=>'','required'=>'required','type'=>'file'));
+echo form_input(array('name'=>'txtImage', 'value'=>"".$Equipe->IMAGE."",'required'=>'required','type'=>'file'));
 
 echo form_label('Les entraineur', 'LblEntraineur');
 
@@ -39,7 +39,7 @@ foreach ($LesLigues as $uneligue) {
 }
 echo "</select><br/>";
 
-echo form_submit('BtnAjouter','Ajouter');
+echo form_submit('BtnModifier','Modifier');
 
 echo form_close();
 ?>

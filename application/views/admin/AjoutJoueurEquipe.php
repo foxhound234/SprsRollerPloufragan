@@ -10,29 +10,28 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class='container'>
+    
 <div class="table-responsive">
+
 <table class="table table-hover">
+
+<thead>
+<tr>
+ <th> NOM Prenom  </th>
+ <th> IMAGE </th>
+ <th> Ajouter </th>
+</tr>
+</thead>
 <tbody>
-   <thead>
-   <tr>
-    <th> IMAGE </th>
-    <th> Modifier L'équipe </th>
-    <th> Ajouter Des joueurs</th>
-    <th> Supprimer Des joueurs </th>
-   </tr>
-  </thead>
+<?php foreach ($LesJoueurs as $unJoueur) :
+echo'<tr>
+      <td>'.$unJoueur->NOM , $unJoueur->PRENOM.'</td>
+     <td> <img width="25%" src="'.img_url($unJoueur->IMAGEJOUEUR).'"></td>
+     <td>' .anchor('Admin/AjouterJoueurEquipe/'.$unJoueur->NOJOUEUR.'/'.$NOEQUIPE.'/','AJOUTER').'</td>
+     </tr>';
+ endforeach ?>
 </tbody>
-<?php foreach ($LesEquipes as $UneEquipe):
- echo'<tr>
- <td><img width="50%" src="'.img_url($UneEquipe->IMAGE).'"></td>
- <td>' .anchor('Admin/ModifierUneEquipe/'.$UneEquipe->NOEQUIPE,$UneEquipe->NOMEQUIPE).'</td>
- <td>' .anchor('Admin/listerLesjoueuraAjouter/'.$UneEquipe->NOEQUIPE,'Ajouter Des joueurs').'</td>
- <td>' .anchor('Admin/ModifierUneEquipe/'.$UneEquipe->NOEQUIPE,'Enlever Des joueurs').'</td>
- </tr>';
-endforeach ?>
 </table>
-</div>
 </div>
 </body>
 </html>

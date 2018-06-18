@@ -62,11 +62,5 @@ $this->db->where('NOPRODUIT', $pNoproduit);
 $this->db->update('produit',$DonnesaModifier);
 }
 
-
-
-
-
-
-
 }
 /* End of file ModelName.php */
