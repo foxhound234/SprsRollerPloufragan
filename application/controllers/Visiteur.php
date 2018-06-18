@@ -3,7 +3,6 @@ class Visiteur extends CI_Controller {
      public function __construct()
      {
          parent::__construct();
-      $this->load->library('email');
      }
 
 
@@ -20,7 +19,7 @@ class Visiteur extends CI_Controller {
         'ADRESSE'=>$this->input->post('txtAdresse'),
         'CODEPOSTAL'=>$this->input->post('txtCodepostal'),
         'EMAIL'=>$this->input->post('txtEmail'),
-        'MOTDEPASSE'=>$this->input->post('txtMDP'),
+        'MOTDEPASSE'=>$this->input->post('txtMdp'),
         'PROFIL'=>'S'
         );
         $this->modeleAdherent->insererUnAdherent($DonnesAinserer);
@@ -285,7 +284,10 @@ $this->email->to('Morganlb347@gmail.com');
 $this->email->subject('Contact');
 $this->email->message($Contenu);
 if($this->email->send()){
-  echo 'You Are Luck!';
+  $this->load->view('templates/Entete');
+  $this->load->view('visiteur/ContactReussie'); 
+  $this->load->view('templates/listeSponsor',$DonneesInjectees);
+  $this->load->view('templates/PiedDePage');
 }
 else{
   echo $this->email->print_debugger();

@@ -13,7 +13,7 @@
 <div class='container'>
 <?php echo form_open('Visiteur/RechercheProduit');?>
 <?php echo form_input(array('name'=>'txtlibelle', 'value'=>'','class'=>'form-control','placeholder'=>'Recherché'));?>
-<?php echo form_submit(array('name'=>'btnrecherche', 'value'=>'Recherché','class'=>'btn btn-primary btn-block'));?>
+<?php echo form_submit(array('name'=>'btnrecherche','value'=>'Recherché','class'=>'btn btn-primary'));?>
 <?php echo form_close();?>
 <div class="table-responsive">
 <table class="table table-hover">

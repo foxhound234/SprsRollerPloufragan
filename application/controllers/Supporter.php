@@ -13,15 +13,15 @@ class Supporter extends CI_Controller {
  public function PasserCommande()
  {
     $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-   if($this->input->post('BtnAchat'))
+   if($this->input->post('btnAchat'))
    {
-    $Datetime = date("Y-m-d H:i:s");
+    $datetime=date("Y-m-d H:i:s");
     $DonnesDeCommande=array(
-        'DATECOMMANDE'=>$Datetime,
+        'DATECOMMANDE'=>$datetime,
         'NOADHERENT'=>$this->session->Noadherent
     );
    $commande=$this->modeleCommande->insererUneCommande($DonnesDeCommande);
-    foreach($this->cart->content() as $Unproduit)
+    foreach($this->cart->contents() as $Unproduit)
     {
      $DonnesDuproduit=array(
      'NOCOMMANDE'=>$commande,

@@ -9,6 +9,7 @@
     <script src="main.js"></script>
 </head>
 <body>
+<div class='container-fluid'>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 <div class="carousel-inner" role="listbox">
       <?php 
