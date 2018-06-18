@@ -19,8 +19,8 @@ class modeleCommande extends CI_Model {
     public function AfficherLesCommandes()
     {
       $requete="select distinct commande.NOCOMMANDE,DATECOMMANDE
-      FROM client,commande,ligne,produit 
-      WHERE client.noclient=commande.NOCLIENT
+      FROM adherent,commande,ligne,produit 
+      WHERE adherent.NOADHERENT=commande.NOADHERENT
       AND ligne.NOCOMMANDE=commande.NOCOMMANDE
       AND ligne.NOPRODUIT=produit.NOPRODUIT
       AND DATETRAITEMENT IS NULL
@@ -31,8 +31,8 @@ class modeleCommande extends CI_Model {
     public function AfficheUneCommande($NOCOMMANDE)
     {
       $requete="select distinct commande.NOCOMMANDE,ligne.NOPRODUIT,NOM,PRENOM,ADRESSE,EMAIL,DATECOMMANDE,QUANTITECOMMANDEE,LIBELLE,ROUND(SUM(produit.PRIXHT*((produit.TAUXTVA/100)+1)*ligne.QUANTITECOMMANDEE))AS PRIXTTC
-      FROM client,commande,ligne,produit 
-      WHERE client.noclient=commande.NOCLIENT
+      FROM adherent,commande,ligne,produit 
+      WHERE adherent.NOADHERENT=commande.NOADHERENT
       AND ligne.NOCOMMANDE=commande.NOCOMMANDE
       AND ligne.NOPRODUIT=produit.NOPRODUIT
       AND ligne.NOCOMMANDE=".$NOCOMMANDE."
@@ -50,6 +50,12 @@ class modeleCommande extends CI_Model {
       GROUP by ligne.NOCOMMANDE";
       $query = $this->db->query($requete);
       return $query->row();
+    }
+    public function TraitementDeLaCommande($NOCOMMANDE,$dateTraitement)
+    {
+      $this->db->set('DATETRAITEMENT',$dateTraitement); 
+      $this->db->where('NOCOMMANDE', $NOCOMMANDE);
+      $this->db->update('commande');
     }
 }
 

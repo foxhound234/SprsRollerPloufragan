@@ -26,7 +26,7 @@
      <ul class="nav navbar-nav navbar-right">
         <li><a href="#myPage">HOME</a></li>
         <li><a href="#band">BAND</a></li>
-        <li><a href="#tour">TOUR</a></li>
+        <li><a href="<?php echo site_url('Admin/ListedesCommandes') ?>">Commande</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
           <span class="caret"></span></a>

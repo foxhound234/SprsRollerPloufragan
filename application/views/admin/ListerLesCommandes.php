@@ -22,9 +22,9 @@
 <tbody>
 <?php foreach ($LesCommandes as $LaCommande) :
 echo '<tr>
-<td>'.$unCommande->NOCOMMANDE.'</td>
-<td>'.$unCommande->DATECOMMANDE.'</td> 
-<td>' .anchor('Admin/DetaildeLaCommande/'.$unCommande->NOCOMMANDE,'Voir Le Detail de la commande').'</td>
+<td>'.$LaCommande->NOCOMMANDE.'</td>
+<td>'.$LaCommande->DATECOMMANDE.'</td> 
+<td>' .anchor('Admin/DetaildeLaCommande/'.$LaCommande->NOCOMMANDE,'Voir Le Detail de la commande').'</td>
 </tr>';
 endforeach?>
 </tbody>

@@ -36,8 +36,8 @@ foreach($LaCommande as $Leproduit):
 </table>
 <?php
 echo '<h2> PRIX TOTAL :'.$PRIXTOTAL->PRIXTTC.'€ </h2>';
-echo form_open('Admin/Validerlescommande/'.$LaCommande[0]->NOCOMMANDE);
-echo form_submit('btnTraitement', 'valider la commande').'</td>';
+echo form_open('Admin/DetaildeLaCommande/'.$LaCommande[0]->NOCOMMANDE);
+echo form_submit('btnTraitement', 'valider la commande',array('class'=>'btn btn-primary')).'</td>';
 echo form_close();
 ?>
 </div>

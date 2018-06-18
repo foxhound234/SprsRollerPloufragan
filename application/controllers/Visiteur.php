@@ -8,8 +8,7 @@ class Visiteur extends CI_Controller {
 
      public function CreerUnCompte()
      {
-      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-  
+        $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
       if($this->input->post('BtnCreer'))
       {
         $DonnesAinserer=array(
@@ -28,14 +27,12 @@ class Visiteur extends CI_Controller {
       {
         $this->load->view('templates/Entete');
         $this->load->view('visiteur/CreerUnCompte');
-        $this->load->view('templates/listeSponsor',$Data);
-        $this->load->view('templates/PiedDePage');
+        $this->load->view('templates/PiedDePage',$Data);
       }
      }
      public function Connexion()
      {
-      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-  
+       $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
       if ($this->input->post('BtnConnexion'))
       {
        $DonnesDeConnexion=array(
@@ -47,8 +44,7 @@ class Visiteur extends CI_Controller {
        {       
          $this->load->view('templates/Entete');
         $this->load->view('visiteur/Connexion');
-        $this->load->view('templates/listeSponsor',$Data);
-        $this->load->view('templates/PiedDePage');
+        $this->load->view('templates/PiedDePage',$Data);
        }
        else
        {
@@ -58,21 +54,19 @@ class Visiteur extends CI_Controller {
         $this->session->profil=$UtilisateurRetourner->PROFIL;
         $this->load->view('templates/Entete');
         $this->load->view('Visiteur/ConnexionReussie');
-        $this->load->view('templates/PiedDePage');
+        $this->load->view('templates/PiedDePage',$Data);
        }
       }
       else
       {
         $this->load->view('templates/Entete');
         $this->load->view('visiteur/Connexion');
-        $this->load->view('templates/listeSponsor',$Data);
-        $this->load->view('templates/PiedDePage');
+        $this->load->view('templates/PiedDePage',$Data);
       }
      }
      public function AfficherLesProduit()
      {
-      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-  
+       $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
       $config=array();
       $config["base_url"] = site_url('Visiteur/AfficherLesProduits');
       $config["total_rows"] =$this->modeleProduit->NombreDeProduit();
@@ -95,13 +89,11 @@ class Visiteur extends CI_Controller {
   
     $this->load->view('templates/Entete');
     $this->load->view('visiteur/ListeDesProduits',$DonneesInjectees);
-    $this->load->view('templates/listeSponsor',$Data);
-    $this->load->view('templates/PiedDePage');
+    $this->load->view('templates/PiedDePage',$Data);
      }
   public function AfficheLeProduit($NoProduit=null)
   {
-    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-
+     $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $DonneesInjectees['LeProduit']=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $LeProduitRetournée=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $Libelle=$LeProduitRetournée['LIBELLE'];
@@ -121,30 +113,24 @@ class Visiteur extends CI_Controller {
       $this->cart->insert($insertion);
       $this->load->view('templates/Entete');
       $this->load->view('visiteur/insertionReussie');
-      $this->load->view('templates/listeSponsor',$Data);
-      $this->load->view('templates/PiedDePage');
+      $this->load->view('templates/PiedDePage',$Data);
   }
   else
   {
     $this->load->view('templates/Entete');
-  
     $this->load->view('Visiteur/AfficheDetailProduit',$DonneesInjectees);
-    $this->load->view('templates/listeSponsor',$Data);
-    $this->load->view('templates/PiedDePage'); 
+    $this->load->view('templates/PiedDePage',$Data); 
   }
 }
 
 public function AfficherLePanier()
 {
-  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->load->view('templates/Entete');
   $this->load->view('Visiteur/AffichageduPanier');
-  $this->load->view('templates/listeSponsor',$Data);
-  $this->load->view('templates/PiedDePage');
+  $this->load->view('templates/PiedDePage',$Data);
 }
 public function ModifierLePanier()
 {
-  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   if($this->input->post('BtnModifier'))
   {
     $total=$this->cart->total_items();
@@ -157,29 +143,26 @@ public function ModifierLePanier()
       $this->cart->update($DonnesaModifier);
     }
     $this->load->view('templates/Entete');
-  
     $this->load->view('Visiteur/AffichageduPanier');
-    $this->load->view('templates/listeSponsor',$Data);
-    $this->load->view('templates/PiedDePage');
+    $this->load->view('templates/PiedDePage',$Data);
   }
   else
   {
   $this->load->view('templates/Entete');
   
   $this->load->view('Visiteur/AffichageduPanier');
-  $this->load->view('templates/listeSponsor',$Data);
-  $this->load->view('templates/PiedDePage');
+  $this->load->view('templates/PiedDePage',$Data);
   }
 }
 public function SupprimerProduitduPanier($rowid)
 {
+   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->cart->remove($rowid);
   $this->load->view('templates/Entete');
   
   $this->load->view('Visiteur/AffichageduPanier');
-  $this->load->view('templates/listeSponsor',$Data);
-  $this->load->view('templates/PiedDePage');
+  $this->load->view('templates/PiedDePage',$Data);
 }
 public function RechercheProduit()
 {
@@ -193,7 +176,7 @@ public function RechercheProduit()
 }
 public function AffichagedeLaRecherche($Recherche=null)
 {
-  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   if (!($Recherche==null)&& !($Recherche==""))
   {
       $config=array();
@@ -218,10 +201,8 @@ public function AffichagedeLaRecherche($Recherche=null)
       $DonneesInjectees['LiensPagination']=$this->pagination->create_links();
       
       $this->load->view('templates/Entete');
-  
       $this->load->view('visiteur/AffichageRecherche',$DonneesInjectees);
-      $this->load->view('templates/listeSponsor',$Data);
-      $this->load->view('templates/PiedDePage'); 
+      $this->load->view('templates/PiedDePage',$Data); 
       
   }
 }
@@ -231,13 +212,12 @@ $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 $DonneesInjectees['LesCategories']=$this->modeleCategorie->RetournerCategories();
 $DonneesInjectees['TitreDelapage']='Les Categorie';
 $this->load->view('templates/Entete');
-  
 $this->load->view('visiteur/AffichageDesCategorie',$DonneesInjectees);
-$this->load->view('templates/listeSponsor',$Data);
-$this->load->view('templates/PiedDePage');
+$this->load->view('templates/PiedDePage',$Data);
 }
 public function AfficheProduitcatego($NoCategorie=null)
 {
+   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $config=array();
   $config["base_url"] = site_url('Visiteur/AfficheProduitcatego/'.$NoCategorie);
   $config["total_rows"] =$this->modeleCategorie->NombreDeProduitCategorie($NoCategorie);
@@ -259,21 +239,20 @@ public function AfficheProduitcatego($NoCategorie=null)
       $this->load->view('templates/Entete');
   
       $this->load->view('visiteur/ListeDesProduitCatego',$DonneesInjectees);
-      $this->load->view('templates/listeSponsor',$Data);
-      $this->load->view('templates/PiedDePage'); 
+      $this->load->view('templates/PiedDePage',$Data); 
 
 }
 public function Accueil()
 {
+   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $DonneesInjectees['Titredelapage']='Accueil';
-  $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->load->view('templates/Entete');
   $this->load->view('visiteur/Accueil'); 
-  $this->load->view('templates/listeSponsor',$DonneesInjectees);
-  $this->load->view('templates/PiedDePage'); 
+  $this->load->view('templates/PiedDePage',$Data); 
 }
 public function Contact()
 {
+   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 if ($this->input->post('BtnContact'))
 {
 $Contenu=$this->input->post('txtContenu');
@@ -285,8 +264,7 @@ $this->email->message($Contenu);
 if($this->email->send()){
   $this->load->view('templates/Entete');
   $this->load->view('visiteur/ContactReussie'); 
-  $this->load->view('templates/listeSponsor',$DonneesInjectees);
-  $this->load->view('templates/PiedDePage');
+  $this->load->view('templates/PiedDePage',$Data);
 }
 else{
   echo $this->email->print_debugger();
@@ -294,13 +272,18 @@ else{
 }
 else
 {
-  $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->load->view('templates/Entete');
   $this->load->view('visiteur/Contact'); 
-  $this->load->view('templates/listeSponsor',$DonneesInjectees);
-  $this->load->view('templates/PiedDePage'); 
+  $this->load->view('templates/PiedDePage',$Data); 
 }
 
+}
+public function Palmares()
+{
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  $this->load->view('templates/Entete');
+  $this->load->view('visiteur/Palmares'); 
+  $this->load->view('templates/PiedDePage',$Data);
 }
 }
 /* End of file Controllername.php */
