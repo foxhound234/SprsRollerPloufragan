@@ -28,7 +28,7 @@
  <td><img width="50%" src="'.img_url($UneEquipe->IMAGE).'"></td>
  <td>' .anchor('Admin/ModifierUneEquipe/'.$UneEquipe->NOEQUIPE,$UneEquipe->NOMEQUIPE).'</td>
  <td>' .anchor('Admin/listerLesjoueuraAjouter/'.$UneEquipe->NOEQUIPE,'Ajouter Des joueurs').'</td>
- <td>' .anchor('Admin/ModifierUneEquipe/'.$UneEquipe->NOEQUIPE,'Enlever Des joueurs').'</td>
+ <td>' .anchor('Admin/listerLesjoueuraEnlever/'.$UneEquipe->NOEQUIPE,'Enlever Des joueurs').'</td>
  </tr>';
 endforeach ?>
 </table>

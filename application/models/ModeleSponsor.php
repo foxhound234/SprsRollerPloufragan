@@ -12,9 +12,14 @@ class modeleSponsor extends CI_Model {
   return $this->db->insert('sponsor',$pDonnesAInseres);
 }
 
- public function RetournerLesSponsors()
+ public function RetournerLesSponsors($NOSPONSOR=null)
         {
-         $requete = $this->db->get('sponsor');
+          if($NOSPONSOR===null)
+          {
+            $requete = $this->db->get('sponsor');
+         return $requete->result(); // retour d'un tableau associatif ici
+          }
+         $requete = $this->db->get_where('sponsor',array('NOSPONSOR'=>$NOSPONSOR));
          return $requete->result(); // retour d'un tableau associatif ici
         }
 public function NombreDeSponsor()

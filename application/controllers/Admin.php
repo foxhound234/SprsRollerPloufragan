@@ -374,14 +374,45 @@ $this->load->view('templates/Entete');
 $this->load->view('admin/AjoutJoueurEquipe',$DonneesInjectees); 
 $this->load->view('templates/PiedDePage',$Data); 
 }
+public function  listerLesjoueuraEnlever($NoEquipe=null)
+{
+    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+    $DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueurEquipe($NoEquipe);
+    $DonneesInjectees['NOEQUIPE']=$NoEquipe;
+    $DonneesInjectees['TitredeLaPage']='Ajouter Les Joueur';
+    $this->load->view('templates/Entete');
+    $this->load->view('admin/SupprimerJoueurEquipe',$DonneesInjectees); 
+    $this->load->view('templates/PiedDePage',$Data);   
+}
 public function AjouterJoueurEquipe($NoJoueur,$NoEquipe)
 {
 $DonnesAinserer=array(
 'NOJOUEUR'=>$NoJoueur,
 'NOEQUIPE'=>$NoEquipe
 );
-$this->modeleEquipe->AjouterJoueurAEquipe($DonnesAinserer);
+$this->modeleEquipe->AjouterJoueurUneEquipe($DonnesAinserer);
 redirect('Admin/ListerLesEquipes');
+}
+public function SupprimerJoueurEquipe($NoJoueur,$NoEquipe)
+{
+$this->modeleEquipe->SupprimerJoueurUneEquipe($NoJoueur,$NoEquipe);
+redirect('Admin/ListerLesEquipes');
+}
+
+public function ListerLesSponsor()
+{
+    $DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+    $this->load->view('templates/Entete');
+    $this->load->view('admin/ListerLesSponsor',$DonneesInjectees); 
+    $this->load->view('templates/PiedDePage',$DonneesInjectees);  
+}
+public function ModifierLeSponsor($Nosponsor=null)
+{
+$DonneesInjectees['LeSponsor']=$this->modeleSponsor->RetournerLesSponsors($Nosponsor);
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$this->load->view('templates/Entete');
+    $this->load->view('admin/ModifierLeSponsor',$DonneesInjectees); 
+    $this->load->view('templates/PiedDePage',$Data);
 }
 }
 

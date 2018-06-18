@@ -51,9 +51,15 @@ AND NOEQUIPE=".$Noequipe."";
 $query = $this->db->query($requete);
 return $query->result();
   }
-  public function AjouterJoueurAEquipe($pDonnesAInseres)
+  public function AjouterJoueurUneEquipe($pDonnesAInseres)
   {
    return $this->db->insert('jouer',$pDonnesAInseres);
+  }
+  public function SupprimerJoueurUneEquipe($NoJoueur,$NoEquipe)
+  {
+   $this->db->where('NOJOUEUR',$NoJoueur);
+   $this->db->where('NOEQUIPE',$NoEquipe);
+   $this->db->delete('jouer');
   }
 }
 
