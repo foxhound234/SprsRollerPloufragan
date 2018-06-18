@@ -285,5 +285,12 @@ public function Palmares()
   $this->load->view('visiteur/Palmares'); 
   $this->load->view('templates/PiedDePage',$Data);
 }
+public function Histoire()
+{
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  $this->load->view('templates/Entete');
+  $this->load->view('visiteur/Histoire'); 
+  $this->load->view('templates/PiedDePage',$Data);
+}
 }
 /* End of file Controllername.php */
