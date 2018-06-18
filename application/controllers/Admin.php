@@ -309,6 +309,23 @@ public function AjouterUneTaille()
     $this->load->view('templates/PiedDePage');
  }
 }
+public function ListedesCommandes()
+{
+ $DonneesInjectees['LesCommandes']=$this->modeleCommande->AfficherLesCommandes();
+ $DonneesInjectees['Titredelapage']='Les Commandes';
+ $this->load->view('templates/Entete');
+ $this->load->view('admin/ListerLesCommandes',$DonneesInjectees); 
+ $this->load->view('templates/PiedDePage');
+}
+public function DetaildeLaCommande($Nocommande=null)
+{
+$DonneesInjectees['LaCommande']=$this->modeleCommande->AfficheUneCommande($Nocommande);
+$DonneesInjectees['Titredelapage']='La Commande';
+$DonneesInjectees['PRIXTOTAL']=$this->modeleCommande->CalculPrixTotal($Nocommande);
+$this->load->view('templates/Entete');
+$this->load->view('admin/DetailCommande',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage');
+}
 }
 
 /* End of file Controllername.php */

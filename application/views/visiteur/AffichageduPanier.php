@@ -47,6 +47,8 @@
                         <?php endif; ?>
 
                 </td>
+                <?php echo form_close(); ?>
+                 <?php echo '<td>'.anchor('Visiteur\SupprimerProduitduPanier/'.$items['rowid'],'Supprimer');?>
                 <?php echo form_close();?>
                 <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
                 <td style="text-align:right"><?php echo $this->cart->format_number($items['subtotal']); ?></td>

@@ -171,11 +171,10 @@ public function ModifierLePanier()
   $this->load->view('templates/PiedDePage');
   }
 }
-public function SupprimerUnProduitDuPanier($rowid)
+public function SupprimerProduitduPanier($rowid)
 {
   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-  $DonnesaSupprimer=array('rowid'=>$rowid);
-  $this->cart->remove($DonnesaSupprimer);
+  $this->cart->remove($rowid);
   $this->load->view('templates/Entete');
   
   $this->load->view('Visiteur/AffichageduPanier');
