@@ -17,21 +17,19 @@
 
      echo  form_label('Nom du sponsor', 'Lblsponsor');
     
-     echo form_input(array('name'=>'txtNomSponso', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z0-9]+','class'=>'form-control'));
-        
+     echo form_input(array('name'=>'txtNomSponso', 'value'=>"".$LeSponsor->NOMSPONSOR."",'required'=>'required','pattern'=>'[a-zA-Z0-9]+','class'=>'form-control'));
      echo form_label('Logo du sponsor','Lblogosponsor');
-       
-     echo form_input(array('name'=>'txtLogo', 'value'=>'','required'=>'required','type'=>'file'));
+     echo form_input(array('name'=>'txtLogo', 'value'=>"".$LeSponsor->IMAGE."",'required'=>'required','type'=>'file'));
         
      echo form_label('Email','LblEmail');
 
-     echo form_input(array('name'=>'txtEmail', 'value'=>'','required'=>'required','type'=>'email','class'=>'form-control'));
+     echo form_input(array('name'=>'txtEmail', 'value'=>"".$LeSponsor->EMAIL."",'required'=>'required','type'=>'email','class'=>'form-control'));
 
      echo form_label('Site web', 'Lblsiteweb');
 
-     echo form_input(array('name'=>'txtSite', 'value'=>'','pattern'=>"https?://.+",'class'=>'form-control'));
+     echo form_input(array('name'=>'txtSite', 'value'=>"".$LeSponsor->SITEWEB."",'pattern'=>"https?://.+",'class'=>'form-control'));
      
-    echo form_submit('BtnAjouter', 'Ajouter');
+    echo form_submit('BtnModifier', 'Modifier');
     
     echo form_close();  
      ?>

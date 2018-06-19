@@ -408,11 +408,24 @@ public function ListerLesSponsor()
 }
 public function ModifierLeSponsor($Nosponsor=null)
 {
-$DonneesInjectees['LeSponsor']=$this->modeleSponsor->RetournerLesSponsors($Nosponsor);
+$DonneesInjectees['LeSponsor']=$this->modeleSponsor->RetournerLeSponsor($Nosponsor);
 $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-$this->load->view('templates/Entete');
+if($this->input->post('BtnModifier'))
+{
+    $DonnesAinserer=array(
+        'NOMSPONSOR'=>$this->input->post('txtNomSponso'),
+        'IMAGE'=>$this->input->post('txtLogo'),
+        'EMAIL'=>$this->input->post('txtEmail'),
+        'SITEWEB'=>$this->input->post('txtSite')
+         );
+         $this->modeleSponsor->insererUnSponsor($DonnesAinserer);
+}
+else
+{
+    $this->load->view('templates/Entete');
     $this->load->view('admin/ModifierLeSponsor',$DonneesInjectees); 
-    $this->load->view('templates/PiedDePage',$Data);
+    $this->load->view('templates/PiedDePage',$Data);   
+}
 }
 }
 

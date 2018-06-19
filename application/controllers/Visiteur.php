@@ -292,5 +292,29 @@ public function Histoire()
   $this->load->view('visiteur/Histoire'); 
   $this->load->view('templates/PiedDePage',$Data);
 }
+public function ListeDesEquipes()
+{
+  $DonneesInjectees['LesEquipes']=$this->modeleEquipe->RetournerLesEquipes();
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  $this->load->view('templates/Entete');
+  $this->load->view('visiteur/ListeDesEquipes',$DonneesInjectees); 
+  $this->load->view('templates/PiedDePage',$Data);
+}
+public function AfficherEffectif($Noequipe=null)
+{
+$DonneesInjectees['LesJoueur']=$this->modeleEquipe->ListerLesJoueurEquipe($Noequipe);
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$this->load->view('templates/Entete');
+$this->load->view('visiteur/AfficherEffectif',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage',$Data);
+}
+public function AfficherLesEvenement($Noequipe=null)
+{
+  $DonneesInjectees['LesEvenement']=$this->modeleEquipe->ListerLesJoueurEquipe($Noequipe);
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$this->load->view('templates/Entete');
+$this->load->view('visiteur/AfficherEffectif',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage',$Data);
+}
 }
 /* End of file Controllername.php */
