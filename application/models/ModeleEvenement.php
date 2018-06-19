@@ -17,8 +17,12 @@ public function NombreEvenementEquipe($NOEQUIPE)
   $requete=$this->db->count_all_results();
   return $requete;
 }
-
-public function retournerEvenementLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner)
+public function retournerEvenement($NoEvenement)
+{
+    $requete=$this->db->get_where('evenement',array('NOEVENEMENT'=>$NoEvenement));
+    return $requete->row();
+}
+public function retournerEvenementLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner,$NOEQUIPE)
 { 	// Nota Bene : surcharge non supportée par PHP 
     $this->db->limit($nombreDeLignesARetourner, $noPremiereLigneARetourner);
     $requete = $this->db->get_where("evenement",array('NOEQUIPE'=>$NOEQUIPE));

@@ -9,11 +9,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class='container'>
-<?php echo form_open('Visiteur/RechercheProduit');?>
-<?php echo form_input(array('name'=>'txtlibelle', 'value'=>'','class'=>'form-control','placeholder'=>'Recherché'));?>
-<?php echo form_submit(array('name'=>'btnrecherche','value'=>'Recherché','class'=>'btn btn-primary'));?>
-<?php echo form_close();?>
+<?php if($LesEvenement==null) :?>
+<H3> Pas Evenement </h3>
+<?php else:?>
 <div class="table-responsive">
 <table class="table table-hover">
 <thead>
@@ -27,16 +25,16 @@
 <?php foreach ($LesEvenement as $unEvenement) :
 echo'<tr>
     <td>'. $unEvenement->NOMEVENEMENT.'</td>
-     <td>'.anchor('Visiteur/AfficheLeProduit/'.$unEvenement->NOEVENEMENT,'<img width="25%" src="'.img_url($unEvenement->NOMIMAGE).">")'</td>
-     <td>'. $unEvenement->DATEEVENEMENT .'</td>
+     <td>'.anchor('Visiteur/DetailEvenement/'.$unEvenement->NOEVENEMENT,'<img width="50%" src="'.img_url($unEvenement->NOMIMAGE).'">').'</td>
+     <td>'.$unEvenement->DATEEVENEMENT.'</td>
      </tr>';
  endforeach ?>
 </tbody>
 </table>
 </div>
-<p> pour voir un produit clique sur le nom du produit </p>
+<p> pour voir l'article cliquez sur Image </p>
 <p><?php echo $LiensPagination?></p>
 </div>
-</section> 
+<?php endif;?>
 </body>
 </html>

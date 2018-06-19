@@ -17,11 +17,11 @@
  
    echo form_label('Nomevenement','lblnomevenement');
    
-   echo form_input(array('name'=>'txtNomEvenement','class'=>'form-control','value'=>'','pattern'=>'[a-zA-Z0-9]+','title'=>'le nom de L evenement doit commencer par une lettre'));
+   echo form_input(array('name'=>'txtNomEvenement','class'=>'form-control','value'=>'','pattern'=>'[a-zA-Z0-9\s]+','title'=>'le nom de L evenement doit commencer par une lettre','required'=>'required'));
 
    echo form_label('detailevenement','lbldetailevenement');
 
-   echo form_textarea(array('name'=>'txtDetail', 'value'=>'', 'class'=>'form-control','pattern'=>'[a-zA-Z0-9]+','title'=>'le Detail de L evenement doit commencer par une lettre'));
+   echo form_textarea(array('name'=>'txtDetail', 'value'=>'', 'class'=>'form-control','pattern'=>'[a-zA-Z0-9\s]+','title'=>'le Detail de L evenement doit commencer par une lettre','required'=>'required'));
     
    echo  form_label('Image', 'lblNomimage');
 
@@ -29,7 +29,7 @@
 
    echo  form_label('lien', 'lbllien');
 
-   echo form_input(array('name'=>'txtlien', 'value'=>'','pattern'=>"https?://.+",'title'=>'exemple:https://www.exemple.fr','class'=>'form-control'));
+   echo form_input(array('name'=>'txtlien', 'value'=>'','pattern'=>"https?://.+",'title'=>'exemple:https://www.exemple.fr','class'=>'form-control','required'=>'required'));
 
  echo form_label('DateEvenement', 'lbldate');
 

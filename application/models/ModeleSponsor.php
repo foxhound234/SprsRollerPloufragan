@@ -17,7 +17,11 @@ class modeleSponsor extends CI_Model {
             $requete = $this->db->get('sponsor');
          return $requete->result(); // retour d'un tableau associatif ici
         }
-
+public function ModifierLeSponsor($NoSponsor,$DonnesaModifier)
+{
+$this->db->where('NOSPONSOR', $NoSponsor);
+$this->db->update('sponsor',$DonnesaModifier);
+}
 
 public function RetournerLeSponsor($NOSPONSOR)
 {

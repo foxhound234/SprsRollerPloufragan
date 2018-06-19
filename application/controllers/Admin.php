@@ -441,13 +441,13 @@ $DonneesInjectees['LeSponsor']=$this->modeleSponsor->RetournerLeSponsor($Nospons
 $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 if($this->input->post('BtnModifier'))
 {
-    $DonnesAinserer=array(
+    $DonnesAModifier=array(
         'NOMSPONSOR'=>$this->input->post('txtNomSponso'),
         'IMAGE'=>$this->input->post('txtLogo'),
         'EMAIL'=>$this->input->post('txtEmail'),
         'SITEWEB'=>$this->input->post('txtSite')
          );
-         $this->modeleSponsor->insererUnSponsor($DonnesAinserer);
+         $this->modeleSponsor->ModifierLeSponsor($Nosponsor,$DonnesAModifier);
 }
 else
 {

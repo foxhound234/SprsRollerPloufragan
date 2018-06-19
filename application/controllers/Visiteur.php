@@ -71,9 +71,10 @@ class Visiteur extends CI_Controller {
       $config["base_url"] = site_url('Visiteur/AfficherLesProduits');
       $config["total_rows"] =$this->modeleProduit->NombreDeProduit();
       $config["per_page"] = 5;
-      $config["uri_segment"] = 3; 
+      $config["uri_segment"] = 3;
+       
       $config['first_link'] = 'Premier';
-  
+      
       $config['last_link'] = 'Dernier';
     
       $config['next_link'] = 'Suivant';
