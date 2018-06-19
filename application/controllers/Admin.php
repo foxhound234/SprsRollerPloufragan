@@ -317,7 +317,36 @@ else
 }
 
 }
+public function AjouterUnEvenement()
+{
+    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+    $DonneesInjectees['LesEquipes'];$this->modeleEquipe->RetournerLesEquipes();
+  if($this->input->post('btnAjouter'))
+  {
+  $DonnesAinserer=array(
+  'DATEEVENEMENT'=>$this->input->post('txtDateEvenement'),
+  'NOMEVENEMENT'=>$this->input->post('txtNomEvenement'),
+  'DETAILEVENEMENT'=>$this->input->post('txtDetail'),
+   'NOMIMAGE'=>$this->input->post('txtImage'),
+   'LIEN'=>$this->input->post('txtlien'),
+    'NOEQUIPE'=>$this->input->post('txtnoEquipe')
+  );
+ $this->modeleEvenement->insererUnEvenement($DonnesAinserer);
+ $this->load->view('templates/Entete');
 
+ $this->load->view('admin/InsertionReussie');
+ 
+ $this->load->view('templates/PiedDePage',$Data);
+  }
+  else
+  {
+    $this->load->view('templates/Entete');
+
+    $this->load->view('admin/AjouterUnEvenement',$DonneesInjectees);
+    
+    $this->load->view('templates/PiedDePage',$Data);
+  }
+}
 public function AjouterUneTaille()
 {
        $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();

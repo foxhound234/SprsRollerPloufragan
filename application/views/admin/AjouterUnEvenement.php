@@ -27,13 +27,25 @@
 
    echo form_input(array('type'=>'file','name'=>'txtImage', 'value'=>''));
 
-   echo  form_label('Image', 'lblNomimage');
+   echo  form_label('lien', 'lbllien');
 
-   echo form_input(array('name', 'value', $attributes));
-   
+   echo form_input(array('name'=>'txtlien', 'value'=>'','pattern'=>"https?://.+",'title'=>'exemple:https://www.exemple.fr','class'=>'form-control'));
 
+ echo form_label('DateEvenement', 'lbldate');
+
+  echo form_input(array('name'=>'txtDateEvenement', 'value'=>'','required'=>'required','type'=>'date','class'=>'clearBtn'));
+
+   echo form_label('L Equipe','lblequipe');
    
-   
+    echo "<select name='txtnoEquipe' class='form-control' id='id' required>";
+    foreach ($LesEquipes as $UneEquipe) {
+        echo "<option value='". $uneEquipe->NOEQUIPE. "'>" . $uneEquipe->NOMEQUIPE. "</option>";
+    }
+echo "</select><br/>";
+
+ echo form_submit('btnAjouter', 'Ajouter',array('class'=>'btn btn-primary'));
+ 
+ echo form_close();
    ?>
     </div>
     </div>
