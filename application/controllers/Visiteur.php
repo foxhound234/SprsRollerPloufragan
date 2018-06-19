@@ -331,9 +331,11 @@ $this->load->view('templates/PiedDePage',$Data);
 }
 public function DetailEvenement($NoEvenement=null)
 {
-
-
-
+$DonneesInjectees['Evenement']=$this->modeleEvenement->retournerEvenement($NoEvenement);
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$this->load->view('templates/Entete');
+$this->load->view('visiteur/DetailEvenement',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage',$Data);
 }
 }
 /* End of file Controllername.php */

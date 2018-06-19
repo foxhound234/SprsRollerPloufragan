@@ -19,7 +19,7 @@
 
      echo  form_label('Nom du sponsor', 'Lblsponsor');
     
-     echo form_input(array('name'=>'txtNomSponso', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z0-9]+','class'=>'form-control'));
+     echo form_input(array('name'=>'txtNomSponso', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z0-9\s]+','class'=>'form-control'));
         
      echo form_label('Logo du sponsor','Lblogosponsor');
        

@@ -38,7 +38,7 @@
   
     echo form_label('DateAjout', 'LblDateajoute').'<BR>';
 
-    echo form_input(array('name'=>'txtDateAjout', 'value'=>'','required'=>'required','type'=>'date','class'=>'clearBtn'));
+    echo form_input(array('name'=>'txtDateAjout', 'value'=>'','required'=>'required','type'=>'date','class'=>'clearBtn form-control'));
     
     echo form_label('Disponibilité', 'LblDisponibilité').'<BR>';
 
@@ -55,7 +55,7 @@
     }
 echo "</select><br/>";
 
-    echo form_submit('BtnAjouter', 'Ajouter Le Produit',array('class'=>'form-control'));
+    echo form_submit('BtnAjouter', 'Ajouter Le Produit',array('class'=>'btn-primary'));
 
     echo form_close();    
     ?>

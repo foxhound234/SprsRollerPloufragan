@@ -21,7 +21,7 @@ echo form_input(array('name'=>'txtNom', 'value'=>'','required'=>'required','patt
 
 echo form_label('prenom', 'Lblprenom');
 
-echo form_input(array('name'=>'txtPrenom', 'value'=>'','class'=>'form-control','pattern'=>'[a-zA-Z]*'));
+echo form_input(array('name'=>'txtPrenom', 'value'=>'','class'=>'form-control','pattern'=>'[a-zA-Z\s]+'));
 
 echo form_label('Ville', 'LblVille');
 

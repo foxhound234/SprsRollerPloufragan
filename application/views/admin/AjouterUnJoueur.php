@@ -18,7 +18,7 @@ echo form_open('Admin/AjouterUnjoueur');
 
 echo form_label('NOM', 'LblNom');
 
-echo form_input(array('name'=>'txtNom', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z]*','class'=>'form-control'));
+echo form_input(array('name'=>'txtNom', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z\s]+','class'=>'form-control'));
 
 echo form_label('prenom', 'Lblprenom');
 

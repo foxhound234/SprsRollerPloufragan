@@ -22,7 +22,7 @@ echo "<div class='input-group'>";
 echo "<span class='input-group-addon'><i class='glyphicon glyphicon-lock'></i></span>";
 echo form_password(array('name'=>'txtMdp', 'value'=>'','class'=>'form-control','placeholder'=>'Mot De Passe','title'=>'six caractère ou plus'));
 echo "</div>";
-echo form_submit('BtnConnexion', 'connexion',array('class'=>'btn btn-default'));
+echo form_submit('BtnConnexion', 'connexion',array('class'=>'btn btn-primary'));
 echo form_close();
 ?>
 </div>
