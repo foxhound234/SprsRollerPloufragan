@@ -217,7 +217,6 @@ $this->load->view('templates/PiedDePage',$Data);
 }
 public function AfficheProduitcatego($NoCategorie=null)
 {
-   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $config=array();
   $config["base_url"] = site_url('Visiteur/AfficheProduitcatego/'.$NoCategorie);
   $config["total_rows"] =$this->modeleCategorie->NombreDeProduitCategorie($NoCategorie);
@@ -310,11 +309,30 @@ $this->load->view('templates/PiedDePage',$Data);
 }
 public function AfficherLesEvenement($Noequipe=null)
 {
-  $DonneesInjectees['LesEvenement']=$this->modeleEquipe->ListerLesJoueurEquipe($Noequipe);
-$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$config=array();
+  $config["base_url"] = site_url('Visiteur/AfficherLesEvenement/'.$Noequipe);
+  $config["total_rows"] =$this->modeleEvenement->NombreEvenementEquipe($Noequipe);
+  $config["per_page"] = 5;
+  $config["uri_segment"] = 4; 
+  $config['first_link'] = 'Premier';
+  $config['last_link'] = 'Dernier';
+  $config['next_link'] = 'Suivant';
+  $config['prev_link'] = 'Précédent';
+  $this->pagination->initialize($config);
+  $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+ $DonneesInjectees['LesEvenement']= $this->modeleEvenement->retournerEvenementLimite($config["per_page"],$noPage,$Noequipe);
+ $DonneesInjectees['Titredelapage']='Les Evenement';
+ $DonneesInjectees['LiensPagination']=$this->pagination->create_links();
 $this->load->view('templates/Entete');
-$this->load->view('visiteur/AfficherEffectif',$DonneesInjectees); 
+$this->load->view('visiteur/AfficherLesEvenement',$DonneesInjectees); 
 $this->load->view('templates/PiedDePage',$Data);
+}
+public function DetailEvenement($NoEvenement=null)
+{
+
+
+
 }
 }
 /* End of file Controllername.php */

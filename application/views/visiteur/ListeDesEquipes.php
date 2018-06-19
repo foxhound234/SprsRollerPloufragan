@@ -22,10 +22,10 @@
 <tbody>
 <?php foreach($LesEquipes as $UneEquipe)
 echo'<tr>
-<td><img width="50%" src="'.img_url($UneEquipe->IMAGE).'"></td>
+<td><img width="40%" src="'.img_url($UneEquipe->IMAGE).'"></td>
 <td>'. $UneEquipe->NOMEQUIPE.'</td>
-<td>'.anchor('Visiteur/AfficherEffectif/'.$UneEquipe->NOEQUIPE,form_submit('btnEffectif', 'Voir l effectif',array('class'=>'btn btn-primary')));'</td>
-<td>'.anchor('Visiteur/AfficherEffectif/'.$UneEquipe->NOEQUIPE,form_submit('btnEffectif', 'Voir l effectif',array('class'=>'btn btn-primary')));'</td>
+<td>'.anchor('Visiteur/AfficherEffectif/'.$UneEquipe->NOEQUIPE,form_submit('btnEffectif', 'Voir l effectif',array('class'=>'btn btn-primary'))).'</td>
+<td>'.anchor('Visiteur/AfficherLesEvenement/'.$UneEquipe->NOEQUIPE,form_submit('btnEvenement', 'Voir les evenements',array('class'=>'btn btn-primary'))). '</td>
 </tr>';
 ?>
 </tbody>

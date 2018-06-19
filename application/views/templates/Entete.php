@@ -56,6 +56,7 @@
         <li><a href="<?php echo site_url('Visiteur/Palmares') ?>">Palmares</a></li>
         <li><a href="<?php echo site_url('Visiteur/Histoire') ?>">Histoire</a></li>
         <li><a href="<?php echo site_url('Visiteur/Contact')?>">CONTACT</a></li>
+        <li><a href="<?php echo site_url('Visiteur/ListeDesEquipes')?>">Les Equipes</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Classement
           <span class="caret"></span></a>

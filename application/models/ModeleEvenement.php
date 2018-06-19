@@ -11,8 +11,25 @@ class modeleEvenement extends CI_Model {
   return $this->db->insert_id();
 }
 
+public function NombreEvenementEquipe($NOEQUIPE)
+{
+  $this->db->get_where('evenement',array('NOEQUIPE'=>$NOEQUIPE));
+  $requete=$this->db->count_all_results();
+  return $requete;
+}
 
-
+public function retournerEvenementLimite($nombreDeLignesARetourner, $noPremiereLigneARetourner)
+{ 	// Nota Bene : surcharge non supportée par PHP 
+    $this->db->limit($nombreDeLignesARetourner, $noPremiereLigneARetourner);
+    $requete = $this->db->get_where("evenement",array('NOEQUIPE'=>$NOEQUIPE));
+    if ($requete->num_rows() > 0) { // si nombre de lignes > 0
+        foreach ($requete->result() as $ligne) {
+            $jeuDEnregsitrements[] = $ligne;
+        }
+        return $jeuDEnregsitrements;
+    }
+    return false;
+} // retournerArticlesLimite
 
 
 
