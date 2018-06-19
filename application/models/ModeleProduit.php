@@ -8,7 +8,9 @@ class modeleProduit extends CI_Model {
 
 public function InsererUnProduit($pDonnesAInseres)
 {
-return $this->db->insert('produit',$pDonnesAInseres);
+$this->db->insert('produit',$pDonnesAInseres);
+$Lastid=$this->db->insert_id();
+  return $Lastid;
 }
 public function RetournerLeProduit($NoProduit)
 {

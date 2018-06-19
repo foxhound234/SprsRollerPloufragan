@@ -50,11 +50,16 @@
 
     echo form_label('LesCategorie', 'LblCategorie');
  echo "<select name='txtNoCategorie' class='form-control' id='id' required>";
-    foreach ($LesCategorie as $uneCategorie) {
+    foreach ($LesCategories as $uneCategorie) {
         echo "<option value='". $uneCategorie['NOCATEGORIE'] . "'>" . $uneCategorie['LIBELLE'] . "</option>";
     }
 echo "</select><br/>";
-
+    echo form_label('Taille', 'Lbltaille');
+    echo "<select name='txtNoTaille' class='form-control' id='id' required>";
+    foreach ($LesTailles as $uneTaille) {
+        echo "<option value='". $uneTaille->NOTAILLE ."'>" . $uneTaille->NOMTAILLE. "</option>";
+    }
+echo "</select><br/>";
     echo form_submit('BtnAjouter', 'Ajouter Le Produit',array('class'=>'btn-primary'));
 
     echo form_close();    

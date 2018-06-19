@@ -16,8 +16,9 @@ class Admin extends CI_Controller {
    public function AjouterUnProduit()
    {
           $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+       $Donnesinjectees['LesTailles']=$this->modeleTaille->RetournerLesTailles();
        $Donnesinjectees['TitreDeLaPage']='Ajouter Un Produit';
-       $Donnesinjectees['LesCategorie']=$this->modeleCategorie->RetournerCategories();
+       $Donnesinjectees['LesCategories']=$this->modeleCategorie->RetournerCategories();
        if($this->input->post('BtnAjouter'))
        {
         $DonnesAinserer=array(
@@ -31,7 +32,12 @@ class Admin extends CI_Controller {
          'DISPONIBLE'=>$this->input->post('txtDispo'),
          'NOCATEGORIE'=>$this->input->post('txtNoCategorie')
         );
-        $this->modeleProduit->InsererUnProduit($DonnesAinserer);
+        $NoProduit=$this->modeleProduit->InsererUnProduit($DonnesAinserer);
+        $DonnesAinserer=array(
+            'NOTAILLE'=>$this->input->post('txtNoTaille'),
+            'NOPRODUIT'=>$NoProduit
+           );
+           
         redirect('Admin/AfficherLesProduits');
        }
        else

@@ -8,8 +8,12 @@ class modeleTaille extends CI_Model {
     public function RetournerLesTailles()
     {
      $requete = $this->db->get('taille');
-     return $requete->result_array(); // retour d'un tableau associatif ici
+     return $requete->result(); // retour d'un tableau associatif ici
     }  
+    public function AssignerUnetaille($pDonnesAInseres)
+    {
+        return $this->db->insert('disponible_taille',$pDonnesAInseres);
+    }
     public function InsererUneTaille($pDonnesAInseres)
     {
     return $this->db->insert('taille',$pDonnesAInseres);
