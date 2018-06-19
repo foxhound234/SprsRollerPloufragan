@@ -320,7 +320,7 @@ else
 public function AjouterUnEvenement()
 {
     $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-    $DonneesInjectees['LesEquipes'];$this->modeleEquipe->RetournerLesEquipes();
+    $DonneesInjectees['LesEquipes']=$this->modeleEquipe->RetournerLesEquipes();
   if($this->input->post('btnAjouter'))
   {
   $DonnesAinserer=array(

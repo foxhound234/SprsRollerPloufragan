@@ -13,7 +13,7 @@
     <div class='container'>
     <div class='form-group'>
   <?php
-   echo form_open('url', '', $hidden);
+   echo form_open('Admin/AjouterUnEvenement');
  
    echo form_label('Nomevenement','lblnomevenement');
    
@@ -33,13 +33,13 @@
 
  echo form_label('DateEvenement', 'lbldate');
 
-  echo form_input(array('name'=>'txtDateEvenement', 'value'=>'','required'=>'required','type'=>'date','class'=>'clearBtn'));
+  echo form_input(array('name'=>'txtDateEvenement', 'value'=>'','required'=>'required','type'=>'date','class'=>'clearBtn form-control'));
 
    echo form_label('L Equipe','lblequipe');
    
     echo "<select name='txtnoEquipe' class='form-control' id='id' required>";
     foreach ($LesEquipes as $UneEquipe) {
-        echo "<option value='". $uneEquipe->NOEQUIPE. "'>" . $uneEquipe->NOMEQUIPE. "</option>";
+        echo "<option value='". $UneEquipe->NOEQUIPE. "'>" . $UneEquipe->NOMEQUIPE. "</option>";
     }
 echo "</select><br/>";
 

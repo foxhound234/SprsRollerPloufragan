@@ -26,7 +26,7 @@ class modeleEquipe extends CI_Model {
     $this->db->where('NOEQUIPE', $pNoproduit);
     $this->db->update('equipe',$DonnesaModifier);
    }
-   public function ListerLesJoueur($Noequipe)
+   public function ListerLesJoueurs($Noequipe)
    {
      $requete="select NOJOUEUR,IMAGEJOUEUR,NOM,PRENOM 
               FROM joueur,adherent 

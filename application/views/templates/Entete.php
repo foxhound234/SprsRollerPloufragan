@@ -38,6 +38,7 @@
             <li><a href="<?php echo site_url('Admin/AjouterUnSponsor') ?>">Un Sponsor </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUneLigue') ?>">Un Ligue </a></li>
             <li><a href="<?php echo site_url('Admin/AjouterUneTaille') ?>">Une Taille </a></li>
+            <li><a href="<?php echo site_url('Admin/AjouterUnEvenement') ?>">Un Evenement </a></li>
           </ul>
         </li>
         <li class="dropdown">
