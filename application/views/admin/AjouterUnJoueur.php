@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="<?php echo css_url('Accueil')?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -52,7 +53,7 @@ echo form_label('MotDePasse', 'LblMdp');
 
 echo form_password(array('name'=>'txtMdp', 'value'=>'','required'=>'required','pattern'=>'.{6,}','title'=>'six caractère ou plus','class'=>'form-control'));
 
-echo form_submit('BtnAjouter', 'Ajouter');
+echo form_submit('BtnAjouter', 'Ajouter',array('class'=>'btn-primary'));
 
 echo form_close();
 ?>

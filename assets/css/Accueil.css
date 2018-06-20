@@ -7,6 +7,7 @@ body{
 }
 .container{
     background-color: rgb(7, 8, 8);  
+    color: gold;
 }
 .container > h2:nth-child(4){
     color:gold;
@@ -16,4 +17,7 @@ body{
 }
 .black{
     background-color: rgb(7, 8, 8);
+}
+div.container-fluid:nth-child(1){
+    background-color: rgb(7, 8, 8);  
 }

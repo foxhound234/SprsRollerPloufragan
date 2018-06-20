@@ -411,7 +411,7 @@ $this->load->view('templates/PiedDePage',$Data);
 public function listerLesjoueuraAjouter($NoEquipe=null)
 {
     $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-$DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueur($NoEquipe);
+$DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueurs($NoEquipe);
 $DonneesInjectees['NOEQUIPE']=$NoEquipe;
 $DonneesInjectees['TitredeLaPage']='Ajouter Les Joueur';
 $this->load->view('templates/Entete');

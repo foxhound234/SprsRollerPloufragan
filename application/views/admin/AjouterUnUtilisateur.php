@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
+    <link rel="stylesheet" href="<?php echo css_url('Accueil')?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
@@ -56,7 +57,7 @@ $type=array(
 echo form_dropdown('txtType',$type,array('required'=>'required','class'=>'form-control')).'<BR>';
 
 
-echo form_submit('BtnAjouter', 'Ajouter');
+echo form_submit('BtnAjouter', 'Ajouter',array('class'=>'btn-primary'));
 
 
 echo form_close();

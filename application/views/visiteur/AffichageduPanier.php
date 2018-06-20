@@ -6,7 +6,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="<?php echo css_url('Table')?>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,7 +14,7 @@
 <body>
 <?php echo form_open('Visiteur/ModifierLePanier'); ?>
 
-<table cellpadding="6" cellspacing="1" style="width:100%" border="0">
+<table cellpadding="6" cellspacing="1" style="width:100%" border="0" class='table table-hover'>
 
 <tr>
         <th>QTY</th>

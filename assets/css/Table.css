@@ -13,4 +13,9 @@
     color: gold; 
   }
 
-  
+  body > h2:nth-child(11){
+    color: gold; 
+  }
+  .table-responsive > h2:nth-child(2){
+    color: gold; 
+  } 
