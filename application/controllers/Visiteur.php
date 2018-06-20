@@ -3,6 +3,7 @@ class Visiteur extends CI_Controller {
      public function __construct()
      {
          parent::__construct();
+         $this->load->library('email');
      }
 
 
@@ -126,6 +127,7 @@ class Visiteur extends CI_Controller {
 
 public function AfficherLePanier()
 {
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->load->view('templates/Entete');
   $this->load->view('Visiteur/AffichageduPanier');
   $this->load->view('templates/PiedDePage',$Data);
@@ -157,7 +159,6 @@ public function ModifierLePanier()
 }
 public function SupprimerProduitduPanier($rowid)
 {
-   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $this->cart->remove($rowid);
   $this->load->view('templates/Entete');

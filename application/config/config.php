@@ -1,20 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-$config['useragent']    = 'CodeIgniter';
-$config['protocol']     = 'smtp';
-$config['smtp_host']    = 'ssl://smtp.gmail.com';
-$config['smtp_user']    = 'morganlb347@gmail.com'; 
-$config['smtp_pass']    = 'sexion2424'; 
-$config['smtp_port']	='587';
-$config['wordwrap']     = TRUE;    
-$config['wrapchars']    = 76;
-$config['mailtype']     = 'text';
-$config['charset']      = 'utf-8';
-$config['validate']     = FALSE;
-$config['priority']     = 3;
-$config['newline']      = "\r\n";
-$config['crlf']         = "\r\n";
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
