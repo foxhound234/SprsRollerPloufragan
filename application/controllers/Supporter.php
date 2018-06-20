@@ -33,23 +33,34 @@ class Supporter extends CI_Controller {
     $Nom=$this->session->identifiant;
     $Prixtotal=$this->cart->total();
     $Email=$this->session->Email;
-    $msg = "Boujour Votre Commande sera traités:<br><br>";
+    $msg = "Boujour Votre Commande sera traités:";
     $this->email->from('Morganlb347@gmail.com');
-    $this->email->to('morganlb@protonmail.com');
-    $this->email->subject('Merci pour la commande');
-    $this->email->message('test');
+    $this->email->to($Email);
+    $this->email->subject('Merci pour la commande:');
+    foreach ($this->cart->contents() as $Unproduit)
+{
+    $Prix=$Unproduit['price'];
+    $Nom=$Unproduit['name'];
+    $msg .='Nom du produit:';
+    $msg .=$Nom;
+    $msg .='</BR>';
+    $msg .='prix:';
+    $msg .=$Prix;
+    $msg .='€';
+    $msg .='</BR>';
+};
+$msg .='prix total:';
+$msg .=$Prixtotal;
+    $this->email->message($msg);
     if($this->email->send()){
+        $this->cart->destroy();
         $this->load->view('templates/Entete');
-        $this->load->view('visiteur/ContactReussie'); 
+        $this->load->view('visiteur/InsertionReussie'); 
         $this->load->view('templates/PiedDePage',$DonneesInjectees);
       }
       else{
          $this->email->print_debugger();
       }       
-    $this->cart->destroy();
-    $this->load->view('templates/Entete');
-    $this->load->view('visiteur/InsertionReussie'); 
-    $this->load->view('templates/PiedDePage',$DonneesInjectees);
    }
    else
    {

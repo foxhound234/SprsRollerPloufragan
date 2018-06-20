@@ -134,6 +134,7 @@ public function AfficherLePanier()
 }
 public function ModifierLePanier()
 {
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   if($this->input->post('BtnModifier'))
   {
     $total=$this->cart->total_items();
@@ -152,7 +153,6 @@ public function ModifierLePanier()
   else
   {
   $this->load->view('templates/Entete');
-  
   $this->load->view('Visiteur/AffichageduPanier');
   $this->load->view('templates/PiedDePage',$Data);
   }
@@ -268,7 +268,7 @@ if($this->email->send()){
   $this->load->view('templates/PiedDePage',$Data);
 }
 else{
-  echo $this->email->print_debugger();
+   $this->email->print_debugger();
 }
 }
 else

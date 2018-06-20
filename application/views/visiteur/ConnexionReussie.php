@@ -4,7 +4,7 @@
 if(!($this->session->profil==='A'))
 {
 
- echo "<p> <a href='". site_url('Visiteur/afficherlesproduits')."'>Retour à la liste des articles</a><p>"; 
+ echo "<p> <a href='". site_url('Visiteur/AfficherLesProduit')."'>Retour à la liste des articles</a><p>"; 
 }
 else
 {
