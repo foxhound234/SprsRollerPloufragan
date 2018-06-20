@@ -1,0 +1,16 @@
+.table{
+    background-color:black;
+    background-color: gold;
+}
+
+.table hover{
+    background-color: gold;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color:black;
+    border-color: transparent;  
+    color: gold; 
+  }
+
+  

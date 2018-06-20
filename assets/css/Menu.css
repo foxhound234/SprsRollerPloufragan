@@ -12,12 +12,12 @@ background-color:  Gold;
 }
 /* Add a gray color to all navbar links */
 .navbar li a, .navbar .navbar-brand {
-    color: Gold!important;
+    color: gold!important;
 }
 
 /* On hover, the links will turn white */
 .navbar-nav li a:hover {
-    color: rgb(85, 34, 34) !important;
+    color: #f0f0f0 !important;
 }
 
 /* The active link */
@@ -27,7 +27,7 @@ background-color:  Gold;
 
 /* Remove border color from the collapsible button */
 .navbar-default .navbar-toggle {
-    background-color:  Gold;
+    background-color:  #ffff2a;
     border-color: transparent;
 }
 
@@ -43,8 +43,14 @@ background-color:  Gold;
 
 /* On hover, the dropdown links will turn red */
 .dropdown-menu li a:hover {
-    background-color: red !important;
+    background-color: Gold !important;
 } 
-body{
-   background-color:  Gold; 
+
+
+#myNavbar{
+    background-color: rgb(7, 8, 8);
+    border-color: transparent;
+}
+.black{
+    background-color: rgb(7, 8, 8);
 }

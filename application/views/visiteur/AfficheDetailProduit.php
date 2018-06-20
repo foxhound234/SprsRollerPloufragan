@@ -6,7 +6,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="<?php echo css_url('Table')?>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -25,7 +25,7 @@ echo '<p>'.img($LeProduit['NOMIMAGE']).'</p>';
  else
  {
    echo form_open('Visiteur\AfficheLeProduit/'.$LeProduit['NOPRODUIT']);
-   echo form_submit('btnajouter', 'ajouter').'<BR>';
+   echo form_submit('btnajouter', 'ajouter',array('class'=>'btn btn-primary')).'<BR>';
    echo form_close();
 
  }

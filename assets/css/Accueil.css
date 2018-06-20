@@ -1,0 +1,19 @@
+h3, h2, p {
+    color:gold;
+}
+
+body{
+    background-color: rgb(7, 8, 8);
+}
+.container{
+    background-color: rgb(7, 8, 8);  
+}
+.container > h2:nth-child(4){
+    color:gold;
+}
+.container > h3:nth-child(1){
+    color:gold;
+}
+.black{
+    background-color: rgb(7, 8, 8);
+}

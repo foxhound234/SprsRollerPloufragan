@@ -389,6 +389,15 @@ $DonneesInjectees['PRIXTOTAL']=$this->modeleCommande->CalculPrixTotal($Nocommand
 if($this->input->post('btnTraitement'))
 {
 $DateTraitement=date("Y-m-d H:i:s");
+$lesproduits=$this->modeleCommande->AfficheUneCommande($Nocommande);
+foreach ($lesproduits as $unproduit)
+{
+$donneesamodifier=array(
+'NOPRODUIT'=>$unproduit->NOPRODUIT,
+'QUANTITECOMMANDEE'=>$unproduit->QUANTITECOMMANDEE
+);
+$this->modeleProduit->ModifierStockunProduit($donneesamodifier['NOPRODUIT'],$donneesamodifier['QUANTITECOMMANDEE']);
+}
 $this->modeleCommande->TraitementDeLaCommande($Nocommande,$DateTraitement);
 redirect('Admin/ListedesCommandes');
 }

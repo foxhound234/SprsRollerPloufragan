@@ -12,6 +12,12 @@ $this->db->insert('produit',$pDonnesAInseres);
 $Lastid=$this->db->insert_id();
   return $Lastid;
 }
+public function ModifierStockunProduit($pNoproduit,$quantitecommandée)
+{
+$this->db->where('NOPRODUIT', $pNoproduit);
+$this->db->set('QUANTITEENSTOCK', '`QUANTITEENSTOCK`-'.$quantitecommandée.'', FALSE); 
+$this->db->update('produit');
+}
 public function RetournerLeProduit($NoProduit)
 {
  $requete=$this->db->get_where('produit',array('NOPRODUIT'=>$NoProduit));

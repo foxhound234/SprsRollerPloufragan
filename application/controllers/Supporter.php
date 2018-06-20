@@ -51,6 +51,7 @@ class Supporter extends CI_Controller {
 };
 $msg .='prix total:';
 $msg .=$Prixtotal;
+$msg .='€';
     $this->email->message($msg);
     if($this->email->send()){
         $this->cart->destroy();
