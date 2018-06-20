@@ -3,9 +3,6 @@
     margin-bottom: 0;
     background-color: #2d2d30;
     border: 0;
-    font-size: 11px !important;
-    letter-spacing: 4px;
-    opacity:0.9;
 }
 .navbar-default{
 background-color:  Gold;
@@ -17,11 +14,7 @@ html body.black nav.navbar.navbar-default div.container-fluid div.navbar-header 
 .navbar li a, .navbar .navbar-brand {
     color: gold!important;
 }
-.navbar-nav {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-}
+
 /* On hover, the links will turn white */
 .navbar-nav li a:hover {
     color: #f0f0f0 !important;

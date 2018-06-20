@@ -25,7 +25,7 @@
      </div>
      <div class="collapse navbar-collapse" id="myNavbar">
      <?php if ($this->session->profil=='A'):?>
-     <ul class="nav navbar-nav navbar-right">
+     <ul class="nav navbar-nav">
      <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
         <li><a href="<?php echo site_url('Admin/ListedesCommandes') ?>">Commande</a></li>
         <li class="dropdown">
@@ -51,14 +51,19 @@
             <li><a href="<?php echo site_url('Admin/ListerLesSponsor') ?>">Les Sponsor </a></li>
           </ul>
         </li>
-    </ul> 
-<?php else:?>
-<ul class="nav navbar-nav navbar-right">
+        <?php else:?>
+<ul class="nav navbar-nav">
         <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
-        <li><a href="<?php echo site_url('Visiteur/Palmares') ?>">Palmares</a></li>
-        <li><a href="<?php echo site_url('Visiteur/Histoire') ?>">Histoire</a></li>
         <li><a href="<?php echo site_url('Visiteur/Contact')?>">CONTACT</a></li>
         <li><a href="<?php echo site_url('Visiteur/ListeDesEquipes')?>">Les Equipes</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Club
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <li><a href="<?php echo site_url('Visiteur/Palmares') ?>">Palmares</a></li>
+        <li><a href="<?php echo site_url('Visiteur/Histoire') ?>">Histoire</a></li>
+          </ul>
+        </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Classement
           <span class="caret"></span></a>
@@ -79,15 +84,14 @@
             <li> <a href="<?php echo site_url('Visiteur/AfficherLesProduit') ?>">Liste Des produits</a></li>
             <li><a href="<?php echo site_url('Visiteur/AfficherLesCategories')?>">Liste Des Categorie </a></li>
           </ul>
+          <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </li>
-        <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
      <?php endif;?>
      <?php if($this->session->profil==null):?>
-   <ul class="nav navbar-nav">
    <li><a href="<?php echo site_url('Visiteur/Connexion') ?>">Connexion</a></li>
     <li><a href="<?php echo site_url('Visiteur/CreerUnCompte') ?>">Enregistrement</a></li>
-    </ul>
     <?php endif;?>
+    </ul>
     </div>
   </div>
 </nav>

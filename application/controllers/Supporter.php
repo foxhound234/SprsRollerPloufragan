@@ -70,6 +70,35 @@ $msg .='€';
     $this->load->view('templates/PiedDePage',$DonneesInjectees);
    }  
  }
+public function ModifierProfil()
+{
+$NoProfil=array('NOADHERENT'=>$this->session->Noadherent);
+$DonneesInjectees['Adherent']=$this->modeleAdherent->RetournerAdherent($NoProfil);
+$adherent=$this->modeleAdherent->RetournerAdherent($NoProfil);
+$DonneesInjectees['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+if($this->input->post('BtnModifier'))
+{
+    $DonnesAModifier=array(
+        'NOM'=>$this->input->post('txtNom'),
+        'PRENOM'=>$this->input->post('txtPrenom'),
+        'VILLE'=>$this->input->post('txtVille'),
+        'ADRESSE'=>$this->input->post('txtAdresse'),
+        'CODEPOSTAL'=>$this->input->post('txtCodepostal'),
+        'EMAIL'=>$this->input->post('txtEmail'),
+        'MOTDEPASSE'=>$this->input->post('txtMdp')
+        );
+    $this->modeleAdherent->ModifierunAdherent($DonnesAModifier,$adherent->NOPROFIL);
+    $this->load->view('templates/Entete');
+    $this->load->view('visiteur/InsertionReussie'); 
+    $this->load->view('templates/PiedDePage',$DonneesInjectees);
+}
+else
+{
+    $this->load->view('templates/Entete');
+    $this->load->view('supporter/ModifierProfil',$DonneesInjectees); 
+    $this->load->view('templates/PiedDePage',$DonneesInjectees);  
+}
+}
 }
 
 /* End of file Controllername.php */

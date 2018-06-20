@@ -21,11 +21,11 @@ echo form_open('Admin/AjouterUnUtilisateur');
 
 echo form_label('NOM', 'LblNom');
 
-echo form_input(array('name'=>'txtNom', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z]*','class'=>'form-control'));
+echo form_input(array('name'=>'txtNom', 'value'=>'','required'=>'required','pattern'=>'[a-zA-Z\s]+','class'=>'form-control'));
 
 echo form_label('prenom', 'Lblprenom');
 
-echo form_input(array('name'=>'txtPrenom', 'value'=>'','class'=>'form-control','pattern'=>'[a-zA-Z]*'));
+echo form_input(array('name'=>'txtPrenom', 'value'=>'','class'=>'form-control','pattern'=>'[a-zA-Z\s]+'));
 
 echo form_label('Ville', 'LblVille');
 
