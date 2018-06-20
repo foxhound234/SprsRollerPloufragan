@@ -17,5 +17,8 @@
     color: gold; 
   }
   .table-responsive > h2:nth-child(2){
-    color: gold; 
+    color: black; 
   } 
+  .table-responsive{
+    color:black;
+  }

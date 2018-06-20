@@ -17,7 +17,7 @@ echo form_open('Supporter/ModifierProfil');
 
 echo form_label('NOM', 'LblNom');
 
-echo form_input(array('name'=>'txtNom', 'value'=>"".$Adherent->NOM."",'required'=>'required','pattern'=>'[a-zA-Z]*','class'=>'form-control'));
+echo form_input(array('name'=>'txtNom', 'value'=>"".$Adherent->NOM."",'required'=>'required','pattern'=>'[a-zA-Z\s]+','class'=>'form-control'));
 
 echo form_label('prenom', 'Lblprenom');
 

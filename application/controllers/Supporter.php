@@ -87,7 +87,7 @@ if($this->input->post('BtnModifier'))
         'EMAIL'=>$this->input->post('txtEmail'),
         'MOTDEPASSE'=>$this->input->post('txtMdp')
         );
-    $this->modeleAdherent->ModifierunAdherent($DonnesAModifier,$adherent->NOPROFIL);
+    $this->modeleAdherent->ModifierunAdherent($DonnesAModifier,$adherent->NOADHERENT);
     $this->load->view('templates/Entete');
     $this->load->view('visiteur/InsertionReussie'); 
     $this->load->view('templates/PiedDePage',$DonneesInjectees);

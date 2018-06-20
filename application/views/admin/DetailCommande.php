@@ -11,7 +11,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class='container'>
  <?php
 echo '<p> Le Nom et Le Prenom :'.$LaCommande[0]->PRENOM,$LaCommande[0]->NOM.'<p>';
 echo '<p> son adresse :'.$LaCommande[0]->ADRESSE.'</p>';

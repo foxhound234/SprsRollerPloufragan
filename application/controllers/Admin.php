@@ -390,6 +390,7 @@ if($this->input->post('btnTraitement'))
 {
 $DateTraitement=date("Y-m-d H:i:s");
 $lesproduits=$this->modeleCommande->AfficheUneCommande($Nocommande);
+$Email=$lesproduits[0]->EMAIL;
 foreach ($lesproduits as $unproduit)
 {
 $donneesamodifier=array(
@@ -398,8 +399,36 @@ $donneesamodifier=array(
 );
 $this->modeleProduit->ModifierStockunProduit($donneesamodifier['NOPRODUIT'],$donneesamodifier['QUANTITECOMMANDEE']);
 }
-$this->modeleCommande->TraitementDeLaCommande($Nocommande,$DateTraitement);
-redirect('Admin/ListedesCommandes');
+$msg = "Boujour Votre Commande ".$Nocommande." est traités:";
+$this->email->from('Morganlb347@gmail.com');
+$this->email->to($Email);
+$this->email->subject('Merci pour la commande:');
+foreach ($lesproduits as $Unproduit)
+{
+$Prixtotal=$Prixtotal+$prixproduit;
+$Nom=$Unproduit->LIBELLE;
+$msg .='</BR>';
+$msg .='Nom du produit:';
+$msg .=$Nom;
+$msg .='</BR>';
+$msg .='prix:';
+$msg .=$Unproduit->PRIXTTC;
+$msg .='€';
+$msg .='</BR>';
+};
+$msg .='prix total:';
+$msg .=$Prixtotal;
+$msg .='€';
+$msg .='</BR>';
+$msg .='Pour Retirer les produits et régler la commande';
+$this->email->message($msg);
+if($this->email->send()){
+    $this->modeleCommande->TraitementDeLaCommande($Nocommande,$DateTraitement);
+    redirect('Admin/ListedesCommandes');
+  }
+  else{
+     $this->email->print_debugger();
+  }       
 }
 else
 {
