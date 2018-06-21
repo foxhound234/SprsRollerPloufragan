@@ -49,7 +49,21 @@ if ( ! function_exists('img_url'))
 }
 
  
+if ( ! function_exists('pdf_url'))
 
+{
+
+  function pdf_url($nom)
+
+  {
+
+    return base_url() . 'assets/pdf/' . $nom. '.pdf';
+
+  }
+
+}
+
+ 
 if ( ! function_exists('img'))
 
 {

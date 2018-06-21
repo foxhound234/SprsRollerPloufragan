@@ -26,3 +26,12 @@ div.container-fluid:nth-child(1){
 .col-xs-4 > h3:nth-child(2){
     color:gold;
 }
+.container>form>.btn{
+    background-color: goldenrod;
+    color:black;
+}
+
+div.container-fluid>p{
+    color:black;
+}
+

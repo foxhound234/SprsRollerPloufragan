@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?php echo css_url('Accueil')?>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -30,7 +31,7 @@
         <?php 
             $indicators = '<li data-target="#myCarousel" data-slide-to="' . $i . '" class="' . $class . '"></li>' ;?><br> 
             <div class="item <?php echo $class; ?>"> 
-            <center><a href="<?php echo $UnPartenaire->SITEWEB ?>"><img src=<?php echo img_url($UnPartenaire->IMAGE)?> width100%></a></center> 
+            <center><a href="<?php echo $UnPartenaire->SITEWEB ?>"><img src=<?php echo img_url($UnPartenaire->IMAGE)?>></a></center> 
             </div>
         <ol class="carousel-indicators"> 
             <?php $indicators; ?> 

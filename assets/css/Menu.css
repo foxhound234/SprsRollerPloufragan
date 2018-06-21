@@ -1,62 +1,67 @@
  /* Add a dark background color with a little bit see-through */
- .navbar {
-    margin-bottom: 0;
-    background-color: #2d2d30;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
-}
-.navbar-default{
-background-color:  Gold;
-}
-html body.black nav.navbar.navbar-default div.container-fluid div.navbar-header li.active{
-    color: gold;
-}
-/* Add a gray color to all navbar links */
-.navbar li a, .navbar .navbar-brand {
-    color: gold!important;
-}
-
-/* On hover, the links will turn white */
-.navbar-nav li a:hover {
-    color: #f0f0f0 !important;
-}
-
-/* The active link */
-.navbar-nav li.active a {
-    background-color:#29292c !important;
-}
-
-/* Remove border color from the collapsible button */
-.navbar-default .navbar-toggle {
-    background-color:  #ffff2a;
-    border-color: transparent;
-}
-
-/* Dropdown */
-.open .dropdown-toggle {
-    background-color: #555 !important;
-}
-
-/* Dropdown links */
-.dropdown-menu li a {
-    color: #000 !important;
-}
-
-/* On hover, the dropdown links will turn red */
-.dropdown-menu li a:hover {
-    background-color: Gold !important;
-    color: black;
-} 
 
 
+ .navbar-header{
+    background-color:gold;
+    color:black;
+    border-radius:0;   
+ }
 #myNavbar{
-    background-color: rgb(7, 8, 8);
-    border-color: transparent;
+    background-color:gold;
+    color:black;
+    border-radius:0;   
+    border-top-color: green;
+    border-bottom-color:green;
+    font-size: initial;
 }
-.black{
-    background-color: rgb(7, 8, 8);
+body{
+    background-color:#718b4d; 
 }
+.navbar-custom .navbar-nav > li > a {
+    color:black;
+}
+
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+div.container-fluid:nth-child(1){
+    background-color:gold;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #1a1a1a;
+    color:wheat;
+}
+div.container-fluid:nth-child(1){
+    background-color:gold;  
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
+.navbar-custom .navbar-toggle {
+    background-color:#eeeeee;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+
+.navbar-custom .navbar-nav .dropdown-menu  { 
+    background-color: gold;
+  }
+  .navbar-custom .navbar-nav .dropdown-menu>li>a  { 
+    color: black;
+  }
+  .navbar-custom .navbar-nav .dropdown-menu>li>a:hover,.navbar-custom .navbar-nav .dropdown-menu>li>a:focus  { 
+    background-color: black;
+    color: whitesmoke;
+  }
+  .container-fluid{
+    background-color:gold;
+    color:black;
+    border-radius:0;    
+  }

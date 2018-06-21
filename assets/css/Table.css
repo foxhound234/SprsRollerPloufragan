@@ -1,16 +1,19 @@
 .table{
-    background-color:black;
-    background-color: gold;
+  background-color:black;
+  border-color: transparent;  
+  color: gold; 
 }
-
+html body.black div.container div.table-responsive table.table.table-hover thead{
+  background-color: gold;
+  color:black;
+}
 .table hover{
     background-color: gold;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color:black;
-    border-color: transparent;  
-    color: gold; 
+  background-color: gold;
+  color:black;
   }
 
   body > h2:nth-child(11){
@@ -22,3 +25,13 @@
   .table-responsive{
     color:black;
   }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus, .btn-primary:active:focus {
+    background-color: #8064A2;}
+    .table > tbody > tr > td > a{
+    color: swad
+    }
+
+    .table > tbody > tr > td > a-hover{
+      color: #e60099
+      }

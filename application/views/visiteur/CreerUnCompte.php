@@ -11,7 +11,6 @@
 </head>
 <body>
 <div class='container'>
-<div class='form-group'>
 <?php
 echo form_open('Visiteur/CreerUnCompte');
 
@@ -42,12 +41,12 @@ echo form_input(array('name'=>'txtEmail', 'type'=>'email','required'=>'required'
 echo form_label('MotDePasse', 'LblMdp');
 
 echo form_password(array('name'=>'txtMdp', 'value'=>'','required'=>'required','value'=>'','pattern'=>'.{6,}','title'=>'six caractère ou plus','class'=>'form-control'));
+echo '<BR>';
 
-echo form_submit('BtnCreer','Créer',array('class'=>'btn btn-default'));
+echo form_submit('BtnCreer','Créer',array('class'=>'btn btn-primary'));
 
 
 ?>
-</div>
 </div>
 </body>
 </html>

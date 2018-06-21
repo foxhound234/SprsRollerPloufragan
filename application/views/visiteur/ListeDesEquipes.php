@@ -30,5 +30,7 @@ echo'<tr>
 </tr>';
 ?>
 </tbody>
+</table>
+</div>
 </body>
 </html>

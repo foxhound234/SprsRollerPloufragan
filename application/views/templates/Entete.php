@@ -12,11 +12,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class='black'>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-custom">
   <div class="container-fluid">
     <div class="navbar-header">
     <a href="">
-    <img border="0" class="img-rounded" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="100" height="100">
+    <img border="0" class="img-rounded" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="70" height="70">
     <?php if(!is_null($this->session->identifiant)) : ?>
     <li class="active"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
     <li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
@@ -62,6 +62,10 @@
           <ul class="dropdown-menu">
           <li><a href="<?php echo site_url('Visiteur/Palmares') ?>">Palmares</a></li>
         <li><a href="<?php echo site_url('Visiteur/Histoire') ?>">Histoire</a></li>
+        <li><a href="<?php echo pdf_url('organigramme') ?>">Organigramme</a></li>
+        <li><a href="<?php echo pdf_url('CalendrierGeneralRinkHockey20172018') ?>">Plannings et calendriers </a></li>
+        <li><a href="<?php echo pdf_url('FICHE_ADHESION_SPRS_2017_2018') ?>">Adhésions </a></li>
+        <li><a href="<?php echo pdf_url('Presentation-SPRS-PLOUFRAGAN-saison-2016-2017') ?>">Présentation </a></li>
           </ul>
         </li>
         <li class="dropdown">
