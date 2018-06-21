@@ -12,10 +12,10 @@
     border-radius:0;   
     border-top-color: green;
     border-bottom-color:green;
-    font-size: initial;
+    font-size: medium;
 }
-body{
-    background-color:#718b4d; 
+.container{
+    background-color:black; 
 }
 .navbar-custom .navbar-nav > li > a {
     color:black;

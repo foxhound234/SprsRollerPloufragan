@@ -11,9 +11,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body class='black'>
+<body class="black">
+<div class="container-fluid">
 <nav class="navbar navbar-custom">
-  <div class="container-fluid">
     <div class="navbar-header">
     <a href="">
     <img border="0" class="img-rounded" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="70" height="70">

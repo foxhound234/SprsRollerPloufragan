@@ -16,9 +16,10 @@ html body.black div.container div.table-responsive table.table.table-hover thead
   color:black;
   }
 
-  body > h2:nth-child(11){
-    color: gold; 
+  .body{
+    background-color:black;
   }
+
   .table-responsive > h2:nth-child(2){
     color: black; 
   } 
