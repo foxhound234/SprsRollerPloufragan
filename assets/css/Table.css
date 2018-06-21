@@ -36,3 +36,31 @@ html body.black div.container div.table-responsive table.table.table-hover thead
     .table > tbody > tr > td > a-hover{
       color: #e60099
       }
+      a:link {
+        color: red;
+    }
+    
+    /* visited link */
+    a:visited {
+        color: green;
+    }
+    
+    /* mouse over link */
+    a:hover {
+        color: rgb(0, 0, 0);
+    }
+    
+    /* selected link */
+    a:active {
+      color: rgb(0, 0, 0);
+    }
+
+
+    html body.black div.table-responsive table.table.table-hover tbody tr td a input.btn.btn-primary{
+      background-color: gold;
+      color: rgb(0, 0, 0);
+    }
+    html body.black div.table-responsive table.table.table-hover tbody tr td a input.btn.btn-primary:hover{
+      background-color: black;
+      color:gold;
+    }

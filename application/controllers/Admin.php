@@ -402,7 +402,7 @@ $this->modeleProduit->ModifierStockunProduit($donneesamodifier['NOPRODUIT'],$don
 $msg = "Boujour Votre Commande ".$Nocommande." est traités:";
 $this->email->from('Morganlb347@gmail.com');
 $this->email->to($Email);
-$this->email->subject('Merci pour la commande:');
+$this->email->subject('Votre commande  est Traités:');
 foreach ($lesproduits as $Unproduit)
 {
 $Prixtotal=$Prixtotal+$prixproduit;
@@ -420,8 +420,7 @@ $msg .='prix total:';
 $msg .=$Prixtotal;
 $msg .='€';
 $msg .='</BR>';
-$msg .='Pour Retirer les produits et régler la commande';
-$this->email->message($msg);
+$this->email->message($msg.'Pour Retirer les produits et régler la commande');
 if($this->email->send()){
     $this->modeleCommande->TraitementDeLaCommande($Nocommande,$DateTraitement);
     redirect('Admin/ListedesCommandes');

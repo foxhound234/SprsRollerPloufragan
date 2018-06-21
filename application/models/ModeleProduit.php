@@ -30,7 +30,7 @@ public function NombreDeProduit($Nomproduit=FALSE)
     return $this->db->count_all("produit"); 
     }
    $this->db->from('produit');
-   $this->db->like('LIBELLE',$Nomproduit);
+   $this->db->like('LIBELLE ',$Nomproduit);
    $requete=$this->db->count_all_results();
    return $requete;
 }

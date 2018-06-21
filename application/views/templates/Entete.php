@@ -16,10 +16,10 @@
 <nav class="navbar navbar-custom">
     <div class="navbar-header">
     <a href="">
-    <img border="0" class="img-rounded" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="70" height="70">
+    <img border="0" class="img-rounded navbar-text" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="70" height="70">
     <?php if(!is_null($this->session->identifiant)) : ?>
-    <li class="active"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
-    <li class="active"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
+    <li class="active navbar-text"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
+    <li class="active  navbar-text"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
     <?php endif;?>
       </a>
      </div>
@@ -88,8 +88,18 @@
             <li> <a href="<?php echo site_url('Visiteur/AfficherLesProduit') ?>">LISTE DES PRODUITS</a></li>
             <li><a href="<?php echo site_url('Visiteur/AfficherLesCategories')?>">Liste Des Categorie </a></li>
           </ul>
-          <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recherche
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <?php echo form_open('Visiteur/RechercheEvenement'); ?>
+            <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+'))?>;
+             <li> <?php echo form_submit(array('name'=>'BtnRecherche', 'value'=>'Recherché','class'=>'btn btn-primary'));?></li>
+            <LI> <?php echo 
+            form_close();?></LI>
+          </ul>
+          <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
      <?php endif;?>
      <?php if($this->session->profil==null):?>
    <li><a href="<?php echo site_url('Visiteur/Connexion') ?>">Connexion</a></li>

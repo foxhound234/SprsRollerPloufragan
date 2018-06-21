@@ -17,6 +17,17 @@ public function NombreEvenementEquipe($NOEQUIPE)
   $requete=$this->db->count_all_results();
   return $requete;
 }
+public function NombreEvenementRecherche($NomEvenement=FALSE)
+{
+    if($NomEvenement===false)
+    {
+    return $this->db->count_all("evenement"); 
+    }
+   $this->db->from('evenement');
+   $this->db->like('NOMEVENEMENT',$NomEvenement);
+   $requete=$this->db->count_all_results();
+   return $requete;
+}
 public function retournerEvenement($NoEvenement)
 {
     $requete=$this->db->get_where('evenement',array('NOEVENEMENT'=>$NoEvenement));
@@ -36,10 +47,21 @@ public function retournerEvenementLimite($nombreDeLignesARetourner, $noPremiereL
 } // retournerArticlesLimite
 
 
+public function EvenementRecherchelimite($nombreDeLignesARetourner, $noPremiereLigneARetourner,$Recherche)
+{
 
-
-
-
+    $this->db->limit($nombreDeLignesARetourner,$noPremiereLigneARetourner);
+    $this->db->select('*');
+    $this->db->from('evenement');
+    $this->db->like('NOMEVENEMENT',$Recherche);
+    $query=$this->db->get();
+    if ($query->num_rows() > 0) { // si nombre de lignes > 0
+        foreach ($query->result() as $ligne) {
+            $jeuDEnregsitrements[] = $ligne;
+        }
+        return $jeuDEnregsitrements;
+    }
+    return false;
+    }
 }
-
 /* End of file ModelName.php */

@@ -338,5 +338,47 @@ $this->load->view('templates/Entete');
 $this->load->view('visiteur/DetailEvenement',$DonneesInjectees); 
 $this->load->view('templates/PiedDePage',$Data);
 }
+public function RechercheEvenement()
+{
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+if($this->input->post('BtnRecherche'))
+{
+  $Recherche=$this->input->post('txtRecherche');
+        
+  redirect('Visiteur/AffichageRechercheEvenement/'.$Recherche);
+}
+}
+public function AffichageRechercheEvenement($Recherche=null)
+{
+  $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+  if (!($Recherche==null)&& !($Recherche==""))
+  {
+      $config=array();
+      $config["base_url"] = site_url('Visiteur/AffichageRechercheEvenement/'.$Recherche);
+      $config["total_rows"] =$this->modeleEvenement->NombreEvenementRecherche($Recherche);
+      $config["per_page"] = 5;
+      $config["uri_segment"] = 4; 
+      $config['first_link'] = 'Premier';
+  
+      $config['last_link'] = 'Dernier';
+    
+      $config['next_link'] = 'Suivant';
+    
+      $config['prev_link'] = 'Précédent';
+
+     
+      $this->pagination->initialize($config);
+
+      $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+      $DonneesInjectees['RechercheEvenement']= $this->modeleEvenement->EvenementRecherchelimite($config["per_page"],$noPage,$Recherche);
+      $DonneesInjectees['Titredelapage']='résultat de la recherche';
+      $DonneesInjectees['LiensPagination']=$this->pagination->create_links();
+
+      $this->load->view('templates/Entete');
+      $this->load->view('visiteur/AffichageRechercheEvenement',$DonneesInjectees);
+      $this->load->view('templates/PiedDePage',$Data); 
+      
+  }
+}
 }
 /* End of file Controllername.php */
