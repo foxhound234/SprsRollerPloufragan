@@ -73,14 +73,20 @@ class Visiteur extends CI_Controller {
       $config["total_rows"] =$this->modeleProduit->NombreDeProduit();
       $config["per_page"] = 5;
       $config["uri_segment"] = 3;
-       
+      $config['full_tag_open'] = '<ul class="pagination">';
+      $config['full_tag_close'] = '</ul>';            
+      $config['prev_link'] = '&laquo;';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
       $config['first_link'] = 'Premier';
-      
       $config['last_link'] = 'Dernier';
-    
-      $config['next_link'] = 'Suivant';
-    
-      $config['prev_link'] = 'Précédent';
+      $config['next_link'] = '&raquo;';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a href="#">';
+      $config['cur_tag_close'] = '</a></li>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
       
       $this->pagination->initialize($config);
   
@@ -186,15 +192,20 @@ public function AffichagedeLaRecherche($Recherche=null)
       $config["total_rows"] =$this->modeleProduit->NombreDeProduit($Recherche);
       $config["per_page"] = 5;
       $config["uri_segment"] = 4; 
+      $config['full_tag_open'] = '<ul class="pagination">';
+      $config['full_tag_close'] = '</ul>';            
+      $config['prev_link'] = '&laquo;';
+      $config['prev_tag_open'] = '<li>';
+      $config['prev_tag_close'] = '</li>';
       $config['first_link'] = 'Premier';
-  
       $config['last_link'] = 'Dernier';
-    
-      $config['next_link'] = 'Suivant';
-    
-      $config['prev_link'] = 'Précédent';
-
-     
+      $config['next_link'] = '&raquo;';
+      $config['next_tag_open'] = '<li>';
+      $config['next_tag_close'] = '</li>';
+      $config['cur_tag_open'] = '<li class="active"><a href="#">';
+      $config['cur_tag_close'] = '</a></li>';
+      $config['num_tag_open'] = '<li>';
+      $config['num_tag_close'] = '</li>';
       $this->pagination->initialize($config);
 
       $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
@@ -224,13 +235,20 @@ public function AfficheProduitcatego($NoCategorie=null)
   $config["total_rows"] =$this->modeleCategorie->NombreDeProduitCategorie($NoCategorie);
   $config["per_page"] = 5;
   $config["uri_segment"] = 4; 
+  $config['full_tag_open'] = '<ul class="pagination">';
+  $config['full_tag_close'] = '</ul>';            
+  $config['prev_link'] = '&laquo;';
+  $config['prev_tag_open'] = '<li>';
+  $config['prev_tag_close'] = '</li>';
   $config['first_link'] = 'Premier';
-
   $config['last_link'] = 'Dernier';
-
-  $config['next_link'] = 'Suivant';
-
-  $config['prev_link'] = 'Précédent';
+  $config['next_link'] = '&raquo;';
+  $config['next_tag_open'] = '<li>';
+  $config['next_tag_close'] = '</li>';
+  $config['cur_tag_open'] = '<li class="active"><a href="#">';
+  $config['cur_tag_close'] = '</a></li>';
+  $config['num_tag_open'] = '<li>';
+  $config['num_tag_close'] = '</li>';
   $this->pagination->initialize($config);
   $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
@@ -316,10 +334,20 @@ $config=array();
   $config["total_rows"] =$this->modeleEvenement->NombreEvenementEquipe($Noequipe);
   $config["per_page"] = 5;
   $config["uri_segment"] = 4; 
+  $config['full_tag_open'] = '<ul class="pagination">';
+  $config['full_tag_close'] = '</ul>';            
+  $config['prev_link'] = '&laquo;';
+  $config['prev_tag_open'] = '<li>';
+  $config['prev_tag_close'] = '</li>';
   $config['first_link'] = 'Premier';
   $config['last_link'] = 'Dernier';
-  $config['next_link'] = 'Suivant';
-  $config['prev_link'] = 'Précédent';
+  $config['next_link'] = '&raquo;';
+  $config['next_tag_open'] = '<li>';
+  $config['next_tag_close'] = '</li>';
+  $config['cur_tag_open'] = '<li class="active"><a href="#">';
+  $config['cur_tag_close'] = '</a></li>';
+  $config['num_tag_open'] = '<li>';
+  $config['num_tag_close'] = '</li>';
   $this->pagination->initialize($config);
   $noPage = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
   $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();

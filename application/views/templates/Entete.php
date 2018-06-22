@@ -15,7 +15,7 @@
 <div class="jumbotron container_fluid">
     <img src=<?php echo img_url('BanniereSPRS.jpg')?> width=100%>
 </div>
-<nav class="navbar navbar-custom" id="navbar" >
+<nav class="navbar navbar-custom headroom" id="navbar" >
     <div class="navbar-header">
     <?php if(!is_null($this->session->identifiant)) : ?>
     <li class="active navbar-text"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
@@ -29,7 +29,7 @@
      <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
         <li><a href="<?php echo site_url('Admin/ListedesCommandes') ?>">Commande</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"  data-target="#myNavbar">Ajouter
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?php echo site_url('Admin/AjouterUnjoueur') ?>">Un Joueur</a></li>
@@ -89,12 +89,11 @@
             <li><a href="<?php echo site_url('Visiteur/AfficherLesCategories')?>">Liste Des Categorie </a></li>
           </ul>
         </li>
-        <LI><?php echo form_open('Visiteur/RechercheEvenement');?></li>
-        <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'navbar form'));?>
-             <li> <?php echo form_submit(array('name'=>'BtnRecherche', 'value'=>'Recherché','class'=>'navbar form btn btn-primary'));?></li>
-             <span class="help-inline"><?php echo form_error('search_query'); ?></span>
-            <?php echo form_close();?></li>
           <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+          <LI><?php echo form_open('Visiteur/RechercheEvenement');?></li>
+        <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'navbar form'));?>
+             <li> <?php echo form_submit(array('name'=>'BtnRecherche','value'=>'Recherché','class'=>'navbar form btn btn-primary '));?> <i class=" icon-trash"></i></li>
+            <?php echo form_close();?></li>
      <?php endif;?>
      <?php if($this->session->profil==null):?>
    <li><a href="<?php echo site_url('Visiteur/Connexion') ?>">Connexion</a></li>

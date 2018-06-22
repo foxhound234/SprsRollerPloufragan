@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class='container-fluid'>
+<footer class="container-fluid text-center">
    <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
       <?php 
@@ -50,6 +50,6 @@
     </div>
   <p><em>&copy; Site du Sprs by Morgan Le BERRE(Email:Morganlb@protonmail.com)</em></p>
   </div>
-</div>
+  </footer>
 </body>
 </html>

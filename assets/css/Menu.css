@@ -5,13 +5,16 @@
     background-color:gold;
     color:black; 
  }
-#myNavbar{
-    background-color:gold;
-    color:black;   
-    border-top-color: green;
-    border-bottom-color:green;
-    font-family: "Montserrat, sans-serif";
-}
+ .navbar-custom { border-radius: 0; background:gold; border-bottom:1px solid rgba(255, 255, 255, 0.15); min-height:100px; padding-top:25px; margin-bottom:0;}
+ .navbar-custom *:focus { outline: 0; }
+ @media (max-width: 767px) {
+     .navbar-custom {  background:gold; }
+ }
+
+ .navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover, 
+.navbar-custom .navbar-nav > .active > a:focus { color: #fff; background:none ; }
+.navbar-custom .navbar-nav > .open > a{ background:none; color:white; }
 .container{
     background-color:black; 
 }
@@ -55,25 +58,38 @@ div.container-fluid:nth-child(1){
 .navbar-custom .icon-bar {
     background-color:#33aa33;
 }
-
-.navbar-custom .navbar-nav .dropdown-menu  { 
-    background-color: gold;
-  }
-  .navbar-custom .navbar-nav .dropdown-menu>li>a  { 
-    color: black;
-  }
-  .navbar-custom .navbar-nav .dropdown-menu>li>a:hover,.navbar-custom .navbar-nav .dropdown-menu>li>a:focus  { 
-    background-color: black;
-    color: whitesmoke;
-  }
-
+.navbar-nav .dropdown-menu {
+	left:-5px;
+	font-size: 13px;
+	background-color: rgba(0, 0, 0, .7);
+	border: 0px none;
+	-webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+.navbar-nav .dropdown-menu > li > a { color:rgba(255, 255, 255, .7); padding:7px 20px; }
+	.navbar-nav .dropdown-menu > li > a:hover,
+	.navbar-nav .dropdown-menu > li > a:focus,
+	.navbar-nav .dropdown-menu > .active > a:hover{ background:gold; color:rgb(0, 0, 0); }
   input.btn:nth-child(1){
     background-color:black;
     color:gold;   
   }
+  .navbar-static-top,
+  .navbar-fixed-top,
+  .navbar-fixed-bottom { border-radius: 0; }
+  .navbar-nav a.btn:focus, 
+.navbar-nav a.btn:hover  { border:1px solid rgba(255,255,255,.6); }
 
+.navbar-collapse { border:0 none;  border-top:0 none; box-shadow: none; }
   html body.black div.jumbotron{
     background-color:black;
     background-image:'assets/images/BanniereSPRS.jpg';
     color: gold;    
   }
+  .jumbotron { color: inherit; background-color:black; padding-top:30px; padding-bottom:30px; margin-bottom:0; }
+  .container .jumbotron { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding-left:40px; padding-right:40px; }
+      .jumbotron p { font-size:inherit; }
+      .jumbotron h2, .jumbotron h3, .jumbotron h4, 
+      .jumbotron h5, .jumbotron h6 { line-height: 1.3em; }
+  
+  
