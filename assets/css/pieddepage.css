@@ -3,3 +3,6 @@
 .carousel-control-prev{
 background-color: black;
 }
+.carousel-inner img {
+    margin: auto;
+}

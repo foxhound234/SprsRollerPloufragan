@@ -21,7 +21,6 @@
         <th>Description du produit</th>
         <th> Supprimer</th>
         <th style="text-align:right">Prix du Produit</th>
-        <th style="text-align:right">Total</th>
 </tr>
 
 <?php $i = 1; ?>

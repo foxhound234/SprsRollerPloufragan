@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Sprs</title>
+    <script src="<?php echo js_url('navbar')?>"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo css_url('Menu')?>">
     <link rel="stylesheet" href="<?php echo css_url('Accueil')?>">
@@ -12,11 +13,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="black">
-<div class="container-fluid">
-<nav class="navbar navbar-custom">
+<nav class="navbar navbar-custom" id="navbar" >
     <div class="navbar-header">
-    <a href="">
-    <img border="0" class="img-rounded navbar-text" alt="" src="<?php echo img_url('Sprs.jpg')?>" width="70" height="70">
     <?php if(!is_null($this->session->identifiant)) : ?>
     <li class="active navbar-text"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
     <li class="active  navbar-text"><a href="<?php echo site_url('Supporter/Deconnexion') ?>">Se déconnecter</a>&nbsp;&nbsp;</li>
@@ -94,7 +92,7 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <?php echo form_open('Visiteur/RechercheEvenement'); ?>
-            <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+'))?>;
+            <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'form-control'))?>;
              <li> <?php echo form_submit(array('name'=>'BtnRecherche', 'value'=>'Recherché','class'=>'btn btn-primary'));?></li>
             <LI> <?php echo 
             form_close();?></LI>
@@ -109,7 +107,6 @@
     <?php endif;?>
     </ul>
     </div>
-  </div>
 </nav>
 
 </body>
