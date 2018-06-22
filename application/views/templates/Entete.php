@@ -29,7 +29,7 @@
      <li><a href="<?php echo site_url('Visiteur/Accueil') ?>">Accueil</a></li>
         <li><a href="<?php echo site_url('Admin/ListedesCommandes') ?>">Commande</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"  data-target="#myNavbar">Ajouter
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ajouter
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?php echo site_url('Admin/AjouterUnjoueur') ?>">Un Joueur</a></li>

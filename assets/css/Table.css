@@ -75,6 +75,6 @@ html body.black div.container div.table-responsive table.table.table-hover thead
       color: rgb(0, 0, 0);
     }
     
-    body > h2:nth-child(12){
+    body > h2{
       color:gold;
     }

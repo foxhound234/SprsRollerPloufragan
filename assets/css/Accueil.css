@@ -45,10 +45,10 @@ body{
 .person:hover {
     border-color: #f1f1f1;
 }
-.container > h2:nth-child(4){
+.container > h2{
     color:gold;
 }
-.container > h3:nth-child(1){
+.container > h3{
     color:gold;
 }
 .black{
@@ -58,7 +58,7 @@ div.container-fluid:nth-child(1){
     background-color: rgb(7, 8, 8);  
 }
 
-.col-xs-4 > h3:nth-child(2){
+.col-xs-4 > h3{
     color:gold;
 }
 .container>form>.btn{
@@ -77,4 +77,9 @@ div.container-fluid>p{
 a {
     background-color:gold;
     text-decoration: none;
+}
+
+body>.container>.form-group>form>.btn.btn-primary{
+    color:black;
+    background-color:gold;
 }
