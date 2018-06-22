@@ -10,8 +10,6 @@
     color:black;   
     border-top-color: green;
     border-bottom-color:green;
-    opacity:0.9;
-    font-size: medium;
     font-family: "Montserrat, sans-serif";
 }
 .container{
@@ -68,14 +66,14 @@ div.container-fluid:nth-child(1){
     background-color: black;
     color: whitesmoke;
   }
-  .container-fluid{
-    background-color:gold;
-    color:black;
-    border-radius:0;    
-  }
 
   input.btn:nth-child(1){
     background-color:black;
     color:gold;   
   }
 
+  html body.black div.jumbotron{
+    background-color:black;
+    background-image:'assets/images/BanniereSPRS.jpg';
+    color: gold;    
+  }

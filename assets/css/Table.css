@@ -39,22 +39,22 @@ html body.black div.container div.table-responsive table.table.table-hover thead
       color: #e60099
       }
       a:link {
-        color: red;
+        color: #00cca3;
     }
     
     /* visited link */
     a:visited {
-        color: green;
+        color:#ff1aff;
     }
     
     /* mouse over link */
     a:hover {
-        color: rgb(0, 0, 0);
+        color:#cc2900;
     }
     
     /* selected link */
     a:active {
-      color: rgb(0, 0, 0);
+      color: #cc2900;
     }
 
 
@@ -65,4 +65,12 @@ html body.black div.container div.table-responsive table.table.table-hover thead
     html body.black div.table-responsive table.table.table-hover tbody tr td a input.btn.btn-primary:hover{
       background-color: black;
       color:gold;
+    }
+    .img-thumbnail{
+      border-color:black;
+    }
+
+    html body.black div.table-responsive table.table.table-hover thead{
+      background-color: gold;
+      color: rgb(0, 0, 0);
     }

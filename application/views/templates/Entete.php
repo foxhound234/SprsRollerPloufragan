@@ -7,12 +7,14 @@
     <script src="<?php echo js_url('navbar')?>"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo css_url('Menu')?>">
-    <link rel="stylesheet" href="<?php echo css_url('Accueil')?>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="black">
+<div class="jumbotron container_fluid">
+    <img src=<?php echo img_url('BanniereSPRS.jpg')?> width=100%>
+</div>
 <nav class="navbar navbar-custom" id="navbar" >
     <div class="navbar-header">
     <?php if(!is_null($this->session->identifiant)) : ?>
@@ -87,16 +89,11 @@
             <li><a href="<?php echo site_url('Visiteur/AfficherLesCategories')?>">Liste Des Categorie </a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Recherche
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <?php echo form_open('Visiteur/RechercheEvenement'); ?>
-            <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'form-control'))?>;
-             <li> <?php echo form_submit(array('name'=>'BtnRecherche', 'value'=>'Recherché','class'=>'btn btn-primary'));?></li>
-            <LI> <?php echo 
-            form_close();?></LI>
-          </ul>
+        <LI><?php echo form_open('Visiteur/RechercheEvenement');?></li>
+        <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'navbar form'));?>
+             <li> <?php echo form_submit(array('name'=>'BtnRecherche', 'value'=>'Recherché','class'=>'navbar form btn btn-primary'));?></li>
+             <span class="help-inline"><?php echo form_error('search_query'); ?></span>
+            <?php echo form_close();?></li>
           <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
      <?php endif;?>
      <?php if($this->session->profil==null):?>
@@ -108,6 +105,5 @@
     </ul>
     </div>
 </nav>
-
 </body>
 </html>

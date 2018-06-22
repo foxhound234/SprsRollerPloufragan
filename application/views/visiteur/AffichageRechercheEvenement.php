@@ -24,7 +24,7 @@
 <?php foreach ($RechercheEvenement as $unEvenement) :
 echo'<tr>
     <td>'. $unEvenement->NOMEVENEMENT.'</td>
-     <td>'.anchor('Visiteur/DetailEvenement/'.$unEvenement->NOEVENEMENT,'<img width="50%" src="'.img_url($unEvenement->NOMIMAGE).'">').'</td>
+     <td>'.anchor('Visiteur/DetailEvenement/'.$unEvenement->NOEVENEMENT,'<img width="50%" class="img-thumbnail" src="'.img_url($unEvenement->NOMIMAGE).'">').'</td>
      <td>'.$unEvenement->DATEEVENEMENT.'</td>
      </tr>';
  endforeach ?>
