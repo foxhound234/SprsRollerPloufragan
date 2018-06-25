@@ -14,7 +14,7 @@
 <div class="jumbotron container_fluid">
     <img src=<?php echo img_url('BanniereSPRS.jpg')?> width=100%>
 </div>
-<nav class="navbar navbar-custom headroom" >
+<nav class="navbar navbar-custom headroom" id='nav'>
     <div class="navbar-header">
     <?php if(!is_null($this->session->identifiant)) : ?>
     <li class="active navbar-text"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
