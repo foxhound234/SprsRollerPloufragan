@@ -4,18 +4,17 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> Sprs</title>
-    <script src="<?php echo js_url('navbar')?>"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo css_url('Menu')?>">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="black">
 <div class="jumbotron container_fluid">
     <img src=<?php echo img_url('BanniereSPRS.jpg')?> width=100%>
 </div>
-<nav class="navbar navbar-custom headroom" id="navbar" >
+<nav class="navbar navbar-custom headroom" >
     <div class="navbar-header">
     <?php if(!is_null($this->session->identifiant)) : ?>
     <li class="active navbar-text"><?php echo'Utilisateur connecté : <B>'.$this->session->identifiant.'</B>&nbsp;&nbsp;';?></li>
@@ -92,7 +91,7 @@
           <li> <a href="<?php echo site_url('Visiteur/AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
           <LI><?php echo form_open('Visiteur/RechercheEvenement');?></li>
         <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'navbar form'));?>
-             <li> <?php echo form_submit(array('name'=>'BtnRecherche','value'=>'Recherché','class'=>'navbar form btn btn-primary '));?> <i class=" icon-trash"></i></li>
+             <li> <?php echo form_submit(array('name'=>'BtnRecherche','value'=>'Recherché','class'=>'navbar form btn btn-primary ','data-icon'=>'search'));?></li>
             <?php echo form_close();?></li>
      <?php endif;?>
      <?php if($this->session->profil==null):?>

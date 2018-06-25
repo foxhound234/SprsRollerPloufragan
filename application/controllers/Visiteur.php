@@ -277,7 +277,7 @@ if ($this->input->post('BtnContact'))
 $Contenu=$this->input->post('txtContenu');
 $Email=$this->input->post('txtEmail');
 $this->email->from($Email);
-$this->email->to('Morganlb347@gmail.com');
+$this->email->to('morganlb347@gmail.com');
 $this->email->subject('Contact');
 $this->email->message($Contenu);
 if($this->email->send()){
