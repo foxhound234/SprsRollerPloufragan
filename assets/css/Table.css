@@ -10,11 +10,11 @@ html body.black div.container div.table-responsive table.table.table-hover thead
   color:black;
 }
 .table hover{
-    background-color: gold;
+    background-color: #EBC90A;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: gold;
+  background-color: #EBC90A;
   color:black;
   }
 

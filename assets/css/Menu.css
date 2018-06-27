@@ -1,86 +1,57 @@
  /* Add a dark background color with a little bit see-through */
-
-
- .navbar-header{
-    background-color:gold;
-    color:black; 
- }
- .navbar-custom { border-radius: 0; background:gold; border-bottom:1px solid rgba(255, 255, 255, 0.15); min-height:100px; padding-top:25px; margin-bottom:0;}
- .navbar-custom *:focus { outline: 0; }
- @media (max-width: 767px) {
-     .navbar-custom {  background:gold; }
- }
-
- .navbar-custom .navbar-nav > .active > a,
-.navbar-custom .navbar-nav > .active > a:hover, 
-.navbar-custom .navbar-nav > .active > a:focus { color: #fff; background:none ; }
-.navbar-custom .navbar-nav > .open > a{ background:none; color:white; }
-.container{
-    background-color:black; 
+ .navbar {
+    margin-bottom: 0;
+    background-color: gold;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity:0.9;
 }
-.navbar-custom .navbar-nav > li > a {
-    color:black;
+
+/* Add a gray color to all navbar links */
+.navbar li a, .navbar .navbar-brand {
+    color: #000 !important;
 }
-.navbar-custom.navbar-toggle {
+
+.nav > li > a:focus, .nav > li > a:hover{
+   background-color: black !important;
+   color: gold !important;
+}
+
+/* The active link */
+.navbar-nav li.active a {
+    color:black !important;
+    background-color:#29292c !important;
+}
+
+/* Remove border color from the collapsible button */
+.navbar-custom .navbar-toggle {
     border-color: transparent;
 }
 
-div.container-fluid:nth-child(1){
-    background-color:gold;
-    color:black;   
+/* Dropdown */
+
+
+.nav > li:nth-child(9) > input:nth-child(1){
+   background-color: whitesmoke; 
+}
+.open .dropdown-toggle {
+    background-color: gold !important;
+    color: black;
 }
 
-.navbar-custom .navbar-nav > .active{
-    color: #ffffff;
-    background-color:black;
+/* Dropdown links */
+.dropdown-menu li a {
+    background-color: #000;
+    color:white !important;
 }
-div.container-fluid:nth-child(1){
-    background-color:gold;
-}
-.navbar-custom .navbar-nav > li > a:hover,
-.navbar-custom .navbar-nav > li > a:focus,
-.navbar-custom .navbar-nav > .active > a:hover,
-.navbar-custom .navbar-nav > .active > a:focus,
-.navbar-custom .navbar-nav > .open >a {
-    text-decoration: none;
-    background-color: #1a1a1a;
-    color:rgb(248, 246, 241);
-}
-div.container-fluid:nth-child(1){
-    background-color:gold;  
-}
-.navbar-custom .navbar-brand {
-    color:#eeeeee;
-}
-.navbar-custom .navbar-toggle {
-    background-color:#eeeeee;
-}
-.navbar-custom .icon-bar {
-    background-color:#33aa33;
-}
-.navbar-nav .dropdown-menu {
-	left:-5px;
-	font-size: 13px;
-	background-color: rgba(0, 0, 0, .7);
-	border: 0px none;
-	-webkit-border-radius: 0px; -moz-border-radius: 0px; border-radius: 0px;
-	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-}
-.navbar-nav .dropdown-menu > li > a { color:rgba(255, 255, 255, .7); padding:7px 20px; }
-	.navbar-nav .dropdown-menu > li > a:hover,
-	.navbar-nav .dropdown-menu > li > a:focus,
-	.navbar-nav .dropdown-menu > .active > a:hover{ background:gold; color:rgb(0, 0, 0); }
-  input.btn:nth-child(1){
-    background-color:black;
-    color:gold;   
-  }
-  .navbar-static-top,
-  .navbar-fixed-top,
-  .navbar-fixed-bottom { border-radius: 0; }
-  .navbar-nav a.btn:focus, 
-.navbar-nav a.btn:hover  { border:1px solid rgba(255,255,255,.6); }
 
-.navbar-collapse { border:0 none;  border-top:0 none; box-shadow: none; }
+/* On hover, the dropdown links will turn red */
+.dropdown-menu li a:hover {
+    background-color: gold !important;
+    color: black;
+}
+
   html body.black div.jumbotron{
     background-color:black;
     background-image:'assets/images/BanniereSPRS.jpg';

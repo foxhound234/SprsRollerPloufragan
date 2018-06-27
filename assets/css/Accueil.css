@@ -81,5 +81,18 @@ a {
 
 body>.container>.form-group>form>.btn.btn-primary{
     color:black;
-    background-color:gold;
+    background-color:#f9d60c;
+}
+
+body>.form-group>form>.btn.btn-primary{
+    color:black;
+    background-color:#f9d60c;
+}
+.btn-primary{
+    color:black;
+    background-color:#f9d60c;
+}
+html body.black div.container div.form-group form input.btn-primary{
+    color:black;
+    background-color:#f9d60c;  
 }
