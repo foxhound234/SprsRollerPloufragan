@@ -17,13 +17,15 @@
 <tr>
  <th> image du Joueur </th>
  <th> nom du joueur </th>
+ <th> Modifier </th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($LesJoueurs as $unJoueur) :
 echo'<tr>
      <td><img width="25%" src="'.img_url($unJoueur->IMAGEJOUEUR).'"></td>
-     <td>' .anchor('Admin/Modifierunjoueur/'.$unJoueur->NOJOUEUR,$unJoueur->NOM).'</td>
+     <td>'.$unJoueur->NOM,$unJoueur->PRENOM.'</td>
+     <td>' .anchor('Admin/Modifierunjoueur/'.$unJoueur->NOJOUEUR,form_submit('btnEvenement', 'Voir les evenements',array('class'=>'btn btn-primary'))).'</td>
      </tr>';
  endforeach ?>
 </tbody>
