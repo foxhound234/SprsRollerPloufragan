@@ -20,8 +20,13 @@ $this->db->update('produit');
 }
 public function RetournerLeProduit($NoProduit)
 {
- $requete=$this->db->get_where('produit',array('NOPRODUIT'=>$NoProduit));
-return $requete->row_array();
+$requete="SELECT LIBELLE,DETAIL,PRIXHT,TAUXTVA,DATEAJOUT,QUANTITEENSTOCK,NOMIMAGE,produit.NOPRODUIT,DISPONIBLE,NOMTAILLE
+FROM produit,taille,disponible_taille
+WHERE produit.NOPRODUIT=disponible_taille.NOPRODUIT
+AND taille.NOTAILLE=disponible_taille.NOTAILLE
+And produit.NOPRODUIT=".$NoProduit."";
+ $query=$this->db->query($requete);
+return $query->row_array();
 }
 public function NombreDeProduit($Nomproduit=FALSE)
 {

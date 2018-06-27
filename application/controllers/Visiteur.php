@@ -105,6 +105,7 @@ class Visiteur extends CI_Controller {
   $DonneesInjectees['LeProduit']=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $LeProduitRetournée=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $Libelle=$LeProduitRetournée['LIBELLE'];
+  $Taille=$LeProduitRetournée['NOMTAILLE'];
   $prixproduit=$LeProduitRetournée['PRIXHT']*(($LeProduitRetournée['TAUXTVA']/100)+1);
   if($DonneesInjectees['LeProduit']== null)
   {
@@ -116,7 +117,8 @@ class Visiteur extends CI_Controller {
       'id'=>$NoProduit,
       'qty' => 1,
       'price'=>$prixproduit,
-      'name'=>$Libelle
+      'name'=>$Libelle,
+      'options' => array('Size' => $Taille)
          );
       $this->cart->insert($insertion);
       $this->load->view('templates/Entete');

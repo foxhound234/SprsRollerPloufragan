@@ -33,12 +33,12 @@ class Admin extends CI_Controller {
          'NOCATEGORIE'=>$this->input->post('txtNoCategorie')
         );
         $NoProduit=$this->modeleProduit->InsererUnProduit($DonnesAinserer);
-        $DonnesAinserer=array(
+        $Donnesainserer=array(
             'NOTAILLE'=>$this->input->post('txtNoTaille'),
             'NOPRODUIT'=>$NoProduit
            );
-           
-        redirect('Admin/AfficherLesProduits');
+           $this->modeleTaille->AssignerUnetaille($Donnesainserer);
+        redirect('Admin/AfficherLesProduit');
        }
        else
        {

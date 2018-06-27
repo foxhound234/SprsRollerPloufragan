@@ -12,10 +12,10 @@ html body.black div.container div.table-responsive table.table.table-hover thead
 .table hover{
     background-color: #EBC90A;
 }
-
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #EBC90A;
   color:black;
+
   }
 
   .body{
@@ -28,6 +28,13 @@ html body.black div.container div.table-responsive table.table.table-hover thead
   .table-responsive{
     color:black;
   }
+  .table > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2) > p:nth-child(1) > strong:nth-child(1){
+    color: royalblue;
+  }
+  .table > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2) > p:nth-child(1){
+    color: royalblue;
+  }
+
 
   .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-primary:focus, .btn-primary:active:focus {
     background-color: #8064A2;}

@@ -13,7 +13,7 @@
 <div class='container'>
 <?php
 echo '<h2>'.$LeProduit['LIBELLE'].'</h2>';
-
+echo '<p>TAILLE:'.$LeProduit['NOMTAILLE'].'</p>';
 echo '<p>'.img($LeProduit['NOMIMAGE']).'</p>';
 
  echo '<p>'.$LeProduit['DETAIL'].'</p>';

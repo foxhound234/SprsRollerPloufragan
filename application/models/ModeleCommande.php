@@ -30,12 +30,14 @@ class modeleCommande extends CI_Model {
     }
     public function AfficheUneCommande($NOCOMMANDE)
     {
-      $requete="select distinct commande.NOCOMMANDE,ligne.NOPRODUIT,NOM,PRENOM,ADRESSE,EMAIL,DATECOMMANDE,QUANTITECOMMANDEE,LIBELLE,ROUND(SUM(produit.PRIXHT*((produit.TAUXTVA/100)+1)*ligne.QUANTITECOMMANDEE))AS PRIXTTC
-      FROM adherent,commande,ligne,produit 
+      $requete="select distinct commande.NOCOMMANDE,ligne.NOPRODUIT,NOM,PRENOM,ADRESSE,EMAIL,DATECOMMANDE,QUANTITECOMMANDEE,NOMTAILLE,LIBELLE,ROUND(SUM(produit.PRIXHT*((produit.TAUXTVA/100)+1)*ligne.QUANTITECOMMANDEE))AS PRIXTTC
+      FROM adherent,commande,ligne,produit,taille,disponible_taille
       WHERE adherent.NOADHERENT=commande.NOADHERENT
       AND ligne.NOCOMMANDE=commande.NOCOMMANDE
       AND ligne.NOPRODUIT=produit.NOPRODUIT
       AND ligne.NOCOMMANDE=".$NOCOMMANDE."
+      AND produit.NOPRODUIT=disponible_taille.NOPRODUIT
+      AND taille.NOTAILLE=disponible_taille.NOTAILLE
       group by ligne.NOCOMMANDE,ligne.NOPRODUIT";
       $query = $this->db->query($requete);
       return $query->result();
