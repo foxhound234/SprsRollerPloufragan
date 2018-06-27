@@ -13,8 +13,12 @@
 <section class="row">
     <?php foreach($LesJoueur as $Unjoueur):
     echo '<div class="col-xs-4 col-sm-3 col-md-2"> 
-        <h3>'.$Unjoueur->NOM,$Unjoueur->PRENOM.'</h3>
-       <img width="150%" class="img-rounde person" src="'.img_url($Unjoueur->IMAGEJOUEUR).'"> 
+     <div class="thumbnail">
+       <img width="100%"  src="'.img_url($Unjoueur->IMAGEJOUEUR).'"> 
+       <div class="caption">
+       <p>'.$Unjoueur->NOM,$Unjoueur->PRENOM.'</p>
+     </div>
+     </div>
        </div>';
     endforeach?>
 </section>

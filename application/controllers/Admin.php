@@ -436,10 +436,26 @@ $this->load->view('admin/DetailCommande',$DonneesInjectees);
 $this->load->view('templates/PiedDePage',$Data); 
 }
 }
+public function listerLesjoueursAModifier()
+{
+    $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+    $DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueurs();
+$this->load->view('templates/Entete');
+$this->load->view('admin/ListerJoueurs',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage',$Data); 
+}
+public function Modifierunjoueur($NoJoueur)
+{
+$Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
+$DonneesInjectees['LeJoueur']=$this->modeleEquipe->AfficherJoueur($NoJoueur);
+$this->load->view('templates/Entete');
+$this->load->view('admin/Modifierunjoueur',$DonneesInjectees); 
+$this->load->view('templates/PiedDePage',$Data);
+}
 public function listerLesjoueuraAjouter($NoEquipe=null)
 {
     $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
-$DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueurs($NoEquipe);
+$DonneesInjectees['LesJoueurs']=$this->modeleEquipe->ListerLesJoueursAjouter($NoEquipe);
 $DonneesInjectees['NOEQUIPE']=$NoEquipe;
 $DonneesInjectees['TitredeLaPage']='Ajouter Les Joueur';
 $this->load->view('templates/Entete');

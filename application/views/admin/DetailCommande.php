@@ -14,6 +14,7 @@
  <?php
 echo '<p> Le Nom et Le Prenom :'.$LaCommande[0]->PRENOM,$LaCommande[0]->NOM.'<p>';
 echo '<p> son adresse :'.$LaCommande[0]->ADRESSE.'</p>';
+echo '<p> TAILLE :'.$LaCommande[0]->NOMTAILLE.'</p>';
 echo '<div class="table-responsive">';
 echo '<table class="table">';
 echo '<thead>';

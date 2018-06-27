@@ -118,7 +118,7 @@ class Visiteur extends CI_Controller {
       'qty' => 1,
       'price'=>$prixproduit,
       'name'=>$Libelle,
-      'options' => array('Size' => $Taille)
+      'options' => array('TAILLE' => $Taille)
          );
       $this->cart->insert($insertion);
       $this->load->view('templates/Entete');

@@ -26,7 +26,7 @@ class modeleEquipe extends CI_Model {
     $this->db->where('NOEQUIPE', $pNoproduit);
     $this->db->update('equipe',$DonnesaModifier);
    }
-   public function ListerLesJoueurs($Noequipe)
+   public function ListerLesJoueursAjouter($Noequipe)
    {
      $requete="select NOJOUEUR,IMAGEJOUEUR,NOM,PRENOM 
               FROM joueur,adherent 
@@ -40,6 +40,23 @@ class modeleEquipe extends CI_Model {
           )";
           $query = $this->db->query($requete);
           return $query->result();
+   }
+   public function ListerLesJoueurs()
+   {
+    $requete="select NOJOUEUR,IMAGEJOUEUR,NOM,PRENOM 
+    FROM joueur,adherent 
+WHERE joueur.NOADHERENT=adherent.NOADHERENT";
+  $query=$this->db->query($requete);
+  return $query->result(); 
+   }
+   public function AfficherJoueur($NoJoueur)
+   {
+    $requete="select NOJOUEUR,joueur.NOADHERENT,IMAGEJOUEUR,BIOGRAPHIE,NOM,PRENOM 
+    FROM joueur,adherent 
+WHERE joueur.NOADHERENT=adherent.NOADHERENT
+  AND NOJOUEUR=".$NoJoueur."";
+  $query = $this->db->query($requete);
+return $query->row();
    }
   public function ListerLesJoueurEquipe($Noequipe)
   {
