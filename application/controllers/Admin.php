@@ -448,9 +448,30 @@ public function Modifierunjoueur($NoJoueur)
 {
 $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
 $DonneesInjectees['LeJoueur']=$this->modeleEquipe->AfficherJoueur($NoJoueur);
+$LeJoueur=$this->modeleEquipe->AfficherJoueur($NoJoueur);
 $this->load->view('templates/Entete');
 $this->load->view('admin/Modifierunjoueur',$DonneesInjectees); 
 $this->load->view('templates/PiedDePage',$Data);
+if($this->input->post('BtnModifier'))
+{
+$Donneesjoueur=array(
+'BIOGRAPHIE'=>$this->input->post('txtBio'),
+'IMAGEJOUEUR'=>$this->input->post('txtPhoto')
+);
+$this->modeleEquipe->ModifierUnJoueur($NoJoueur,$Donneesjoueur);
+$Donnesutilisateur=array(
+'NOM'=>$this->input->post('txtNom'),
+'PRENOM'=>$this->input->post('txtPrenom')
+);
+$this->modeleAdherent->ModifierunAdherent($Donnesutilisateur,$LeJoueur->NOADHERENT);
+redirect('Admin/listerLesjoueursAModifier');
+}
+else
+{
+    $this->load->view('templates/Entete');
+    $this->load->view('admin/Modifierunjoueur',$DonneesInjectees); 
+    $this->load->view('templates/PiedDePage',$Data);  
+}
 }
 public function listerLesjoueuraAjouter($NoEquipe=null)
 {

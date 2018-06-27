@@ -26,9 +26,9 @@ public function RetournerlesEntraineur()
   $requete=$this->db->get_where('adherent',array('PROFIL'=>'C'));
  return $requete->result_array();
 }
-public function ModifierunAdherent($DonnesaModifier,$pNoproduit)
+public function ModifierunAdherent($DonnesaModifier,$Noadherent)
 {
-$this->db->where('NOADHERENT', $pNoproduit);
+$this->db->where('NOADHERENT', $Noadherent);
 $this->db->update('adherent',$DonnesaModifier);
 }
 }

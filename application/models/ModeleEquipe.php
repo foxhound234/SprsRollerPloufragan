@@ -72,6 +72,11 @@ return $query->result();
   {
    return $this->db->insert('jouer',$pDonnesAInseres);
   }
+  public function ModifierUnJoueur($NoJoueur,$DonnesaModifier)
+  {
+ $this->db->where('NOJOUEUR',$NoJoueur);
+$this->db->update('joueur',$DonnesaModifier);
+  }
   public function SupprimerJoueurUneEquipe($NoJoueur,$NoEquipe)
   {
    $this->db->where('NOJOUEUR',$NoJoueur);

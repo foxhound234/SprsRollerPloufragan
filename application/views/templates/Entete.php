@@ -43,12 +43,13 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lister
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Modifier
           <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="<?php echo site_url('Admin/AfficherLesProduit') ?>">Les Produits</a></li>
             <li><a href="<?php echo site_url('Admin/ListerLesEquipes') ?>">Les Equipes</a></li>
             <li><a href="<?php echo site_url('Admin/ListerLesSponsor') ?>">Les Sponsor </a></li>
+            <li><a href="<?php echo site_url('Admin/listerLesjoueursAModifier') ?>">Les Joueurs </a></li>
           </ul>
         </li>
         <?php else:?>
