@@ -19,7 +19,7 @@
     
     echo form_label('Nom du produit','LblLibelle');
 
-    echo form_input(array('name'=>'txtLibelle','required'=>'required','value'=>'','pattern'=>'[a-zA-Z0-9]+','title'=>'le nom du produit doit commencer par une lettre','class'=>'form-control'));
+    echo form_input(array('name'=>'txtLibelle','required'=>'required','value'=>'','pattern'=>'[a-zA-Z0-9\s]+','title'=>'le nom du produit doit commencer par une lettre','class'=>'form-control'));
     
     echo form_label('Détail du produit','Lbldetail');
 

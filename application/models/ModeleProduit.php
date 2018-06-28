@@ -28,6 +28,16 @@ And produit.NOPRODUIT=".$NoProduit."";
  $query=$this->db->query($requete);
 return $query->row_array();
 }
+public function RetournerLesTaillesproduit($NoProduit)
+{
+ $requete="select NOMTAILLE
+FROM produit,taille,disponible_taille
+WHERE produit.NOPRODUIT=disponible_taille.NOPRODUIT
+AND disponible_taille.NOTAILLE=taille.NOTAILLE
+And produit.NOPRODUIT=".$NoProduit."";
+$query=$this->db->query($requete);
+return $query->result_array();
+}
 public function NombreDeProduit($Nomproduit=FALSE)
 {
     if($Nomproduit===false)

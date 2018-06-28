@@ -12,11 +12,15 @@
 <body>
 <div class='container'>
 <?php
+   echo form_open('Visiteur\AfficheLeProduit/'.$LeProduit['NOPRODUIT']);
 echo '<h2>'.$LeProduit['LIBELLE'].'</h2>';
-echo '<p>TAILLE:'.$LeProduit['NOMTAILLE'].'</p>';
 echo '<p>'.img($LeProduit['NOMIMAGE']).'</p>';
-
  echo '<p>'.$LeProduit['DETAIL'].'</p>';
+ echo "<select name='txtNoTaille' class='form-control' id='id' required>";
+ foreach ($LesTailles as $Taille) {
+     echo "<option value='". $Taille['NOMTAILLE'] . "'>" . $Taille['NOMTAILLE'] . "</option>";
+ }
+echo "</select><br/>";
 
  if($LeProduit['QUANTITEENSTOCK']<=0 or $LeProduit['DISPONIBLE']==0)
  {
@@ -24,7 +28,6 @@ echo '<p>'.img($LeProduit['NOMIMAGE']).'</p>';
  }
  else
  {
-   echo form_open('Visiteur\AfficheLeProduit/'.$LeProduit['NOPRODUIT']);
    echo form_submit('btnajouter', 'ajouter',array('class'=>'btn btn-primary')).'<BR>';
    echo form_close();
 

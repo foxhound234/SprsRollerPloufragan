@@ -103,6 +103,7 @@ class Visiteur extends CI_Controller {
   {
      $Data['LesPartenaires']= $this->modeleSponsor->RetournerLesSponsors();
   $DonneesInjectees['LeProduit']=$this->modeleProduit->RetournerLeproduit($NoProduit);
+  $DonneesInjectees['LesTailles']=$this->modeleProduit->RetournerLesTaillesproduit($NoProduit);
   $LeProduitRetournée=$this->modeleProduit->RetournerLeproduit($NoProduit);
   $Libelle=$LeProduitRetournée['LIBELLE'];
   $Taille=$LeProduitRetournée['NOMTAILLE'];
@@ -118,7 +119,7 @@ class Visiteur extends CI_Controller {
       'qty' => 1,
       'price'=>$prixproduit,
       'name'=>$Libelle,
-      'options' => array('TAILLE' => $Taille)
+      'options' => array('TAILLE' => $this->input->post('txtNoTaille'))
          );
       $this->cart->insert($insertion);
       $this->load->view('templates/Entete');
