@@ -16,7 +16,7 @@
     <div class='container'>
      <div class='form-group'>
       <?php
-     echo form_open('Admin/AjouterUnSponsor');
+     echo form_open('Admin/AjouterUnSponsor/');
 
      echo  form_label('Nom du sponsor', 'Lblsponsor');
     

@@ -13,11 +13,11 @@
 <div class='container'>
      <div class='form-group'>
       <?php
-     echo form_open('Admin/AjouterUnSponsor');
+     echo form_open('Admin/ModifierLeSponsor/'.$LeSponsor->NOSPONSOR);
 
      echo  form_label('Nom du sponsor', 'Lblsponsor');
     
-     echo form_input(array('name'=>'txtNomSponso', 'value'=>"".$LeSponsor->NOMSPONSOR."",'required'=>'required','pattern'=>'[a-zA-Z0-9]+','class'=>'form-control'));
+     echo form_input(array('name'=>'txtNomSponso', 'value'=>"".$LeSponsor->NOMSPONSOR."",'required'=>'required','pattern'=>'[a-zA-Z0-9\s]+','class'=>'form-control'));
      echo form_label('Logo du sponsor','Lblogosponsor');
      echo form_input(array('name'=>'txtLogo', 'value'=>"".$LeSponsor->IMAGE."",'required'=>'required','type'=>'file'));
         

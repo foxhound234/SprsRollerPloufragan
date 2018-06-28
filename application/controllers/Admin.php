@@ -528,6 +528,7 @@ if($this->input->post('BtnModifier'))
         'SITEWEB'=>$this->input->post('txtSite')
          );
          $this->modeleSponsor->ModifierLeSponsor($Nosponsor,$DonnesAModifier);
+         redirect('Admin/ListerLesSponsor');
 }
 else
 {

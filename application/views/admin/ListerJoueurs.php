@@ -25,7 +25,7 @@
 echo'<tr>
      <td><img width="25%" src="'.img_url($unJoueur->IMAGEJOUEUR).'"></td>
      <td>'.$unJoueur->NOM,$unJoueur->PRENOM.'</td>
-     <td>' .anchor('Admin/Modifierunjoueur/'.$unJoueur->NOJOUEUR,form_submit('btnEvenement', 'Voir les evenements',array('class'=>'btn btn-primary'))).'</td>
+     <td>' .anchor('Admin/Modifierunjoueur/'.$unJoueur->NOJOUEUR,form_submit('btnModifier', 'Modifier le Joueur',array('class'=>'btn btn-primary'))).'</td>
      </tr>';
  endforeach ?>
 </tbody>
