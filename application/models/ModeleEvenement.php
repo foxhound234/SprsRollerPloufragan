@@ -45,7 +45,12 @@ public function retournerEvenementLimite($nombreDeLignesARetourner, $noPremiereL
     }
     return false;
 } // retournerArticlesLimite
-
+public function DernierEvenements()
+{
+$requete="select * FROM evenement ORDER BY evenement.NOEVENEMENT DESC LIMIT 10 ";
+$query = $this->db->query($requete);
+return $query->result();
+}
 
 public function EvenementRecherchelimite($nombreDeLignesARetourner, $noPremiereLigneARetourner,$Recherche)
 {

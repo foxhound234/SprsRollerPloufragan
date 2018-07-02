@@ -411,5 +411,17 @@ public function AffichageRechercheEvenement($Recherche=null)
       
   }
 }
+public function RssEvenement()
+{
+  $data['site_name']= 'Evenement sprs';
+  $data['site_link'] = base_url();
+  $data['site_description'] = 'Les flux RSS de mes articles';
+  $data['encoding']= 'utf-8';
+  $data['feed_url'] = base_url() . '/feed';
+  $data['page_language']= 'fr-fr';
+  $data['LesEvenements']= $this->modeleEvenement->DernierEvenements();
+  header("Content-Type: application/rss+xml");
+  $this->load->view('visiteur/RssEvenement', $data);
+}
 }
 /* End of file Controllername.php */

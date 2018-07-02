@@ -67,6 +67,7 @@
         <li><a href="<?php echo pdf_url('CalendrierGeneralRinkHockey20172018') ?>">Plannings et calendriers </a></li>
         <li><a href="<?php echo pdf_url('FICHE_ADHESION_SPRS_2017_2018') ?>">Adhésions </a></li>
         <li><a href="<?php echo pdf_url('Presentation-SPRS-PLOUFRAGAN-saison-2016-2017') ?>">Présentation </a></li>
+        <li><a href="<?php echo site_url('Visiteur/RssEvenement') ?>">Flux rss</a></li>
           </ul>
         </li>
         <li class="dropdown">
