@@ -21,7 +21,7 @@
             <guid><?php echo site_url ('visiteur/DetailEvenement/' .$evenement->NOEVENEMENT); ?></guid>
             <?php $evenement->DETAILEVENEMENT  = strip_tags( $evenement->DETAILEVENEMENT ); ?>
             <description>
-                <?php echo $evenement->DETAILEVENEMENT ; ?>
+                <?php echo character_limiter($evenement->DETAILEVENEMENT,70);?>
             </description>
             <?php $date = strtotime ($evenement->DATEEVENEMENT); // Conversion date to timestamp ?>
             <pubDate><?php echo date('r', $date);?></pubDate>
