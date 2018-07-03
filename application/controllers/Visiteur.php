@@ -414,7 +414,7 @@ public function AffichageRechercheEvenement($Recherche=null)
 public function RssEvenement()
 {
   $data['site_name']= 'Evenement sprs';
-  $data['site_link'] = base_url();
+  $data['site_link'] = base_url().'/feed';
   $data['site_description'] = 'Les flux RSS de mes Evenement';
   $data['encoding']= 'utf-8';
   $data['feed_url'] = base_url() . '/feed';

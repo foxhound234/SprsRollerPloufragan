@@ -67,7 +67,6 @@
         <li><a href="<?php echo pdf_url('CalendrierGeneralRinkHockey20172018') ?>">Plannings et calendriers </a></li>
         <li><a href="<?php echo pdf_url('FICHE_ADHESION_SPRS_2017_2018') ?>">Adhésions </a></li>
         <li><a href="<?php echo pdf_url('Presentation-SPRS-PLOUFRAGAN-saison-2016-2017') ?>">Présentation </a></li>
-        <li><a href="<?php echo site_url('feed') ?>">Flux rss</a></li>
         <li><a href="https://www.facebook.com/SprsPloufragan/?ref=br_rs">Facebook</a></li>
           </ul>
         </li>
@@ -93,6 +92,7 @@
           </ul>
         </li>
           <li> <a href="<?php echo site_url('AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+          <li> <a href="<?php echo site_url('feed') ?>"><img src=<?php echo img_url('flux-rss.png')?> width="50"></a></li>
           <LI><?php echo form_open('RechercheEvenement');?></li>
         <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'navbar form'));?>
              <li> <?php echo form_submit(array('name'=>'BtnRecherche','value'=>'Recherché','class'=>'navbar form btn btn-primary ','data-icon'=>'search'));?></li>
