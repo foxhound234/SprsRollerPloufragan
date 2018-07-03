@@ -52,7 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['feed'] = 'Visiteur/RssEvenement';
+/*
+Admin controller
+*/
 $route['AjouterUnjoueur']='Admin/AjouterUnjoueur';
 $route['AjouterUneEquipe']='Admin/AjouterUneEquipe';
 $route['AjouterUnUtilisateur']='Admin/AjouterUnUtilisateur';
@@ -65,6 +67,10 @@ $route['AfficherLesProduit']='Admin/AfficherLesProduit';
 $route['ListerLesEquipes']='Admin/ListerLesEquipes';
 $route['ListerLesSponsor']='Admin/ListerLesSponsor';
 $route['listerLesjoueursAModifier']='Admin/listerLesjoueursAModifier';
+/*
+ Visiteur + supporter controller
+*/
+$route['feed'] = 'Visiteur/RssEvenement';
 $route['Accueil']='Visiteur/Accueil';
 $route['Contact']='Visiteur/Contact';
 $route['ListeDesEquipes']='Visiteur/ListeDesEquipes';
