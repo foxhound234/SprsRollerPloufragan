@@ -414,10 +414,10 @@ public function AffichageRechercheEvenement($Recherche=null)
 public function RssEvenement()
 {
   $data['site_name']= 'Evenement sprs';
-  $data['site_link'] = base_url().'/feed';
+  $data['site_link'] = base_url().'index.php/feed';
   $data['site_description'] = 'Les flux RSS de mes Evenement';
   $data['encoding']= 'utf-8';
-  $data['feed_url'] = base_url() . '/feed';
+  $data['feed_url'] = base_url() . 'index.php/feed';
   $data['page_language']= 'fr-fr';
   $data['LesEvenements']= $this->modeleEvenement->DernierEvenements();
   header("Content-Type: application/rss+xml");

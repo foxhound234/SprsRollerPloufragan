@@ -92,7 +92,7 @@
           </ul>
         </li>
           <li> <a href="<?php echo site_url('AfficherLePanier') ?>"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-          <li> <a href="<?php echo site_url('feed') ?>"><img src=<?php echo img_url('flux-rss.png')?> width="50"></a></li>
+          <li> <a href="<?php echo site_url('feed') ?>"><img src=<?php echo img_url('flux-rss.png')?> width="40"></a></li>
           <LI><?php echo form_open('RechercheEvenement');?></li>
         <li> <?php  echo form_input(array('name'=>'txtRecherche', 'value'=>'','placeholder'=>'Evenement','pattern'=>'[a-zA-Z\s]+','class'=>'navbar form'));?>
              <li> <?php echo form_submit(array('name'=>'BtnRecherche','value'=>'Recherché','class'=>'navbar form btn btn-primary ','data-icon'=>'search'));?></li>
